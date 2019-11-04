@@ -1,0 +1,471 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/luiz/
+	..
+1561406198
+'b
+	/home/luiz/bin/
+	..
+1561406198
+'d
+	/home/luiz/Dropbox
+	..
+1561490027
+'e
+	/home/luiz/distros
+	manjaro-xfce-18.0.4-x32-stable-minimal-i686.iso
+1561743868
+'h
+	/home/luiz/
+	..
+1561492184
+'o
+	/home/luiz
+	distros
+1561519825
+'z
+	/home/luiz/.config/vifm
+	vifmrc
+1561489532
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l12
+r2
+
+# Left window history (oldest to newest):
+d/home/luiz/Dropbox/fotos identidade
+	20161031_154439.jpg
+1
+d/home/luiz/Dropbox
+	fotos identidade
+11
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	configs
+4
+d/home/luiz/Dropbox/configs
+	packages.txt
+8
+d/home/luiz/Dropbox
+	configs
+4
+d/home/luiz
+	distros
+2
+d/home/luiz/distros
+	LxPupBionic-19.03+7.iso
+1
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	Doutorado
+9
+d/home/luiz/Dropbox/Doutorado
+	qualificacoes
+4
+d/home/luiz/Dropbox/Doutorado/qualificacoes
+	qualificacao 1
+1
+d/home/luiz/Dropbox/Doutorado/qualificacoes/qualificacao 1
+	..
+0
+d/home/luiz/Dropbox/Doutorado/qualificacoes
+	qualificacao 2
+2
+d/home/luiz/Dropbox/Doutorado/qualificacoes/qualificacao 2
+	qualificacao.pdf
+15
+d/home/luiz/Dropbox/Doutorado/qualificacoes
+	qualificacao 2
+2
+d/home/luiz/Dropbox/Doutorado/qualificacoes/qualificacao 2
+	qualificacao.pdf
+15
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	certificados
+4
+d/home/luiz/Dropbox/certificados
+	declaracoes trabalho
+4
+d/home/luiz/Dropbox/certificados/declaracoes trabalho
+	despacho probatorio.pdf
+17
+d/home/luiz/Dropbox/certificados
+	declaracoes trabalho
+4
+d/home/luiz/Dropbox
+	certificados
+4
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	cadeiras
+4
+d/home/luiz/Dropbox/cadeiras
+	PAA
+5
+d/home/luiz/Dropbox/cadeiras/PAA
+	cronograma.ods
+2
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	cadeiras
+4
+d/home/luiz/Dropbox/cadeiras
+	PAA
+5
+d/home/luiz/Dropbox/cadeiras/PAA
+	cronograma.ods
+2
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	cadeiras
+4
+d/home/luiz/Dropbox/cadeiras
+	afastamento_2019_2
+2
+d/home/luiz/Dropbox/cadeiras/afastamento_2019_2
+	plano de estudo 2019_1.odt
+3
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	cadeiras
+4
+d/home/luiz/Dropbox/cadeiras
+	afastamento_2019_2
+2
+d/home/luiz/Dropbox/cadeiras/afastamento_2019_2
+	plano de estudo 2019_2.pdf
+5
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	configs
+9
+d/home/luiz/Dropbox/configs
+	compton.conf
+7
+d/home/luiz/Dropbox
+	configs
+9
+d/home/luiz
+	livros
+8
+d/home/luiz/livros
+	org.pdf
+29
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	apresemtacao.pdf
+31
+d/home/luiz
+	Dropbox
+4
+d/home/luiz/Dropbox
+	cadeiras
+4
+d/home/luiz/Dropbox/cadeiras
+	PAA
+5
+d/home/luiz/Dropbox/cadeiras/PAA
+	cronograma.ods
+8
+d/home/luiz
+	.config
+4
+d/home/luiz/.config
+	i3
+5
+d/home/luiz/.config/i3
+	scripts
+1
+d/home/luiz/.config/i3/scripts
+	..
+0
+d/home/luiz/.config/i3
+	i3blocks.conf
+3
+d/home/luiz/.config
+	i3
+5
+d/home/luiz
+	.config
+4
+d/home
+	luiz
+3
+d/
+	usr
+18
+d/usr
+	local
+6
+d/usr/local
+	share
+8
+d/usr/local/share
+	man
+1
+d/usr/local
+	share
+8
+d/usr/local/share
+	man
+1
+d/usr/local
+	share
+8
+d/usr
+	share
+8
+d/usr/share
+	doc
+32
+d/usr/share/doc
+	polybar
+32
+d/usr/share/doc/polybar
+	config
+5
+d/home/luiz
+	.config
+4
+d/home/luiz/.config
+	polybar
+20
+d/home/luiz/.config/polybar
+	config
+1
+d/home/luiz
+	.config
+4
+d/home/luiz/.config
+	i3
+5
+d/home/luiz/.config/i3
+	config
+1
+d/home/luiz
+	livros
+8
+d/home/luiz/livros
+	Algoritmos
+1
+d/home/luiz/livros/Algoritmos
+	Introduction to Algorithms - 3rd Edition.pdf
+5
+d/home/luiz
+	Downloads
+3
+d/home/luiz/Downloads
+	emparelha.tex
+4
+d/home/luiz
+	livros
+8
+d/home/luiz/livros
+	emacs
+12
+d/home/luiz/livros/emacs
+	emacs.pdf
+3
+d/home/luiz
+	Dropbox
+5
+d/home/luiz/Dropbox
+	configs
+9
+d/home/luiz/Dropbox/configs
+	i3
+2
+d/home/luiz/Dropbox/configs/i3
+	i3blocks.conf~
+3
+d/home/luiz
+	Dropbox
+5
+d/media/sdb1-usb-Generic_Flash_Di
+	..
+0
+d/home/luiz
+	Dropbox
+5
+d/home/luiz/Dropbox
+	cadeiras
+4
+d/home/luiz/Dropbox/cadeiras
+	carta recomendacao marcus
+2
+d/home/luiz/Dropbox/cadeiras/carta recomendacao marcus
+	carta.pdf
+5
+d/media/sdb1-usb-Generic_Flash_Di
+	
+5
+d/media
+	..
+0
+d/home/luiz
+	livros
+9
+d/home/luiz/livros
+	emacs
+12
+d/home/luiz/livros/emacs
+	gnus.pdf
+4
+d/home/luiz
+	Dropbox
+5
+d
+
+# Right window history (oldest to newest):
+D/home/luiz
+	Dropbox
+3
+D/media/sdb1-usb-Kingston_DataTra
+	..
+0
+D/media
+	sdb1-usb-Generic_Flash_Di
+2
+D/home/luiz
+	Dropbox
+3
+D
+
+# Command line history (oldest to newest):
+:shell fish
+:.!fish
+:help
+:file
+:f
+:colorscheme matrix
+:colorscheme darkdesert
+:q
+:colorscheme molokai
+:colorscheme
+:mkdir 2010
+:copy
+:me
+:meida
+:rename Programação\ Funcional\ 2019.1
+:rename Matemática\ Computacional\ 2019.1
+:mkdir PAA
+:rename PC_CRT0027_PAA_Luiz.doc
+:rename PC_CRT0032_PAA_Luiz.doc
+:mkdir ulua
+:mkdir terra
+:mkdir luapower
+:chmod -x
+:chmod +x
+:colorscheme dracula
+:unzip
+:mkdir files
+:unzip files/computer.txt
+:unzip files/
+:unzipAll
+:zip
+:mkdir polybar
+:media
+
+# Search history (oldest to newest):
+/terra
+/i3
+/dout
+/arti
+/.confi
+/neth
+/cade
+/conf
+/libtinfo
+/readme
+/luaj
+/.conf
+/.emac
+/.ema
+/net
+/.emacs
+/pol
+/.con
+
+# Prompt history (oldest to newest):
+p.spacemacs.old
+p.emacs.d.old
+pshirley.py
+psurvey.zip
+pplano de estudo 2019_1.odt
+pplano de trabalho 2019_1.odt
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/luiz/Dropbox/cadeiras/carta recomendacao marcus/carta.pdf
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/luiz/.local/share/vifm/Trash/000_Bruno.tar.gz
+	/home/luiz/Downloads/Bruno.tar.gz
+t/home/luiz/.local/share/vifm/Trash/000_Matemática Computacional - William.zip
+	/home/luiz/Downloads/Matemática Computacional - William.zip
+t/home/luiz/.local/share/vifm/Trash/000_Matemática Computacional.zip
+	/home/luiz/Downloads/Matemática Computacional.zip
+t/home/luiz/.local/share/vifm/Trash/000_PC_CRT0338_AlgebraLinear_Luiz.doc
+	/home/luiz/Downloads/PC_CRT0338_AlgebraLinear_Luiz.doc
+t/home/luiz/.local/share/vifm/Trash/000_Álgebra Linear.doc
+	/home/luiz/Downloads/Álgebra Linear.doc
+t/home/luiz/.local/share/vifm/Trash/000_.7374ada0411ca839c68965c59ebf33e817953818.parts
+	/home/luiz/Downloads/.7374ada0411ca839c68965c59ebf33e817953818.parts
+t/home/luiz/.local/share/vifm/Trash/000_.~lock.Cálculo Numérico.doc#
+	/home/luiz/Downloads/.~lock.Cálculo Numérico.doc#
+t/home/luiz/.local/share/vifm/Trash/000_.InstallAnywhere
+	/home/luiz/.InstallAnywhere
+t/home/luiz/.local/share/vifm/Trash/000_.aptitude
+	/home/luiz/.aptitude
+t/home/luiz/.local/share/vifm/Trash/000_.atom
+	/home/luiz/.atom
+t/home/luiz/.local/share/vifm/Trash/000_.h
+	/home/luiz/mp3/.h
+t/home/luiz/.local/share/vifm/Trash/000_molokai.vifm
+	/home/luiz/.config/vifm/colors/molokai.vifm
+t/run/media/luiz/A8B7-B449/.vifm-Trash-1000/000_mc.pdf
+	/run/media/luiz/A8B7-B449/mc.pdf
+t/run/media/luiz/A8B7-B449/.vifm-Trash-1000/000_pf.pdf
+	/run/media/luiz/A8B7-B449/pf.pdf
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
