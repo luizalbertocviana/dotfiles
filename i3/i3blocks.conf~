@@ -1,0 +1,48 @@
+[volume]
+label=VOL
+command=/usr/lib/i3blocks/volume
+separator=true
+interval=10
+signal=10
+
+[temperature]
+label=TEMP
+command=/usr/lib/i3blocks/temperature
+separator=true
+interval=10
+
+# # needs sysstat package
+# [cpu_usage]
+# label=CPU
+# command=/usr/lib/i3blocks/cpu_usage
+# separator=true
+# interval=10
+
+# [cpu_usage]
+# command=/home/luiz/.config/i3/scripts/cpu_usage
+# interval=10
+# LABEL=CPU 
+# min_width=CPU: 100.00%
+# T_WARN=50
+# T_CRIT=80
+# DECIMALS=2
+
+[memory]
+command=free -h | awk 'NR==2{printf "%s of %s", $3, $2 }'
+interval=10
+
+[memory]
+label=SWAP
+command= free -h | awk 'NR==3{printf "%s of %s", $3, $2 }'
+separator=true
+interval=10
+
+[iface]
+label=IP
+command=/usr/lib/i3blocks/iface
+color=#00FF00
+interval=10
+
+[time]
+command=date +%a\ %d/%b/%Y\ %H:%M
+interval=60
