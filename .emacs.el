@@ -1,0 +1,1089 @@
+;; inhibit useless and old-school startup screen
+(setq inhibit-startup-screen t )
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+;; substitute "yes or no" prompts for "y or n"
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; dont use dialog boxes, instead use minibuffer
+(setq use-dialog-box nil)
+
+;; confirm before exiting emacs
+(setq confirm-kill-emacs 'y-or-n-p)
+
+;; keeps mouse away when typing
+(mouse-avoidance-mode 'banish)
+
+;; makes cursor stop blinking
+(blink-cursor-mode -1)
+
+;; highlights current line
+(global-hl-line-mode 1)
+
+;; indents using spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+
+;; breaks lines when they become too long ...
+(add-hook 'text-mode-hook (lambda () (auto-fill-mode 1)))
+;; ... but this is only applied to comments when in prog mode
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq-local comment-auto-fill-only-comments t)
+            (auto-fill-mode 1)
+          ))
+
+;; activates abbrev mode in text mode (useful for correcting typos)
+(add-hook 'text-mode-hook 'abbrev-mode)
+
+;; keeps current line from within a margin, regarding both top and
+;; bottom lines
+(setq scroll-margin 20)
+
+;; font
+(add-to-list 'default-frame-alist '(font . "monaco-10"))
+
+;; line numbers
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+
+;; auto save
+(add-hook 'text-mode-hook 'auto-save-mode)
+(add-hook 'prog-mode-hook 'auto-save-mode)
+
+;; open files in last edited position
+(save-place-mode 1)
+
+;; in prog mode, enable hideshow mode (see keybindings)
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
+;; force vertical splittimg, that is, windows are arranged one above
+;; another
+(setq split-width-threshold nil)
+
+;; user information
+(setq user-full-name "Luiz Alberto do Carmo Viana")
+(setq user-mail-address "luizalbertocviana@gmail.com")
+
+;; Load package manager, add Melpa (and others) to the package
+;; registry
+(require 'package)
+    (add-to-list 'package-archives
+        '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (add-to-list 'package-archives
+        '("gnu" . "http://elpa.gnu.org/packages/"))
+    (add-to-list 'package-archives
+        '("org" . "http://orgmode.org/elpa/") t)
+    (add-to-list 'package-archives
+        '("tromey" . "http://tromey.com/elpa/") t)
+(package-initialize)
+
+;; bootstrap use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+;; this makes use-package install every package declared below (unless
+;; otherwise stated)
+(setq use-package-always-ensure t)
+
+;; manage matching pairs
+(use-package smartparens
+  :config
+    ;; the following package is installed automatically
+    (use-package smartparens-config :ensure nil)
+    (smartparens-global-strict-mode t)
+    ;; highlights matching pairs
+    (show-smartparens-global-mode 1)
+)
+
+;; spell checking
+(use-package flyspell :defer t)
+
+;; gruvbox theme
+(use-package gruvbox-theme
+  :config
+    (load-theme 'gruvbox-dark-hard t)
+)
+
+;; mode line setup
+(setq-default mode-line-format
+      (list
+       ;; evil state
+       '(:eval evil-mode-line-tag)
+       ;; directory name
+       " "
+       '(:eval (abbreviate-file-name default-directory))
+       ;; buffer name
+       '(:eval (if (buffer-modified-p) " %b* " " %b "))
+       ;; spacing to right align the remaining items (no idea how this
+       ;; works)
+       '(:eval
+          (propertize " " 'display
+                      `((space :align-to (- (+ right right-fringe right-margin) ,(+ 3 (string-width mode-name)))))
+          )
+        )
+       ;; the following items are right aligned
+       ;; major mode
+       " %m "
+      )
+)
+
+;; evil mode setup
+(use-package evil
+  :init
+    (setq evil-search-module 'evil-search)
+    ;; uses M-x for emacs commands
+    (setq evil-ex-complete-emacs-commands nil)
+    ;; like vim's 'splitbelow'
+    (setq evil-split-window-below t) 
+    (setq evil-shift-round nil)
+    (setq evil-want-C-u-scroll t)
+    ;; evil everywhere: every mode starts at normal state, and no mode
+    ;; keymap overrides evil
+    (setq evil-want-integration nil)
+    (setq evil-emacs-state-modes nil)
+    (setq evil-insert-state-modes nil)
+    (setq evil-motion-state-modes nil)
+    (setq evil-overriding-maps nil)
+    (setq evil-intercept-maps nil)
+    ;; state indicators appearence
+    (setq evil-normal-state-tag   (propertize " NORMAL "   'face '((:background "olive drab" :foreground "black"))))
+    (setq evil-emacs-state-tag    (propertize " EMACS "    'face '((:background "purple"     :foreground "black"))))
+    (setq evil-insert-state-tag   (propertize " INSERT "   'face '((:background "orange"     :foreground "black"))))
+    (setq evil-motion-state-tag   (propertize " MOTION "   'face '((:background "gray"       :foreground "black"))))
+    (setq evil-visual-state-tag   (propertize " VISUAL "   'face '((:background "yellow"     :foreground "black"))))
+    (setq evil-operator-state-tag (propertize " OPERATOR " 'face '((:background "gray"       :foreground "black"))))
+    ;; cursor appearence
+    (setq evil-normal-state-cursor '(box "olive drab"))
+    (setq evil-emacs-state-cursor '(box "purple"))
+    (setq evil-insert-state-cursor '((bar . 2) "orange"))
+    (setq evil-motion-state-cursor '(box "gray"))
+    (setq evil-visual-state-cursor '(box "yellow"))
+  :config
+    (evil-mode)
+    ;; undo similar to vim's
+    (global-undo-tree-mode)
+    ;; ex commands, which a vim user is likely to be familiar with
+    (use-package evil-expat :defer t)
+    ;; visual hints while editing
+    (use-package evil-goggles
+      :custom
+        (evil-goggles-pulse t)
+      :config
+        (evil-goggles-use-diff-faces)
+        (evil-goggles-mode)
+    )
+    ;; like vim-surround
+    (use-package evil-surround
+      :config
+        (global-evil-surround-mode 1)
+    )
+    ;; turns jk into ESC
+    (use-package evil-escape
+      :custom
+        (evil-escape-key-sequence "jk")
+        (evil-escape-delay 0.3)
+      :config
+        (evil-escape-mode)
+    )
+    ;; assigns to a two text objects concerning comma separated
+    ;; arguments
+    (use-package evil-args
+      :config
+        (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+        (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
+    )
+    ;; some keybindings
+    (evil-define-key 'normal 'global
+      ;; movements
+      "j" "gj"
+      "k" "gk"
+      "H" "^"
+      "J" "}"
+      "K" "{"
+      "L" "$"
+      ;; yanking until end of line
+      "Y" "y$"
+      ;; macro execution
+      "Q" "@q"
+    )
+    (evil-define-key 'visual 'global
+      ;; movements
+      "H" "^"
+      "J" "}"
+      "K" "{"
+      "L" "$"
+      ;; linewise macro execution
+      "Q" (kbd ":norm @q RET")
+    )
+    ;; makes TAB indent current line or selected text
+    (define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command)
+    (define-key evil-visual-state-map (kbd "TAB") 'indent-for-tab-command)
+)
+
+;; start screen
+(use-package dashboard
+  :if window-system
+  :custom
+    (dashboard-startup-banner 'logo)
+    (dashboard-center-content t)
+    (dashboard-set-file-icons nil)
+    (dashboard-set-footer nil)
+    (show-week-agenda-p t)
+    (dashboard-items '((recents . 10) (agenda . 7)))
+  :config
+    (dashboard-setup-startup-hook)
+)
+
+;; colorful brackets.  I strongly advise you to load this (M-x
+;; rainbow-delimiters) before editing this file
+(use-package rainbow-delimiters :defer t)
+
+;; ivy, providing some completion facilities to certain emacs contexts
+(use-package ivy
+  :custom
+    (ivy-use-virtual-buffers t)
+    (enable-recursive-minibuffers t)
+  :config
+    (ivy-mode 1)
+    (use-package counsel
+      :config
+        (counsel-mode 1)
+    )
+    (use-package ivy-posframe
+      :if window-system
+      :custom
+        (ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+      :config
+        (ivy-posframe-mode 1)
+    )
+)
+
+;; dired file manager
+(use-package dired-x :ensure nil
+  :hook
+    (dired-mode . dired-omit-mode)
+  :custom
+    ;; do what i mean, makes operations intuitive when there are two
+    ;; open dired buffers
+    (dired-dwim-target t)  
+    ;; dired does not change last modified timestamp when copying
+    ;; files
+    (dired-copy-preserve-time t)
+  :config
+    ;; this command is disabled by default, but I like this better
+    ;; than 'dired-find-file
+    (put 'dired-find-alternate-file 'disabled nil)
+    ;; this prevents dot files from being listed (this cannot be put
+    ;; into a :custom section (dont know why))
+    (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+    ;; this makes dired list directories first
+    (use-package ls-lisp :ensure nil
+      :custom
+        (ls-lisp-dirs-first t)
+        (ls-lisp-use-insert-directory-program nil)
+    )
+)
+
+;; displays keybindings
+(use-package which-key
+  :config
+    (which-key-mode)
+)
+
+;; autocompletion
+(use-package company
+  :hook
+    (after-init . global-company-mode)
+  :custom
+    (company-idle-delay 0)
+  :config
+    ;; displays a help popup window
+    (use-package company-quickhelp
+      :config
+        (company-quickhelp-mode)
+    )
+    ;; LaTeX stuff
+    (use-package company-auctex
+      :commands (company-auctex-init)
+    )
+    (use-package company-math
+      :after (company-auctex)
+      :config
+        (push 'company-math-symbols-latex company-backends)
+        (push 'company-latex-commands     company-backends)
+    )
+    (use-package company-reftex
+      :after (company-auctex)
+      :custom
+        (company-reftex-max-annotation-length 80)
+    )
+)
+
+;; org
+(use-package org
+  :hook
+    ;; provides some completion in org mode
+    (org-mode . (lambda () (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)))
+  :custom
+    ;; runs code snippets with no confirmation prompt
+    (org-confirm-babel-evaluate nil)
+    (org-log-done t)
+    (org-default-notes-file "~/Dropbox/org/notes.org")
+    (org-agenda-files (list "~/Dropbox/org/notes.org"))
+    ;; shows org agenda for the current month
+    (org-agenda-span 'month)
+  :config
+    ;; allowed languages
+    (org-babel-do-load-languages
+      'org-babel-load-languages
+      '(
+        (emacs-lisp . t)
+        (shell . t)
+        (python . t)
+        (latex . t)
+       )
+    )
+    (setq org-capture-templates
+          '(
+             ("t" "Trabalho" entry (file+headline  "~/Dropbox/org/notes.org" "Trabalho")
+              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
+             )
+             ("d" "Doutorado" entry (file+headline  "~/Dropbox/org/notes.org" "Doutorado")
+              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
+             )
+             ("m" "Misc" entry (file+datetree  "~/Dropbox/org/notes.org")
+              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
+             )
+           )
+    )
+)
+
+;; mail/news reader
+(use-package gnus :ensure nil
+  :defer t
+  :custom
+    (smtpmail-smtp-server    "smtp.gmail.com")
+    (smtpmail-smtp-service   587)
+    (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+    (gnus-auto-center-summary nil)
+    (gnus-novice-user t)
+  :hook
+    (gnus-select-group . gnus-group-set-timestamp)
+  :config
+    (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+    (setq gnus-select-method
+          '(nnimap "gmail"
+                   (nnimap-address "imap.gmail.com")
+                   (nnimap-server-port "imaps")
+                   (nnimap-stream ssl)))
+)
+
+;; LaTeX
+(use-package tex-site
+  :ensure auctex
+  :mode ("\\.tex\\'" . latex-mode)
+  :hook
+    ;; synctex and stuff
+    (LaTeX-mode . TeX-source-correlate-mode)
+    ;; prepares to pretty-print some symbols
+    (LaTeX-mode . TeX-fold-mode)
+  :custom
+    (TeX-auto-save t)
+    (TeX-parse-self t)
+    (TeX-master nil)
+    (TeX-source-correlate-method 'synctex)
+    (TeX-source-correlate-start-server t)
+  :config
+    (defcustom LaTeX-inhibited-auto-fill-environments
+      '("tabular" "tikzpicture")
+      "latex environments where auto-fill is disabled"
+    )
+    (defun LaTeX-inhibited-auto-fill-environment-p (environment)
+      (member environment LaTeX-inhibited-auto-fill-environments)
+    )
+    ;; only auto-fills when outside of inhibited environments
+    (defun LaTeX-limited-auto-fill ()
+      (let ((environment (LaTeX-current-environment)))
+        (unless (LaTeX-inhibited-auto-fill-environment-p environment)
+          (do-auto-fill))))
+    (add-hook 'LaTeX-mode-hook (lambda () (setq-local auto-fill-function 'LaTeX-limited-auto-fill)))
+    ;; pretty-prints some symbols and commands when entering and
+    ;; saving latex files
+    (add-hook 'LaTeX-mode-hook 'TeX-fold-buffer t)
+    (add-hook 'LaTeX-mode-hook
+              (lambda ()
+                (add-hook 'after-save-hook 'TeX-fold-buffer t t)
+              ))
+    ;; general setup: reftex, company, pdf mode and reftex isearch
+    (add-hook 'LaTeX-mode-hook
+              (lambda ()
+                (reftex-mode)
+                (company-auctex-init)
+                (setq-local company-backends
+                            (append '((company-reftex-labels company-reftex-citations))
+                                    company-backends))
+                (TeX-PDF-mode t)
+                (reftex-isearch-minor-mode)
+              ))
+    ;; use zathura as a pdf viewer
+    (with-eval-after-load 'tex
+      (add-to-list 'TeX-view-program-selection
+                   '(output-pdf "Zathura")))
+    ;; adds some facilities like folding
+    (use-package latex-extra
+      :hook
+        (LaTeX-mode . latex-extra-mode)
+      :config
+        (define-key evil-normal-state-local-map (kbd "TAB") 'latex/hide-show)
+    )
+)
+
+;; LaTeX references and citations
+(use-package reftex
+  :commands (reftex-mode)
+  :custom
+    (reftex-plug-into-AUCTeX t)
+)
+
+;; bibtex searching
+(use-package biblio
+  :commands (biblio-lookup)
+)
+
+;; python (mostly for sagemath's python)
+(use-package elpy
+  :defer t
+  :init
+    (advice-add 'python-mode :before 'elpy-enable)
+  :custom
+    ;; this makes elpy use sage's python
+    (python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage")
+    (python-shell-interpreter-args "-ipython -i --simple-prompt")
+    (elpy-rpc-python-command "~/SAGE/sage8.7/SageMath/local/bin/python2.7")
+    (elpy-get-info-from-shell t)
+)
+
+;; keybindings
+(use-package general
+  :config
+    ;; naming some prefixes
+    (general-define-key
+      :states '(normal)
+      :prefix "SPC"
+        "TAB" '(:ignore t :which-key "last buffer")
+        "S" '(:ignore t :which-key "spell")
+        "T" '(:ignore t :which-key "text")
+        "b" '(:ignore t :which-key "buffers")
+        "f" '(:ignore t :which-key "files")
+        "m" '(:ignore t :which-key "mode")
+        "o" '(:ignore t :which-key "org")
+        "p" '(:ignore t :which-key "program")
+        "s" '(:ignore t :which-key "search")
+        "w" '(:ignore t :which-key "windows")
+        "v" '(:ignore t :which-key "version control")
+    )
+    ;; some simple actions
+    (general-define-key
+      :states '(normal)
+      :keymaps '(override)
+      :prefix "SPC"
+        "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer)))
+        "a" 'counsel-linux-app
+        "c" 'calendar
+        "g" 'gnus
+        "i" 'imenu
+        "q" 'save-buffers-kill-emacs
+        "t" 'eshell
+    )
+    ;; buffer navigation
+    (general-define-key
+      :states '(normal)
+      :keymaps '(override)
+        "C-j" 'next-buffer
+        "C-k" 'previous-buffer
+    )
+    (general-define-key
+     :states '(normal)
+     :keymaps '(override)
+     :prefix "SPC b"
+       "b" 'buffer-menu
+       "d" 'kill-this-buffer
+       "e" 'eval-buffer
+       "D" 'kill-some-buffers
+       "y" 'clone-indirect-buffer-other-window
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(Buffer-menu-mode-map)
+        "U" 'Buffer-menu-unmark-all
+        "l" 'Buffer-menu-this-window
+        "o" 'Buffer-menu-other-window
+        "s" 'Buffer-menu-save
+        "u" 'Buffer-menu-unmark
+        "x" 'Buffer-menu-execute
+        "d" 'Buffer-menu-delete
+        "h" 'quit-window
+    )
+    ;; file management
+    (general-define-key
+      :states '(normal)
+      :keymaps '(override)
+      :prefix "SPC f"
+        "D" 'diff-buffer-with-file
+        "U" 'revert-buffer
+        "S" 'write-file
+        "m" 'counsel-bookmark
+        "o" '(:ignore t :which-key "dired")
+        "o" (lambda () (interactive) (dired "./"))
+        "r" 'counsel-recentf
+        "R" 'recover-this-file
+        "s" 'save-buffer
+    )
+    ;; spell checking
+    (general-define-key
+      :states '(normal visual)
+      :keymaps '(override)
+      :prefix "SPC S"
+        "a" 'inverse-add-global-abbrev
+        "c" 'ispell-change-dictionary
+        "p" 'flyspell-prog-mode
+        "e" '(:ignore t :which-key "enable")
+        "e" (lambda ()
+              (interactive)
+              (flyspell-mode)
+              (flyspell-buffer))
+        "d" '(:ignore t :which-key "disable")
+        "d" (lambda ()
+              (interactive)
+              (flyspell-mode-off))
+        "w" 'ispell-word
+        "s" 'flyspell-auto-correct-word
+    )
+    ;; window management and navigation
+    (general-define-key
+      :states '(normal)
+      :keymaps '(override)
+      :prefix "SPC w"
+        "w" 'other-window
+        "h" 'windmove-left
+        "j" 'windmove-down
+        "k" 'windmove-up
+        "l" 'windmove-right
+        "d" 'delete-window
+        "m" 'delete-other-windows
+        "s" 'split-window-below
+        "v" 'split-window-right
+    )
+    ;; version control
+    (general-define-key
+      :states '(normal)
+      :keymaps '(override)
+      :prefix "SPC v"
+        "D" 'vc-root-diff
+        "I" 'vc-ignore
+        "P" 'vc-push
+        "T" 'vc-create-tag
+        "V" 'vc-annotate
+        "d" 'vc-diff
+        "m" 'vc-merge
+        "p" 'vc-pull
+        "r" 'vc-revision-other-window
+        "t" 'vc-retrieve-tag
+        "u" 'vc-revert
+        "v" 'vc-next-action
+        "o" '(:ignore t :which-key "vc-dir")
+        "o" (lambda () (interactive) (vc-dir "./"))
+        "l" '(:ignore t :which-key "log")
+        "l b" 'vc-print-branch-log
+        "l i" 'vc-log-incoming
+        "l l" 'vc-print-log
+        "l o" 'vc-log-outgoing
+        "l r" 'vc-print-root-log
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(vc-dir-mode-map)
+        "J" 'vc-dir-next-directory
+        "K" 'vc-dir-previous-directory
+        "M" 'vc-dir-unmark
+        "O" 'vc-dir-find-file-other-window
+        "h" 'vc-dir-hide-up-to-date
+        "j" 'vc-dir-next-line
+        "k" 'vc-dir-previous-line
+        "m" 'vc-dir-mark
+        "o" 'vc-dir-find-file
+        "s" (lambda () (interactive) (vc-dir-isearch-regexp))
+        "v" 'vc-next-action
+    )
+    ;; some search facilities
+    (general-define-key
+      :states '(normal visual)
+      :keymaps '(override)
+      :prefix "SPC s"
+        "s" 'isearch-forward-symbol-at-point
+        "r" 'query-replace
+        "R" 'replace-string
+    )
+    (general-define-key
+      :keymaps '(isearch-mode-map)
+        "n" 'isearch-repeat-forward
+        "N" 'isearch-repeat-backward
+    )
+    ;; some text manipulations
+    (general-define-key
+      :states '(normal visual)
+      :keymaps '(override)
+      :prefix "SPC T"
+        "c" 'capitalize-dwim
+        "f" 'fill-paragraph
+        "l" 'downcase-dwim
+        "s" 'sort-lines
+        "u" 'upcase-dwim
+        "t" '(:ignore t :which-key "table")
+        "t C" 'table-capture
+        "t R" 'table-recognize
+        "t S" 'table-generate-source
+        "t a" 'table-justify
+        "t c" '(:ignore t :which-key "columns")
+        "t c d" 'table-delete-column
+        "t c i" 'table-insert-column
+        "t i" 'table-insert
+        "t m" 'table-span-cell
+        "t r" '(:ignore t :which-key "rows")
+        "t r d" 'table-delete-row
+        "t r i" 'table-insert-row
+        "t s" 'table-split-cell
+    )
+    ;; programming facilities
+    (general-define-key
+      :states '(normal visual)
+      :keymaps '(override)
+      :prefix "SPC p"
+        "c" 'comment-line
+        "d" 'xref-find-definitions
+        "f" 'mark-defun
+        "p" 'check-parens
+        ;; these only work in prog mode (or if you enable hs-minor-mode)
+        "H" 'hs-hide-all
+        "h" 'hs-toggle-hiding
+    )
+    ;; cursor movements in insert mode
+    (general-define-key
+      :states '(insert)
+      :keymaps '(override)
+        "C-h" 'backward-char
+        "C-l" 'forward-char
+        "C-j" 'next-line
+        "C-k" 'previous-line
+    )
+    ;; dashboard
+    (general-define-key
+      :states '(normal)
+      :keymaps 'dashboard-mode-map
+        "r" (general-simulate-key "r" :state 'insert)
+        "a" (general-simulate-key "a" :state 'insert)
+        "l" 'dashboard-return
+    )
+    ;; ivy minibuffer
+    (general-define-key
+      :keymaps 'ivy-minibuffer-map
+        "C-h" 'keyboard-escape-quit
+        "C-j" 'ivy-next-line
+        "C-k" 'ivy-previous-line
+        "C-l" 'ivy-alt-done
+    )
+    ;; dired
+    (general-define-key
+      :states '(normal)
+      :keymaps 'dired-mode-map
+        "J" 'dired-next-marked-file
+        "K" 'dired-prev-marked-file
+        "M" 'dired-unmark
+        "U" 'dired-unmark-all-marks
+        "h" (lambda () (interactive) (find-alternate-file ".."))
+        "j" 'dired-next-line
+        "k" 'dired-previous-line
+        "l" 'dired-find-alternate-file
+        "m" 'dired-mark
+        "s" 'dired-isearch-filenames-regexp
+        "u" 'dired-undo
+        "y" 'dired-copy-filename-as-kill
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps 'dired-mode-map
+      :prefix "SPC m"
+        "D" 'dired-diff
+        "S" 'dired-do-symlink
+        "T" 'dired-toggle-marks
+        "U" 'dired-upcase
+        "Z" 'dired-do-compress-to
+        "d" 'dired-do-delete
+        "g" 'dired-do-chgrp
+        "h" 'dired-omit-mode
+        "l" 'dired-downcase
+        "m" 'dired-do-chmod
+        "n" 'dired-create-directory
+        "o" 'dired-do-chown
+        "p" 'dired-do-print
+        "r" 'dired-do-rename
+        "s" 'dired-do-isearch-regexp
+        "t" 'dired-do-async-shell-command
+        "y" 'dired-do-copy
+        "z" 'dired-do-compress
+        "i" (lambda () (interactive) (image-dired "./"))
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(image-dired-thumbnail-mode-map)
+        "h" 'image-dired-backward-image
+        "l" 'image-dired-forward-image
+        "j" 'image-dired-next-line
+        "k" 'image-dired-previous-line
+    )
+    ;; archive mode
+    (general-define-key
+      :states '(normal)
+      :keymaps 'archive-mode-map
+        "j" 'archive-next-line
+        "k" 'archive-previous-line
+        "l" 'archive-extract
+        "m" 'archive-flag-deleted
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps 'archive-mode-map
+      :prefix "SPC m"
+        "g" 'archive-chgrp-entry
+        "m" 'archive-chmod-entry
+        "o" 'archive-chown-entry
+        "d" 'archive-expunge
+        "r" 'archive-rename-entry
+    )
+    ;; org
+    (general-define-key
+      :states '(normal)
+      :keymaps '(override)
+      :prefix "SPC o"
+        "l" 'org-store-link
+        "a" 'org-agenda-list
+        "c" 'org-capture
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps 'org-mode-map
+      :prefix "SPC m"
+        ;; sorting
+        "S" 'org-sort
+        ;; editing
+        "c" 'org-edit-special
+        ;; exporting
+        "e b" 'org-beamer-export-as-latex
+        "e h" 'org-html-export-as-html
+        "e l" 'org-latex-export-as-latex
+        "e o" 'org-odt-export-to-odt
+        "e p" 'org-latex-export-to-pdf
+        ;; headings
+        "h h" 'org-promote-subtree
+        "h l" 'org-demote-subtree
+        "h k" 'org-move-subtree-up
+        "h j" 'org-move-subtree-down
+        "h d" 'org-cut-subtree
+        "h y" 'org-copy-subtree
+        "h p" 'org-paste-subtree
+        ;; links
+        "l o" 'org-open-at-point
+        "l i" 'org-insert-link
+        ;; spreadsheet
+        "s d" 'org-table-blank-field
+        "s s" 'org-table-sort-lines
+        "s u" 'org-table-iterate-buffer-tables
+        "s v" 'org-table-toggle-coordinate-overlays
+        "s c h" 'org-table-move-column-left
+        "s c l" 'org-table-move-column-right
+        "s c d" 'org-table-delete-column
+        "s c i" 'org-table-insert-column
+        "s r k" 'org-table-move-row-up
+        "s r j" 'org-table-move-row-down
+        "s r d" 'org-table-kill-row
+        "s r o" 'org-table-insert-row
+        "s r h" 'org-table-hline-and-move
+        ;; todo
+        "t c" 'org-todo
+        "t d" 'org-deadline
+        "t a" 'org-toggle-archive-tag
+        "t o" 'org-insert-todo-heading-respect-content
+        "t r" 'org-clone-subtree-with-time-shift
+        "t s" 'org-schedule
+        "t v" 'org-show-todo-tree
+    )
+    (general-define-key
+      :keymaps 'org-read-date-minibuffer-local-map
+        "h" (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-day 1)))
+        "l" (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-day 1)))
+        "j" (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-week 1)))
+        "k" (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-week 1)))
+        "H" (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-month 1)))
+        "L" (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-month 1)))
+        "J" (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-year 1)))
+        "K" (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-year 1)))
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps 'org-agenda-mode-map
+        "C-j" 'org-agenda-do-date-later
+        "C-k" 'org-agenda-do-date-earlier
+        "J" 'org-agenda-later
+        "K" 'org-agenda-earlier
+        "M" 'org-agenda-bulk-action
+        "c" 'org-agenda-date-prompt
+        "d" 'org-agenda-kill
+        "m" 'org-agenda-bulk-toggle
+        "r" 'org-agenda-redo
+        "t" 'org-agenda-todo
+        "u" 'org-agenda-undo
+        "h" 'org-agenda-exit
+        "j" 'org-agenda-next-item
+        "k" 'org-agenda-previous-item
+        "l" 'org-agenda-show-and-scroll-up
+    )
+    ;; calendar mode
+    (general-define-key
+      :states '(normal)
+      :keymaps '(calendar-mode-map)
+        "." 'calendar-goto-today
+        "H" 'calendar-backward-month
+        "J" 'calendar-forward-year
+        "K" 'calendar-backward-year
+        "L" 'calendar-forward-month
+        "g" 'calendar-goto-date
+        "h" 'calendar-backward-day
+        "j" 'calendar-forward-week
+        "k" 'calendar-backward-week
+        "l" 'calendar-forward-day
+        "q" 'calendar-exit
+    )
+    ;; image mode
+    (general-define-key
+      :states '(normal)
+      :keymaps '(image-mode-map)
+        "h" 'image-previous-file
+        "l" 'image-next-file
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(image-mode-map)
+      :prefix "SPC m"
+        "g" 'image-toggle-animation
+    )
+    ;; company completion popup.  I am using Meta because Control is
+    ;; already bounded
+    (general-define-key
+      :states '(insert)
+      :keymaps '(company-active-map override)
+        "M-j" 'company-select-next
+        "M-k" 'company-select-previous
+        "M-l" 'company-complete
+    )
+    ;; latex mode
+    (general-define-key
+      :states '(normal visual)
+      :keymaps 'LaTeX-mode-map
+      :prefix "SPC m"
+        "b" 'TeX-command-run-all 
+        "v" 'TeX-view
+        "e" 'LaTeX-environment
+        "l" 'reftex-label
+    )
+    ;; bibtex mode
+    (general-define-key
+      :states '(normal)
+      :keymaps 'bibtex-mode-map
+      :prefix "SPC m"
+        "s" 'biblio-lookup
+    )
+    ;; biblio selection mode
+    (general-define-key
+      :states '(normal)
+      :keymaps 'biblio-selection-mode-map
+        "i" 'biblio--selection-insert
+        "y" 'biblio--selection-copy-quit
+        "h" 'biblio-kill-buffers
+    )
+    ;; python mode
+    (general-define-key
+      :states '(normal)
+      :keymaps 'python-mode-map
+      :prefix "SPC m"
+        "f" 'elpy-shell-send-defun-and-step
+        "b" 'elpy-shell-send-buffer
+        "k" 'elpy-shell-kill-all
+    )
+    ;; gnus
+    (general-define-key
+      :states '(normal)
+      :keymaps '(gnus-group-mode-map)
+        "J" 'gnus-group-next-unread-group
+        "K" 'gnus-group-prev-unread-group
+        "M" 'gnus-group-unmark-group
+        "U" 'gnus-group-unmark-all-groups
+        "l" 'gnus-topic-select-group
+        "m" 'gnus-group-mark-group
+        "q" 'gnus-group-exit
+        "r" 'gnus-group-get-new-news
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(gnus-group-mode-map)
+      :prefix "SPC m"
+        "L" 'gnus-group-list-all-groups
+        "R" 'gnus-group-catchup-current-all
+        "S" 'gnus-group-enter-server-mode
+        "d" 'gnus-topic-kill-group
+        "k" 'gnus-group-list-killed
+        "l" 'gnus-group-list-groups
+        "s" 'gnus-group-unsubscribe-current-group
+        "y" 'gnus-topic-yank-group
+        "z" 'gnus-group-list-zombies
+        "m" 'gnus-group-mail
+        "t d" 'gnus-topic-delete
+        "t h" 'gnus-topic-unindent
+        "t l" 'gnus-topic-indent
+        "t m" 'gnus-topic-move-group
+        "t n" 'gnus-topic-create-topic
+        "t r" 'gnus-topic-rename
+        "t s" 'gnus-topic-sort-groups-by-alphabet
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(gnus-summary-mode-map)
+        "J" 'gnus-summary-next-unread-subject
+        "K" 'gnus-summary-prev-unread-subject
+        "Q" 'gnus-summary-exit-no-update
+        "h" (lambda () (interactive) (gnus-summary-prev-page 1 nil))
+        "l" (lambda () (interactive) (gnus-summary-next-page 1 nil t))
+        "q" 'gnus-summary-exit
+        "r" 'gnus-summary-prepare
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(gnus-summary-mode-map)
+      :prefix "SPC m"
+        "C" 'gnus-summary-cancel-article
+        "D" 'gnus-summary-enter-digest-group
+        "R" 'gnus-summary-very-wide-reply-with-original
+        "a" 'gnus-article-save-part
+        "b" 'gnus-summary-set-bookmark
+        "d" 'gnus-summary-delete-article
+        "f" 'gnus-summary-mail-forward
+        "m R" 'gnus-summary-catchup
+        "m U" 'gnus-summary-clear-mark-forward
+        "m d" 'gnus-summary-mark-as-dormant
+        "m r" 'gnus-summary-mark-as-read-forward
+        "m u" 'gnus-summary-tick-article
+        "p" 'gnus-summary-print-article
+        "r" 'gnus-summary-reply-with-original
+        "s m" 'gnus-summary-mail-other-window
+        "s n" 'gnus-summary-news-other-window
+        "v A" 'gnus-summary-limit-to-address
+        "v a" 'gnus-summary-limit-to-author
+        "v b" 'gnus-summary-limit-to-bodies
+        "v r" 'gnus-summary-limit-to-unread
+        "v s" 'gnus-summary-limit-to-subject
+        "v t" 'gnus-summary-limit-to-age
+        "w" 'gnus-summary-save-article-file
+        "W" 'gnus-summary-write-article-file
+    )
+)
+
+;; this part is generated automatically
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(TeX-auto-save t)
+ '(TeX-master nil)
+ '(TeX-parse-self t)
+ '(ansi-color-names-vector
+   ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
+ '(company-idle-delay 0)
+ '(company-quickhelp-color-background "#4F4F4F")
+ '(company-quickhelp-color-foreground "#DCDCCC")
+ '(company-reftex-max-annotation-length 80)
+ '(custom-safe-themes
+   (quote
+    ("585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "1436d643b98844555d56c59c74004eb158dc85fc55d2e7205f8d9b8c860e177f" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "34c99997eaa73d64b1aaa95caca9f0d64229871c200c5254526d0062f8074693" "b0fd04a1b4b614840073a82a53e88fe2abc3d731462d6fde4e541807825af342" "ab9456aaeab81ba46a815c00930345ada223e1e7c7ab839659b382b52437b9ea" "d0c943c37d6f5450c6823103544e06783204342430a36ac20f6beb5c2a48abe3" "30289fa8d502f71a392f40a0941a83842152a68c54ad69e0638ef52f04777a4c" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" default)))
+ '(dashboard-center-content t)
+ '(dashboard-items (quote ((recents . 10) (agenda . 7))) t)
+ '(dashboard-set-file-icons nil)
+ '(dashboard-set-footer nil)
+ '(dashboard-startup-banner (quote logo) t)
+ '(doom-themes-enable-bond t t)
+ '(doom-themes-enable-italic t)
+ '(ede-project-directories (quote ("/home/luiz/teste")))
+ '(elpy-get-info-from-shell t t)
+ '(elpy-rpc-python-command "~/SAGE/sage8.7/SageMath/local/bin/python2.7" t)
+ '(enable-recursive-minibuffers t)
+ '(evil-escape-delay 0.3)
+ '(evil-escape-key-sequence "jk")
+ '(evil-goggles-pulse t)
+ '(fci-rule-color "#383838")
+ '(ivy-posframe-display-functions-alist (quote ((t . ivy-posframe-display-at-frame-center))))
+ '(ivy-use-virtual-buffers t)
+ '(ls-lisp-dirs-first t)
+ '(ls-lisp-use-insert-directory-program nil)
+ '(nrepl-message-colors
+   (quote
+    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(org-agenda-files (quote ("~/Dropbox/org/notes.org")))
+ '(org-agenda-span (quote month))
+ '(org-confirm-babel-evaluate nil)
+ '(org-default-notes-file "~/Dropbox/org/notes.org")
+ '(org-log-done t)
+ '(package-selected-packages
+   (quote
+    (ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage" t)
+ '(python-shell-interpreter-args "-ipython -i --simple-prompt" t)
+ '(reftex-plug-into-AUCTeX t)
+ '(show-week-agenda-p t t)
+ '(vc-annotate-background "#2B2B2B")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#BC8383")
+     (40 . "#CC9393")
+     (60 . "#DFAF8F")
+     (80 . "#D0BF8F")
+     (100 . "#E0CF9F")
+     (120 . "#F0DFAF")
+     (140 . "#5F7F5F")
+     (160 . "#7F9F7F")
+     (180 . "#8FB28F")
+     (200 . "#9FC59F")
+     (220 . "#AFD8AF")
+     (240 . "#BFEBBF")
+     (260 . "#93E0E3")
+     (280 . "#6CA0A3")
+     (300 . "#7CB8BB")
+     (320 . "#8CD0D3")
+     (340 . "#94BFF3")
+     (360 . "#DC8CC3"))))
+ '(vc-annotate-very-old-color "#DC8CC3"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-goggles-change-face ((t (:inherit diff-removed))))
+ '(evil-goggles-delete-face ((t (:inherit diff-removed))))
+ '(evil-goggles-paste-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
+ '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
+(put 'dired-find-alternate-file 'disabled nil)
