@@ -587,6 +587,7 @@
         "P" 'vc-push
         "T" 'vc-create-tag
         "V" 'vc-annotate
+        "c" 'vc-checkout
         "d" 'vc-diff
         "m" 'vc-merge
         "p" 'vc-pull
