@@ -582,27 +582,20 @@
       :states '(normal)
       :keymaps '(override)
       :prefix "SPC v"
-        "D" 'vc-root-diff
-        "I" 'vc-ignore
         "P" 'vc-push
-        "T" 'vc-create-tag
         "V" 'vc-annotate
-        "c" 'vc-checkout
+        "c" 'vc-resolve-conflicts
         "d" 'vc-diff
-        "m" 'vc-merge
         "p" 'vc-pull
         "r" 'vc-revision-other-window
-        "t" 'vc-retrieve-tag
         "u" 'vc-revert
         "v" 'vc-next-action
         "o" '(:ignore t :which-key "vc-dir")
         "o" (lambda () (interactive) (vc-dir "./"))
         "l" '(:ignore t :which-key "log")
-        "l b" 'vc-print-branch-log
         "l i" 'vc-log-incoming
         "l l" 'vc-print-log
         "l o" 'vc-log-outgoing
-        "l r" 'vc-print-root-log
     )
     (general-define-key
       :states '(normal)
@@ -618,6 +611,37 @@
         "o" 'vc-dir-find-file
         "s" (lambda () (interactive) (vc-dir-isearch-regexp))
         "v" 'vc-next-action
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(vc-dir-mode-map)
+      :prefix "SPC m"
+        "B" 'vc-create-tag
+        "L" 'vc-print-branch-log
+        "b" 'vc-retrieve-tag
+        "d" 'vc-root-diff
+        "i" 'vc-ignore
+        "l" 'vc-print-root-log
+        "m" 'vc-merge
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(log-edit-mode-map)
+      :prefix "SPC m"
+        "d" 'log-edit-show-diff
+        "f" 'log-edit-show-files
+    )
+    (general-define-key
+      :states '(normal visual)
+      :keymaps '(log-view-mode-map)
+        "D" 'log-view-diff-changeset
+        "a" 'log-view-annotate-version
+        "d" 'log-view-diff
+        "h" 'log-view-file-prev
+        "j" 'log-view-msg-next
+        "k" 'log-view-msg-prev
+        "l" 'log-view-file-next
+        "o" 'log-view-find-revision
     )
     ;; some search facilities
     (general-define-key
