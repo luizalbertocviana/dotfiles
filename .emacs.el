@@ -516,6 +516,7 @@
        "e" 'eval-buffer
        "D" 'kill-some-buffers
        "y" 'clone-indirect-buffer-other-window
+       "q" 'kill-buffer-and-window
     )
     (general-define-key
       :states '(normal)
