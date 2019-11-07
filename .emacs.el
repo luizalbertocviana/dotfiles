@@ -1032,9 +1032,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-auto-save t)
- '(TeX-master nil)
- '(TeX-parse-self t)
+ '(TeX-auto-save t t)
+ '(TeX-master nil t)
+ '(TeX-parse-self t t)
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(company-idle-delay 0)
@@ -1053,7 +1053,7 @@
  '(doom-themes-enable-italic t)
  '(ede-project-directories (quote ("/home/luiz/teste")))
  '(elpy-get-info-from-shell t t)
- '(elpy-rpc-python-command "~/SAGE/sage8.7/SageMath/local/bin/python2.7")
+ '(elpy-rpc-python-command "~/SAGE/sage8.7/SageMath/local/bin/python2.7" t)
  '(enable-recursive-minibuffers t)
  '(evil-escape-delay 0.3)
  '(evil-escape-key-sequence "jk")
@@ -1075,9 +1075,10 @@
    (quote
     (ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage")
- '(python-shell-interpreter-args "-ipython -i --simple-prompt")
- '(reftex-plug-into-AUCTeX t)
+ '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage" t)
+ '(python-shell-interpreter-args "-ipython -i --simple-prompt" t)
+ '(reftex-plug-into-AUCTeX t t)
+ '(send-mail-function (quote smtpmail-send-it))
  '(show-week-agenda-p t t)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
