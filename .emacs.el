@@ -473,44 +473,45 @@
   :config
     ;; naming some prefixes
     (general-define-key
-      :states '(normal)
-      :prefix "SPC"
+      :states  '(normal)
+      :keymaps '(override)
+      :prefix  "SPC"
         "TAB" '(:ignore t :which-key "last buffer")
-        "S" '(:ignore t :which-key "spell")
-        "T" '(:ignore t :which-key "text")
-        "b" '(:ignore t :which-key "buffers")
-        "f" '(:ignore t :which-key "files")
-        "m" '(:ignore t :which-key "mode")
-        "o" '(:ignore t :which-key "org")
-        "p" '(:ignore t :which-key "program")
-        "s" '(:ignore t :which-key "search")
-        "w" '(:ignore t :which-key "windows")
-        "v" '(:ignore t :which-key "version control")
+        "S"   '(:ignore t :which-key "spell")
+        "T"   '(:ignore t :which-key "text")
+        "b"   '(:ignore t :which-key "buffers")
+        "f"   '(:ignore t :which-key "files")
+        "m"   '(:ignore t :which-key "mode")
+        "o"   '(:ignore t :which-key "org")
+        "p"   '(:ignore t :which-key "program")
+        "s"   '(:ignore t :which-key "search")
+        "w"   '(:ignore t :which-key "windows")
+        "v"   '(:ignore t :which-key "version control")
     )
     ;; some simple actions
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(override)
-      :prefix "SPC"
+      :prefix  "SPC"
         "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer)))
-        "a" 'counsel-linux-app
-        "c" 'calendar
-        "g" 'gnus
-        "i" 'imenu
-        "q" 'save-buffers-kill-emacs
-        "t" 'eshell
+        "a"   'counsel-linux-app
+        "c"   'calendar
+        "g"   'gnus
+        "i"   'imenu
+        "q"   'save-buffers-kill-emacs
+        "t"   'eshell
     )
     ;; buffer navigation
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(override)
         "C-j" 'next-buffer
         "C-k" 'previous-buffer
     )
     (general-define-key
-     :states '(normal)
+     :states  '(normal)
      :keymaps '(override)
-     :prefix "SPC b"
+     :prefix  "SPC b"
        "b" 'buffer-menu
        "d" 'kill-this-buffer
        "e" 'eval-buffer
@@ -519,7 +520,7 @@
        "q" 'kill-buffer-and-window
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(Buffer-menu-mode-map)
         "U" 'Buffer-menu-unmark-all
         "l" 'Buffer-menu-this-window
@@ -532,9 +533,9 @@
     )
     ;; file management
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(override)
-      :prefix "SPC f"
+      :prefix  "SPC f"
         "D" 'diff-buffer-with-file
         "U" 'revert-buffer
         "S" 'write-file
@@ -547,9 +548,9 @@
     )
     ;; spell checking
     (general-define-key
-      :states '(normal visual)
+      :states  '(normal visual)
       :keymaps '(override)
-      :prefix "SPC S"
+      :prefix  "SPC S"
         "a" 'inverse-add-global-abbrev
         "c" 'ispell-change-dictionary
         "p" 'flyspell-prog-mode
@@ -567,9 +568,9 @@
     )
     ;; window management and navigation
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(override)
-      :prefix "SPC w"
+      :prefix  "SPC w"
         "w" 'other-window
         "h" 'windmove-left
         "j" 'windmove-down
@@ -582,26 +583,26 @@
     )
     ;; version control
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(override)
-      :prefix "SPC v"
-        "P" 'vc-push
-        "V" 'vc-annotate
-        "c" 'vc-resolve-conflicts
-        "d" 'vc-diff
-        "p" 'vc-pull
-        "r" 'vc-revision-other-window
-        "u" 'vc-revert
-        "v" 'vc-next-action
-        "o" '(:ignore t :which-key "vc-dir")
-        "o" (lambda () (interactive) (vc-dir "./"))
-        "l" '(:ignore t :which-key "log")
+      :prefix  "SPC v"
+        "P"   'vc-push
+        "V"   'vc-annotate
+        "c"   'vc-resolve-conflicts
+        "d"   'vc-diff
+        "p"   'vc-pull
+        "r"   'vc-revision-other-window
+        "u"   'vc-revert
+        "v"   'vc-next-action
+        "o"   '(:ignore t :which-key "vc-dir")
+        "o"   (lambda () (interactive) (vc-dir "./"))
+        "l"   '(:ignore t :which-key "log")
         "l i" 'vc-log-incoming
         "l l" 'vc-print-log
         "l o" 'vc-log-outgoing
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(vc-dir-mode-map)
         "J" 'vc-dir-next-directory
         "K" 'vc-dir-previous-directory
@@ -616,9 +617,9 @@
         "v" 'vc-next-action
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(vc-dir-mode-map)
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "B" 'vc-create-tag
         "L" 'vc-print-branch-log
         "b" 'vc-retrieve-tag
@@ -628,14 +629,14 @@
         "m" 'vc-merge
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(log-edit-mode-map)
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "d" 'log-edit-show-diff
         "f" 'log-edit-show-files
     )
     (general-define-key
-      :states '(normal visual)
+      :states  '(normal visual)
       :keymaps '(log-view-mode-map)
         "D" 'log-view-diff-changeset
         "a" 'log-view-annotate-version
@@ -648,9 +649,9 @@
     )
     ;; some search facilities
     (general-define-key
-      :states '(normal visual)
+      :states  '(normal visual)
       :keymaps '(override)
-      :prefix "SPC s"
+      :prefix  "SPC s"
         "s" 'isearch-forward-symbol-at-point
         "r" 'query-replace
         "R" 'replace-string
@@ -662,34 +663,36 @@
     )
     ;; some text manipulations
     (general-define-key
-      :states '(normal visual)
+      :states  '(normal visual)
       :keymaps '(override)
-      :prefix "SPC T"
-        "c" 'capitalize-dwim
-        "f" 'fill-paragraph
-        "l" 'downcase-dwim
-        "s" 'sort-lines
-        "u" 'upcase-dwim
-        "t" '(:ignore t :which-key "table")
-        "t C" 'table-capture
-        "t R" 'table-recognize
-        "t S" 'table-generate-source
-        "t a" 'table-justify
-        "t c" '(:ignore t :which-key "columns")
+      :prefix  "SPC T"
+        "A"     'align-regexp
+        "a"     'align
+        "c"     'capitalize-dwim
+        "f"     'fill-paragraph
+        "l"     'downcase-dwim
+        "s"     'sort-lines
+        "t"     '(:ignore t :which-key "table")
+        "t C"   'table-capture
+        "t R"   'table-recognize
+        "t S"   'table-generate-source
+        "t a"   'table-justify
+        "t c"   '(:ignore t :which-key "columns")
         "t c d" 'table-delete-column
         "t c i" 'table-insert-column
-        "t i" 'table-insert
-        "t m" 'table-span-cell
-        "t r" '(:ignore t :which-key "rows")
+        "t i"   'table-insert
+        "t m"   'table-span-cell
+        "t r"   '(:ignore t :which-key "rows")
         "t r d" 'table-delete-row
         "t r i" 'table-insert-row
-        "t s" 'table-split-cell
+        "t s"   'table-split-cell
+        "u"     'upcase-dwim
     )
     ;; programming facilities
     (general-define-key
-      :states '(normal visual)
+      :states  '(normal visual)
       :keymaps '(override)
-      :prefix "SPC p"
+      :prefix  "SPC p"
         "c" 'comment-line
         "d" 'xref-find-definitions
         "f" 'mark-defun
@@ -700,7 +703,7 @@
     )
     ;; cursor movements in insert mode
     (general-define-key
-      :states '(insert)
+      :states  '(insert)
       :keymaps '(override)
         "C-h" 'backward-char
         "C-l" 'forward-char
@@ -709,7 +712,7 @@
     )
     ;; dashboard
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'dashboard-mode-map
         "r" (general-simulate-key "r" :state 'insert)
         "a" (general-simulate-key "a" :state 'insert)
@@ -725,7 +728,7 @@
     )
     ;; dired
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'dired-mode-map
         "J" 'dired-next-marked-file
         "K" 'dired-prev-marked-file
@@ -741,9 +744,9 @@
         "y" 'dired-copy-filename-as-kill
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'dired-mode-map
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "D" 'dired-diff
         "S" 'dired-do-symlink
         "T" 'dired-toggle-marks
@@ -765,7 +768,7 @@
         "i" (lambda () (interactive) (image-dired "./"))
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(image-dired-thumbnail-mode-map)
         "h" 'image-dired-backward-image
         "l" 'image-dired-forward-image
@@ -774,7 +777,7 @@
     )
     ;; archive mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'archive-mode-map
         "j" 'archive-next-line
         "k" 'archive-previous-line
@@ -782,9 +785,9 @@
         "m" 'archive-flag-deleted
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'archive-mode-map
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "g" 'archive-chgrp-entry
         "m" 'archive-chmod-entry
         "o" 'archive-chown-entry
@@ -793,43 +796,43 @@
     )
     ;; org
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(override)
-      :prefix "SPC o"
+      :prefix  "SPC o"
         "l" 'org-store-link
         "a" 'org-agenda-list
         "c" 'org-capture
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'org-mode-map
-      :prefix "SPC m"
+      :prefix  "SPC m"
         ;; sorting
-        "S" 'org-sort
+        "S"     'org-sort
         ;; editing
-        "c" 'org-edit-special
+        "c"     'org-edit-special
         ;; exporting
-        "e b" 'org-beamer-export-as-latex
-        "e h" 'org-html-export-as-html
-        "e l" 'org-latex-export-as-latex
-        "e o" 'org-odt-export-to-odt
-        "e p" 'org-latex-export-to-pdf
+        "e b"   'org-beamer-export-as-latex
+        "e h"   'org-html-export-as-html
+        "e l"   'org-latex-export-as-latex
+        "e o"   'org-odt-export-to-odt
+        "e p"   'org-latex-export-to-pdf
         ;; headings
-        "h h" 'org-promote-subtree
-        "h l" 'org-demote-subtree
-        "h k" 'org-move-subtree-up
-        "h j" 'org-move-subtree-down
-        "h d" 'org-cut-subtree
-        "h y" 'org-copy-subtree
-        "h p" 'org-paste-subtree
+        "h h"   'org-promote-subtree
+        "h l"   'org-demote-subtree
+        "h k"   'org-move-subtree-up
+        "h j"   'org-move-subtree-down
+        "h d"   'org-cut-subtree
+        "h y"   'org-copy-subtree
+        "h p"   'org-paste-subtree
         ;; links
-        "l o" 'org-open-at-point
-        "l i" 'org-insert-link
+        "l o"   'org-open-at-point
+        "l i"   'org-insert-link
         ;; spreadsheet
-        "s d" 'org-table-blank-field
-        "s s" 'org-table-sort-lines
-        "s u" 'org-table-iterate-buffer-tables
-        "s v" 'org-table-toggle-coordinate-overlays
+        "s d"   'org-table-blank-field
+        "s s"   'org-table-sort-lines
+        "s u"   'org-table-iterate-buffer-tables
+        "s v"   'org-table-toggle-coordinate-overlays
         "s c h" 'org-table-move-column-left
         "s c l" 'org-table-move-column-right
         "s c d" 'org-table-delete-column
@@ -840,13 +843,13 @@
         "s r o" 'org-table-insert-row
         "s r h" 'org-table-hline-and-move
         ;; todo
-        "t c" 'org-todo
-        "t d" 'org-deadline
-        "t a" 'org-toggle-archive-tag
-        "t o" 'org-insert-todo-heading-respect-content
-        "t r" 'org-clone-subtree-with-time-shift
-        "t s" 'org-schedule
-        "t v" 'org-show-todo-tree
+        "t c"   'org-todo
+        "t d"   'org-deadline
+        "t a"   'org-toggle-archive-tag
+        "t o"   'org-insert-todo-heading-respect-content
+        "t r"   'org-clone-subtree-with-time-shift
+        "t s"   'org-schedule
+        "t v"   'org-show-todo-tree
     )
     (general-define-key
       :keymaps 'org-read-date-minibuffer-local-map
@@ -860,27 +863,27 @@
         "K" (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-year 1)))
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'org-agenda-mode-map
         "C-j" 'org-agenda-do-date-later
         "C-k" 'org-agenda-do-date-earlier
-        "J" 'org-agenda-later
-        "K" 'org-agenda-earlier
-        "M" 'org-agenda-bulk-action
-        "c" 'org-agenda-date-prompt
-        "d" 'org-agenda-kill
-        "m" 'org-agenda-bulk-toggle
-        "r" 'org-agenda-redo
-        "t" 'org-agenda-todo
-        "u" 'org-agenda-undo
-        "h" 'org-agenda-exit
-        "j" 'org-agenda-next-item
-        "k" 'org-agenda-previous-item
-        "l" 'org-agenda-show-and-scroll-up
+        "J"   'org-agenda-later
+        "K"   'org-agenda-earlier
+        "M"   'org-agenda-bulk-action
+        "c"   'org-agenda-date-prompt
+        "d"   'org-agenda-kill
+        "m"   'org-agenda-bulk-toggle
+        "r"   'org-agenda-redo
+        "t"   'org-agenda-todo
+        "u"   'org-agenda-undo
+        "h"   'org-agenda-exit
+        "j"   'org-agenda-next-item
+        "k"   'org-agenda-previous-item
+        "l"   'org-agenda-show-and-scroll-up
     )
     ;; calendar mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(calendar-mode-map)
         "." 'calendar-goto-today
         "H" 'calendar-backward-month
@@ -896,21 +899,21 @@
     )
     ;; image mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(image-mode-map)
         "h" 'image-previous-file
         "l" 'image-next-file
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(image-mode-map)
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "g" 'image-toggle-animation
     )
     ;; company completion popup.  I am using Meta because Control is
     ;; already bounded
     (general-define-key
-      :states '(insert)
+      :states  '(insert)
       :keymaps '(company-active-map override)
         "M-j" 'company-select-next
         "M-k" 'company-select-previous
@@ -918,9 +921,9 @@
     )
     ;; latex mode
     (general-define-key
-      :states '(normal visual)
+      :states  '(normal visual)
       :keymaps 'LaTeX-mode-map
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "b" 'TeX-command-run-all 
         "v" 'TeX-view
         "e" 'LaTeX-environment
@@ -928,14 +931,14 @@
     )
     ;; bibtex mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'bibtex-mode-map
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "s" 'biblio-lookup
     )
     ;; biblio selection mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'biblio-selection-mode-map
         "i" 'biblio--selection-insert
         "y" 'biblio--selection-copy-quit
@@ -943,16 +946,16 @@
     )
     ;; python mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps 'python-mode-map
-      :prefix "SPC m"
+      :prefix  "SPC m"
         "f" 'elpy-shell-send-defun-and-step
         "b" 'elpy-shell-send-buffer
         "k" 'elpy-shell-kill-all
     )
     ;; gnus
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(gnus-group-mode-map)
         "J" 'gnus-group-next-unread-group
         "K" 'gnus-group-prev-unread-group
@@ -964,19 +967,19 @@
         "r" 'gnus-group-get-new-news
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(gnus-group-mode-map)
-      :prefix "SPC m"
-        "L" 'gnus-group-list-all-groups
-        "R" 'gnus-group-catchup-current-all
-        "S" 'gnus-group-enter-server-mode
-        "d" 'gnus-topic-kill-group
-        "k" 'gnus-group-list-killed
-        "l" 'gnus-group-list-groups
-        "s" 'gnus-group-unsubscribe-current-group
-        "y" 'gnus-topic-yank-group
-        "z" 'gnus-group-list-zombies
-        "m" 'gnus-group-mail
+      :prefix  "SPC m"
+        "L"   'gnus-group-list-all-groups
+        "R"   'gnus-group-catchup-current-all
+        "S"   'gnus-group-enter-server-mode
+        "d"   'gnus-topic-kill-group
+        "k"   'gnus-group-list-killed
+        "l"   'gnus-group-list-groups
+        "s"   'gnus-group-unsubscribe-current-group
+        "y"   'gnus-topic-yank-group
+        "z"   'gnus-group-list-zombies
+        "m"   'gnus-group-mail
         "t d" 'gnus-topic-delete
         "t h" 'gnus-topic-unindent
         "t l" 'gnus-topic-indent
@@ -986,7 +989,7 @@
         "t s" 'gnus-topic-sort-groups-by-alphabet
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(gnus-summary-mode-map)
         "J" 'gnus-summary-next-unread-subject
         "K" 'gnus-summary-prev-unread-subject
@@ -997,23 +1000,23 @@
         "r" 'gnus-summary-prepare
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(gnus-summary-mode-map)
-      :prefix "SPC m"
-        "C" 'gnus-summary-cancel-article
-        "D" 'gnus-summary-enter-digest-group
-        "R" 'gnus-summary-very-wide-reply-with-original
-        "a" 'gnus-article-save-part
-        "b" 'gnus-summary-set-bookmark
-        "d" 'gnus-summary-delete-article
-        "f" 'gnus-summary-mail-forward
+      :prefix  "SPC m"
+        "C"   'gnus-summary-cancel-article
+        "D"   'gnus-summary-enter-digest-group
+        "R"   'gnus-summary-very-wide-reply-with-original
+        "a"   'gnus-article-save-part
+        "b"   'gnus-summary-set-bookmark
+        "d"   'gnus-summary-delete-article
+        "f"   'gnus-summary-mail-forward
         "m R" 'gnus-summary-catchup
         "m U" 'gnus-summary-clear-mark-forward
         "m d" 'gnus-summary-mark-as-dormant
         "m r" 'gnus-summary-mark-as-read-forward
         "m u" 'gnus-summary-tick-article
-        "p" 'gnus-summary-print-article
-        "r" 'gnus-summary-reply-with-original
+        "p"   'gnus-summary-print-article
+        "r"   'gnus-summary-reply-with-original
         "s m" 'gnus-summary-mail-other-window
         "s n" 'gnus-summary-news-other-window
         "v A" 'gnus-summary-limit-to-address
@@ -1022,8 +1025,8 @@
         "v r" 'gnus-summary-limit-to-unread
         "v s" 'gnus-summary-limit-to-subject
         "v t" 'gnus-summary-limit-to-age
-        "w" 'gnus-summary-save-article-file
-        "W" 'gnus-summary-write-article-file
+        "w"   'gnus-summary-save-article-file
+        "W"   'gnus-summary-write-article-file
     )
 )
 
