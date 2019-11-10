@@ -195,6 +195,11 @@
         (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
         (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
     )
+    (use-package expand-region
+      :config
+        (define-key evil-normal-state-map (kbd "M-v") 'er/expand-region)
+        (define-key evil-visual-state-map (kbd "M-v") 'er/expand-region)
+    )
     ;; some keybindings
     (evil-define-key 'normal 'global
       ;; movements
@@ -1079,8 +1084,8 @@
    (quote
     (ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage" t)
- '(python-shell-interpreter-args "-ipython -i --simple-prompt" t)
+ '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage")
+ '(python-shell-interpreter-args "-ipython -i --simple-prompt")
  '(reftex-plug-into-AUCTeX t t)
  '(send-mail-function (quote smtpmail-send-it))
  '(show-week-agenda-p t t)
