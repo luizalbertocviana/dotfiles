@@ -62,6 +62,9 @@
 ;; another
 (setq split-width-threshold nil)
 
+;; makes docview scrolling change document pages
+(setq doc-view-continuous t)
+
 ;; user information
 (setq user-full-name "Luiz Alberto do Carmo Viana")
 (setq user-mail-address "luizalbertocviana@gmail.com")
@@ -929,6 +932,20 @@
       :keymaps '(image-mode-map)
       :prefix  "SPC m"
         "g" 'image-toggle-animation
+    )
+    (general-define-key
+      :states '(normal)
+      :keymaps '(doc-view-mode-map)
+        "+" 'doc-view-enlarge
+        "-" 'doc-view-shrink
+        "G" 'doc-view-last-page
+        "J" 'doc-view-next-page
+        "K" 'doc-view-previous-page
+        "S" 'doc-view-search-backward
+        "gg" 'doc-view-first-page
+        "j" 'doc-view-next-line-or-next-page
+        "k" 'doc-view-previous-line-or-previous-page
+        "s" 'doc-view-search
     )
     ;; company completion popup.  I am using Meta because Control is
     ;; already bounded
