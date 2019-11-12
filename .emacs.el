@@ -385,10 +385,10 @@
   :defer t
   :custom
     (gnus-auto-center-summary nil)
-    (gnus-blocked-images "ads")
-    (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
-    (gnus-novice-user t)
-    (gnus-show-all-headers nil)
+    (gnus-blocked-images      "ads")
+    (gnus-ignored-newsgroups  "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+    (gnus-novice-user         t)
+    (gnus-show-all-headers    nil)
   :hook
     (gnus-select-group . gnus-group-set-timestamp)
   :config
