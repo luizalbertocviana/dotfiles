@@ -1047,6 +1047,32 @@
         "w"   'gnus-summary-save-article-file
         "W"   'gnus-summary-write-article-file
     )
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(gnus-server-mode-map)
+        "R" 'gnus-server-regenerate-server
+        "c" 'gnus-server-edit-server
+        "d" 'gnus-server-kill-server
+        "o" 'gnus-server-read-server
+        "p" 'gnus-server-yank-server
+        "q" 'gnus-server-exit
+        "r" 'gnus-server-scan-server
+        "v" 'gnus-server-show-server
+        "y" 'gnus-server-copy-server
+    )
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(gnus-server-mode-map)
+      :prefix  "SPC m"
+        "C" 'gnus-server-close-all-servers
+        "O" 'gnus-server-open-all-servers
+        "c" 'gnus-server-close-server
+        "d" 'gnus-server-deny-server
+        "l" 'gnus-server-list-servers
+        "n" 'gnus-server-add-server
+        "o" 'gnus-server-open-server
+        "u" 'gnus-server-remove-denials
+    )
 )
 
 ;; this part is generated automatically
