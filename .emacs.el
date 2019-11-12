@@ -384,17 +384,17 @@
 (use-package gnus :ensure nil
   :defer t
   :custom
-    (smtpmail-smtp-server    "smtp.gmail.com")
-    (smtpmail-smtp-service   587)
-    (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
     (gnus-auto-center-summary nil)
+    (gnus-blocked-images "ads")
+    (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
     (gnus-novice-user t)
     (gnus-show-all-headers nil)
-    (gnus-blocked-images "ads")
   :hook
     (gnus-select-group . gnus-group-set-timestamp)
   :config
     (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+    (setq smtpmail-smtp-server  "smtp.gmail.com")
+    (setq smtpmail-smtp-service 587)
     (setq gnus-select-method
           '(nnimap "gmail"
                    (nnimap-address "imap.gmail.com")
