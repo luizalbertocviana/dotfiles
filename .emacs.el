@@ -393,6 +393,7 @@
     (gnus-select-group . gnus-group-set-timestamp)
   :config
     (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+    ;; setting gmail
     (setq smtpmail-smtp-server  "smtp.gmail.com")
     (setq smtpmail-smtp-service 587)
     (setq gnus-select-method
