@@ -691,10 +691,12 @@
       :keymaps '(override)
       :prefix  "SPC T"
         "A"     'align-regexp
+        "S"     'sort-fields
         "a"     'align
         "c"     'capitalize-dwim
         "f"     'fill-paragraph
         "l"     'downcase-dwim
+        "r"     'reverse-region
         "s"     'sort-lines
         "t"     '(:ignore t :which-key "table")
         "t C"   'table-capture
@@ -1101,9 +1103,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-auto-save t t)
- '(TeX-master nil t)
- '(TeX-parse-self t t)
+ '(TeX-auto-save t)
+ '(TeX-master nil)
+ '(TeX-parse-self t)
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(company-idle-delay 0)
@@ -1112,7 +1114,7 @@
  '(company-reftex-max-annotation-length 80)
  '(custom-safe-themes
    (quote
-    ("585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "1436d643b98844555d56c59c74004eb158dc85fc55d2e7205f8d9b8c860e177f" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "34c99997eaa73d64b1aaa95caca9f0d64229871c200c5254526d0062f8074693" "b0fd04a1b4b614840073a82a53e88fe2abc3d731462d6fde4e541807825af342" "ab9456aaeab81ba46a815c00930345ada223e1e7c7ab839659b382b52437b9ea" "d0c943c37d6f5450c6823103544e06783204342430a36ac20f6beb5c2a48abe3" "30289fa8d502f71a392f40a0941a83842152a68c54ad69e0638ef52f04777a4c" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" default)))
+    ("b583823b9ee1573074e7cbfd63623fe844030d911e9279a7c8a5d16de7df0ed0" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "1436d643b98844555d56c59c74004eb158dc85fc55d2e7205f8d9b8c860e177f" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "34c99997eaa73d64b1aaa95caca9f0d64229871c200c5254526d0062f8074693" "b0fd04a1b4b614840073a82a53e88fe2abc3d731462d6fde4e541807825af342" "ab9456aaeab81ba46a815c00930345ada223e1e7c7ab839659b382b52437b9ea" "d0c943c37d6f5450c6823103544e06783204342430a36ac20f6beb5c2a48abe3" "30289fa8d502f71a392f40a0941a83842152a68c54ad69e0638ef52f04777a4c" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" default)))
  '(dashboard-center-content t)
  '(dashboard-items (quote ((recents . 10) (agenda . 7))) t)
  '(dashboard-set-file-icons nil)
@@ -1144,9 +1146,9 @@
    (quote
     (ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage")
- '(python-shell-interpreter-args "-ipython -i --simple-prompt")
- '(reftex-plug-into-AUCTeX t t)
+ '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage" t)
+ '(python-shell-interpreter-args "-ipython -i --simple-prompt" t)
+ '(reftex-plug-into-AUCTeX t)
  '(send-mail-function (quote smtpmail-send-it))
  '(show-week-agenda-p t t)
  '(vc-annotate-background "#2B2B2B")
