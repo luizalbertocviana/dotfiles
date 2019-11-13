@@ -523,7 +523,7 @@
         "i"   'imenu
         "q"   'save-buffers-kill-emacs
         "r"   'async-shell-command
-        "t"   'eshell
+        "t"   'shell
     )
     ;; buffer navigation
     (general-define-key
