@@ -522,6 +522,7 @@
         "g"   'gnus
         "i"   'imenu
         "q"   'save-buffers-kill-emacs
+        "r"   'async-shell-command
         "t"   'eshell
     )
     ;; buffer navigation
