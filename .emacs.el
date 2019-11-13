@@ -716,6 +716,7 @@
       :states  '(normal visual)
       :keymaps '(override)
       :prefix  "SPC p"
+        "b" 'compile
         "c" 'comment-line
         "d" 'xref-find-definitions
         "f" 'mark-defun
