@@ -966,10 +966,12 @@
       :keymaps 'LaTeX-mode-map
       :prefix  "SPC m"
         "b" 'TeX-command-run-all 
-        "v" 'TeX-view
         "e" 'LaTeX-environment
         "l" 'reftex-label
+        "m" 'TeX-insert-macro
         "p" 'preview-buffer
+        "s" 'LaTeX-section
+        "v" 'TeX-view
     )
     ;; bibtex mode
     (general-define-key
