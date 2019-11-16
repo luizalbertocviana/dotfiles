@@ -969,6 +969,7 @@
         "v" 'TeX-view
         "e" 'LaTeX-environment
         "l" 'reftex-label
+        "p" 'preview-buffer
     )
     ;; bibtex mode
     (general-define-key
