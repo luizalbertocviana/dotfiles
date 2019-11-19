@@ -495,7 +495,9 @@
 (use-package sly
   :hook
     (lisp-mode . sly-mode)
-    (lisp-mode . (lambda () (interactive) (sly "sbcl")))
+    (lisp-mode . rainbow-delimiters-mode)
+  :custom
+    (inferior-lisp-program "sbcl")
 )
 
 ;; keybindings
@@ -998,11 +1000,23 @@
     ;; python mode
     (general-define-key
       :states  '(normal)
-      :keymaps 'python-mode-map
+      :keymaps '(python-mode-map)
       :prefix  "SPC m"
         "f" 'elpy-shell-send-defun-and-step
         "b" 'elpy-shell-send-buffer
         "k" 'elpy-shell-kill-all
+    )
+    ;; lisp mode
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(lisp-mode-map)
+      :prefix  "SPC m"
+        "b" 'sly-compile-and-load-file
+        "e" 'sly-expand-1
+        "f" 'sly-compile-defun
+        "h" 'sly-describe-symbol
+        "r" 'sly
+        "t" 'sly-toggle-fancy-trace
     )
     ;; gnus
     (general-define-key
