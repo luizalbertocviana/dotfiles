@@ -491,6 +491,13 @@
     (elpy-get-info-from-shell t)
 )
 
+;; lisp sly
+(use-package sly
+  :hook
+    (lisp-mode . sly-mode)
+    (lisp-mode . (lambda () (interactive) (sly "sbcl")))
+)
+
 ;; keybindings
 (use-package general
   :config
@@ -1106,12 +1113,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(TeX-auto-save t)
- '(TeX-master nil)
- '(TeX-parse-self t)
+ '(TeX-auto-save t t)
+ '(TeX-master nil t)
+ '(TeX-parse-self t t)
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
- '(company-idle-delay 0)
+ '(company-idle-delay 0 t)
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(company-reftex-max-annotation-length 80)
@@ -1141,17 +1148,17 @@
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(org-agenda-files (quote ("~/Dropbox/org/notes.org")))
- '(org-agenda-span (quote month))
+ '(org-agenda-span (quote month) t)
  '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file "~/Dropbox/org/notes.org")
  '(org-log-done t)
  '(package-selected-packages
    (quote
-    (ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
+    (slime ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage" t)
  '(python-shell-interpreter-args "-ipython -i --simple-prompt" t)
- '(reftex-plug-into-AUCTeX t)
+ '(reftex-plug-into-AUCTeX t t)
  '(send-mail-function (quote smtpmail-send-it))
  '(show-week-agenda-p t t)
  '(vc-annotate-background "#2B2B2B")
