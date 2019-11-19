@@ -1011,12 +1011,17 @@
       :states  '(normal)
       :keymaps '(lisp-mode-map)
       :prefix  "SPC m"
+        "S" 'sly-stickers-replay
+        "T" 'sly-trace-dialog
+        "a" 'sly-apropos-all
         "b" 'sly-compile-and-load-file
+        "d" 'sly-edit-definition
         "e" 'sly-expand-1
         "f" 'sly-compile-defun
         "h" 'sly-describe-symbol
         "r" 'sly
-        "t" 'sly-toggle-fancy-trace
+        "s" 'sly-stickers-dwim
+        "t" 'sly-trace-dialog-toggle-trace
     )
     ;; gnus
     (general-define-key
