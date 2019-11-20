@@ -259,9 +259,13 @@
     (dashboard-setup-startup-hook)
 )
 
-;; colorful brackets.  I strongly advise you to load this (M-x
-;; rainbow-delimiters) before editing this file
-(use-package rainbow-delimiters :defer t)
+;; colorful delimiters (useful for editing lisp languages)
+(use-package rainbow-delimiters
+  :commands (rainbow-delimiters-mode)
+  :hook
+    (emacs-lisp-mode . rainbow-delimiters-mode)
+    (lisp-mode       . rainbow-delimiters-mode)
+)
 
 ;; ivy, providing some completion facilities to certain emacs contexts
 (use-package ivy
@@ -495,7 +499,6 @@
 (use-package sly
   :hook
     (lisp-mode . sly-mode)
-    (lisp-mode . rainbow-delimiters-mode)
   :custom
     (inferior-lisp-program "sbcl")
 )
