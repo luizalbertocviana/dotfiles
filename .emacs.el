@@ -1033,11 +1033,13 @@
         "t" 'sly-trace-dialog-toggle-trace
     )
     (general-define-key
-      :states '(normal insert)
+      :states '(normal)
       :keymaps '(sly-mrepl-mode-map)
-        "C-j" 'sly-mrepl-next-input-or-button
-        "C-k" 'sly-mrepl-previous-input-or-button
-        "C-l" 'sly-mrepl-return
+        "<down>" 'sly-mrepl-next-input-or-button
+        "<up>"   'sly-mrepl-previous-input-or-button
+        "M-j"    'sly-mrepl-next-prompt
+        "M-k"    'sly-mrepl-previous-prompt
+        "RET"    'sly-mrepl-return
     )
     (general-define-key
       :states  '(normal)
