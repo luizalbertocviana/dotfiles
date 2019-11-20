@@ -1014,17 +1014,30 @@
       :states  '(normal)
       :keymaps '(lisp-mode-map)
       :prefix  "SPC m"
+        "A" 'sly-disassemble-symbol
+        "C" 'sly-calls-who
+        "D" 'sly-edit-uses
         "S" 'sly-stickers-replay
         "T" 'sly-trace-dialog
         "a" 'sly-apropos-all
         "b" 'sly-compile-and-load-file
+        "c" 'sly-who-calls
         "d" 'sly-edit-definition
         "e" 'sly-expand-1
         "f" 'sly-compile-defun
         "h" 'sly-describe-symbol
+        "l" 'sly-load-file
+        "m" 'sly-who-macroexpands
         "r" 'sly
         "s" 'sly-stickers-dwim
         "t" 'sly-trace-dialog-toggle-trace
+    )
+    (general-define-key
+      :states '(normal insert)
+      :keymaps '(sly-mrepl-mode-map)
+        "C-j" 'sly-mrepl-next-input-or-button
+        "C-k" 'sly-mrepl-previous-input-or-button
+        "C-l" 'sly-mrepl-return
     )
     (general-define-key
       :states  '(normal)
