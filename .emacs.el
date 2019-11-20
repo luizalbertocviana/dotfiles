@@ -1023,6 +1023,13 @@
         "s" 'sly-stickers-dwim
         "t" 'sly-trace-dialog-toggle-trace
     )
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(sly-stickers--replay-mode-map)
+        "n" 'sly-stickers-replay-next
+        "p" 'sly-stickers-replay-prev
+        "q" 'kill-buffer-and-window
+    )
     ;; gnus
     (general-define-key
       :states  '(normal)
