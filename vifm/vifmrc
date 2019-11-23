@@ -291,7 +291,7 @@ filetype *.torrent transmission-gtk %f &
 fileviewer *.torrent dumptorrent -v %c
 
 " FuseZipMount
-filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
+filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg,*.rar
        \ {engrampa}
        \ engrampa %f &
        \ {Mount with fuse-zip}
