@@ -253,7 +253,7 @@
     (dashboard-center-content t)
     (dashboard-set-file-icons nil)
     (dashboard-set-footer nil)
-    (dashboard-items '((recents . 10)))
+    (dashboard-items '((recents . 15)))
   :config
     (dashboard-setup-startup-hook)
 )
