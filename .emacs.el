@@ -254,7 +254,7 @@
     (dashboard-set-file-icons nil)
     (dashboard-set-footer nil)
     (show-week-agenda-p t)
-    (dashboard-items '((recents . 10) (agenda . 7)))
+    (dashboard-items '((recents . 10)))
   :config
     (dashboard-setup-startup-hook)
 )
