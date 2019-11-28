@@ -253,7 +253,6 @@
     (dashboard-center-content t)
     (dashboard-set-file-icons nil)
     (dashboard-set-footer nil)
-    (show-week-agenda-p t)
     (dashboard-items '((recents . 10)))
   :config
     (dashboard-setup-startup-hook)
@@ -1154,93 +1153,3 @@
         "u" 'gnus-server-remove-denials
     )
 )
-
-;; this part is generated automatically
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(TeX-auto-save t t)
- '(TeX-master nil t)
- '(TeX-parse-self t t)
- '(ansi-color-names-vector
-   ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
- '(company-idle-delay 0 t)
- '(company-quickhelp-color-background "#4F4F4F")
- '(company-quickhelp-color-foreground "#DCDCCC")
- '(company-reftex-max-annotation-length 80)
- '(custom-safe-themes
-   (quote
-    ("b583823b9ee1573074e7cbfd63623fe844030d911e9279a7c8a5d16de7df0ed0" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "1436d643b98844555d56c59c74004eb158dc85fc55d2e7205f8d9b8c860e177f" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" "a7051d761a713aaf5b893c90eaba27463c791cd75d7257d3a8e66b0c8c346e77" "34c99997eaa73d64b1aaa95caca9f0d64229871c200c5254526d0062f8074693" "b0fd04a1b4b614840073a82a53e88fe2abc3d731462d6fde4e541807825af342" "ab9456aaeab81ba46a815c00930345ada223e1e7c7ab839659b382b52437b9ea" "d0c943c37d6f5450c6823103544e06783204342430a36ac20f6beb5c2a48abe3" "30289fa8d502f71a392f40a0941a83842152a68c54ad69e0638ef52f04777a4c" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" default)))
- '(dashboard-center-content t)
- '(dashboard-items (quote ((recents . 10) (agenda . 7))) t)
- '(dashboard-set-file-icons nil)
- '(dashboard-set-footer nil)
- '(dashboard-startup-banner (quote logo) t)
- '(doom-themes-enable-bond t t)
- '(doom-themes-enable-italic t)
- '(ede-project-directories (quote ("/home/luiz/teste")))
- '(elpy-get-info-from-shell t t)
- '(elpy-rpc-python-command "~/SAGE/sage8.7/SageMath/local/bin/python2.7" t)
- '(enable-recursive-minibuffers t)
- '(evil-escape-delay 0.3)
- '(evil-escape-key-sequence "jk")
- '(evil-goggles-pulse t)
- '(fci-rule-color "#383838")
- '(ivy-posframe-display-functions-alist (quote ((t . ivy-posframe-display-at-frame-center))))
- '(ivy-use-virtual-buffers t)
- '(ls-lisp-dirs-first t)
- '(ls-lisp-use-insert-directory-program nil)
- '(nrepl-message-colors
-   (quote
-    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(org-agenda-files (quote ("~/Dropbox/org/notes.org")))
- '(org-agenda-span (quote month) t)
- '(org-confirm-babel-evaluate nil)
- '(org-default-notes-file "~/Dropbox/org/notes.org")
- '(org-log-done t)
- '(package-selected-packages
-   (quote
-    (slime ls-lisp evil-args evil-escape evil-surround evil-goggles evil-expat evil use-package)))
- '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage" t)
- '(python-shell-interpreter-args "-ipython -i --simple-prompt" t)
- '(reftex-plug-into-AUCTeX t t)
- '(send-mail-function (quote smtpmail-send-it))
- '(show-week-agenda-p t t)
- '(vc-annotate-background "#2B2B2B")
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#BC8383")
-     (40 . "#CC9393")
-     (60 . "#DFAF8F")
-     (80 . "#D0BF8F")
-     (100 . "#E0CF9F")
-     (120 . "#F0DFAF")
-     (140 . "#5F7F5F")
-     (160 . "#7F9F7F")
-     (180 . "#8FB28F")
-     (200 . "#9FC59F")
-     (220 . "#AFD8AF")
-     (240 . "#BFEBBF")
-     (260 . "#93E0E3")
-     (280 . "#6CA0A3")
-     (300 . "#7CB8BB")
-     (320 . "#8CD0D3")
-     (340 . "#94BFF3")
-     (360 . "#DC8CC3"))))
- '(vc-annotate-very-old-color "#DC8CC3"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-goggles-change-face ((t (:inherit diff-removed))))
- '(evil-goggles-delete-face ((t (:inherit diff-removed))))
- '(evil-goggles-paste-face ((t (:inherit diff-added))))
- '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
- '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
- '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
- '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
-(put 'dired-find-alternate-file 'disabled nil)
