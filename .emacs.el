@@ -790,6 +790,7 @@
         "T" 'dired-toggle-marks
         "U" 'dired-upcase
         "Z" 'dired-do-compress-to
+        "c" 'wdired-change-to-wdired-mode
         "d" 'dired-do-delete
         "g" 'dired-do-chgrp
         "h" 'dired-omit-mode
