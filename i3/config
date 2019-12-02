@@ -192,6 +192,9 @@ exec --no-startup-id xfce4-volumed-pulse
 exec --no-startup-id compton
 exec --no-startup-id polybar example
 
+# monitor brightness
+set $brightness xrandr --output VGA-1 --brightness 0.50
+
 # turns off beep on X applications
 exec --no-startup-id xset b off
 
