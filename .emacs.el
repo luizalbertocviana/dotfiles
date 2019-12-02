@@ -624,6 +624,7 @@
       :states  '(normal)
       :keymaps '(override)
       :prefix  "SPC v"
+        "G"   'magit-dispatch
         "P"   'vc-push
         "V"   'vc-annotate
         "c"   'vc-resolve-conflicts
