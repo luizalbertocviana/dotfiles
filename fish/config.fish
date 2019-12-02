@@ -19,3 +19,6 @@ set -gx EDITOR "vim"
 
 # GHC
 # set -gx PATH '/home/luiz/.ghcup/bin' $PATH
+
+# supress initial message
+set fish_greeting ""
