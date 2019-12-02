@@ -628,6 +628,7 @@
         "V"   'vc-annotate
         "c"   'vc-resolve-conflicts
         "d"   'vc-diff
+        "g"   'magit-status
         "p"   'vc-pull
         "r"   'vc-revision-other-window
         "u"   'vc-revert
