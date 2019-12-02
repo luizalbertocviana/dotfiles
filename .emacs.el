@@ -409,6 +409,9 @@
                    (nnimap-stream ssl)))
 )
 
+;; magit
+(use-package magit)
+
 ;; LaTeX
 (use-package tex-site
   :ensure auctex
