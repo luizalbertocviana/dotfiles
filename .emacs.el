@@ -414,6 +414,10 @@
                    (nnimap-stream ssl)))
 )
 
+;; magit
+(use-package magit
+  :commands (magit-status magit-dispatch))
+
 ;; LaTeX
 (use-package tex-site
   :ensure auctex
@@ -626,10 +630,12 @@
       :states  '(normal)
       :keymaps '(override)
       :prefix  "SPC v"
+        "G"   'magit-dispatch
         "P"   'vc-push
         "V"   'vc-annotate
         "c"   'vc-resolve-conflicts
         "d"   'vc-diff
+        "g"   'magit-status
         "p"   'vc-pull
         "r"   'vc-revision-other-window
         "u"   'vc-revert
