@@ -378,14 +378,8 @@
     )
     (setq org-capture-templates
           '(
-             ("t" "Trabalho" entry (file+headline  "~/Dropbox/org/notes.org" "Trabalho")
-              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
-             )
-             ("d" "Doutorado" entry (file+headline  "~/Dropbox/org/notes.org" "Doutorado")
-              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
-             )
-             ("m" "Misc" entry (file+datetree  "~/Dropbox/org/notes.org")
-              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
+             ("c" "Capture" entry (file+datetree  "~/Dropbox/org/notes.org")
+              "* TODO %? %^g\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
              )
            )
     )
