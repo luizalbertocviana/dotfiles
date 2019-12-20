@@ -505,6 +505,14 @@
     (inferior-lisp-program "sbcl")
 )
 
+;; irony mode for c/c++
+(use-package irony
+  :hook
+    (c++-mode   . irony-mode)
+    (c-mode     . irony-mode)
+    (irony-mode . irony-cdb-autosetup-compile-options)
+)
+
 ;; keybindings
 (use-package general
   :config
