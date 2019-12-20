@@ -350,6 +350,12 @@
       :custom
         (company-reftex-max-annotation-length 80)
     )
+    ;; irony-mode for c/c++
+    (use-package company-irony
+      :after (irony)
+      :config
+        (push 'company-irony company-backends)
+    )
 )
 
 ;; org
