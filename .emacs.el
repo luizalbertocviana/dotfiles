@@ -371,6 +371,8 @@
     (org-agenda-files (list "~/Dropbox/org/notes.org"))
     ;; shows org agenda for the current month
     (org-agenda-span 'month)
+    ;; aligns tags on a reasonable column
+    (org-agenda-tags-column 80)
   :config
     ;; allowed languages
     (org-babel-do-load-languages
