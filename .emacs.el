@@ -547,6 +547,7 @@
       :keymaps '(override)
       :prefix  "SPC"
         "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer)))
+        "P"   'list-processes
         "a"   'counsel-linux-app
         "c"   'calendar
         "g"   'gnus
