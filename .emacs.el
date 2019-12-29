@@ -175,14 +175,6 @@
     (global-undo-tree-mode)
     ;; ex commands, which a vim user is likely to be familiar with
     (use-package evil-expat :defer t)
-    ;; visual hints while editing
-    (use-package evil-goggles
-      :custom
-        (evil-goggles-pulse t)
-      :config
-        (evil-goggles-use-diff-faces)
-        (evil-goggles-mode)
-    )
     ;; like vim-surround
     (use-package evil-surround
       :config
@@ -519,6 +511,13 @@
     (c++-mode   . irony-mode)
     (c-mode     . irony-mode)
     (irony-mode . irony-cdb-autosetup-compile-options)
+)
+
+;; hy mode (mostly for use with sagemath)
+(use-package hy-mode
+  :custom
+    (hy-shell--interpreter      "/home/luiz/SAGE/sage8.7/SageMath/local/bin/hy")
+    (hy-shell--interpreter-args "")
 )
 
 ;; keybindings
