@@ -514,7 +514,9 @@
 )
 
 ;; hy mode (mostly for use with sagemath)
-(use-package hy-mode
+;; not feasible yet
+(use-package hy-mode :ensure nil
+  :disabled
   :custom
     (hy-shell--interpreter      "/home/luiz/SAGE/sage8.7/SageMath/local/bin/hy")
     (hy-shell--interpreter-args "")
