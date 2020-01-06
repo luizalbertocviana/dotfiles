@@ -986,6 +986,12 @@
         "k" 'doc-view-previous-line-or-previous-page
         "s" 'doc-view-search
     )
+    ;; process mode
+    (general-define-key
+      :states '(normal)
+      :keymaps '(process-menu-mode-map)
+      :prefix "SPC m"
+        "d" 'process-menu-delete-process)
     ;; company completion popup.  I am using Meta because Control is
     ;; already bounded
     (general-define-key
