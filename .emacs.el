@@ -773,6 +773,13 @@
         "C-j" 'next-line
         "C-k" 'previous-line
     )
+    ;; cursor movements in normal mode
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(override)
+        "M-l" 'forward-sentence
+        "M-h" 'backward-sentence
+    )
     ;; dashboard
     (general-define-key
       :states  '(normal)
