@@ -412,7 +412,8 @@
 
 ;; magit
 (use-package magit
-  :commands (magit-status magit-dispatch))
+  :commands (magit-status magit-dispatch)
+)
 
 ;; LaTeX
 (use-package tex-site
