@@ -195,6 +195,8 @@
         (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
         (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
     )
+    ;; this makes M-v selects larger and larger regions in a
+    ;; semantic-wise way
     (use-package expand-region
       :config
         (define-key evil-normal-state-map (kbd "M-v") 'er/expand-region)
