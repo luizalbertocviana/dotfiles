@@ -93,12 +93,17 @@
 
 ;; manage matching pairs
 (use-package smartparens
+  :preface
+    (defun lisp-correct-closing-quote ()
+      (sp-pair "'" nil :actions :rem)
+      (sp-pair "`" nil :actions :rem))
   :config
     ;; the following package is installed automatically
     (use-package smartparens-config :ensure nil)
     (smartparens-global-strict-mode t)
     ;; highlights matching pairs
     (show-smartparens-global-mode 1)
+    (add-hook 'lisp-mode-hook 'lisp-correct-closing-quote t t)
 )
 
 ;; spell checking
@@ -170,14 +175,6 @@
     (global-undo-tree-mode)
     ;; ex commands, which a vim user is likely to be familiar with
     (use-package evil-expat :defer t)
-    ;; visual hints while editing
-    (use-package evil-goggles
-      :custom
-        (evil-goggles-pulse t)
-      :config
-        (evil-goggles-use-diff-faces)
-        (evil-goggles-mode)
-    )
     ;; like vim-surround
     (use-package evil-surround
       :config
@@ -198,6 +195,8 @@
         (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
         (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
     )
+    ;; this makes M-v selects larger and larger regions in a
+    ;; semantic-wise way
     (use-package expand-region
       :config
         (define-key evil-normal-state-map (kbd "M-v") 'er/expand-region)
@@ -345,6 +344,12 @@
       :custom
         (company-reftex-max-annotation-length 80)
     )
+    ;; irony-mode for c/c++
+    (use-package company-irony
+      :after (irony)
+      :config
+        (push 'company-irony company-backends)
+    )
 )
 
 ;; org
@@ -360,6 +365,8 @@
     (org-agenda-files (list "~/Dropbox/org/notes.org"))
     ;; shows org agenda for the current month
     (org-agenda-span 'month)
+    ;; aligns tags on a reasonable column
+    (org-agenda-tags-column 80)
   :config
     ;; allowed languages
     (org-babel-do-load-languages
@@ -373,14 +380,8 @@
     )
     (setq org-capture-templates
           '(
-             ("t" "Trabalho" entry (file+headline  "~/Dropbox/org/notes.org" "Trabalho")
-              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
-             )
-             ("d" "Doutorado" entry (file+headline  "~/Dropbox/org/notes.org" "Doutorado")
-              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
-             )
-             ("m" "Misc" entry (file+datetree  "~/Dropbox/org/notes.org")
-              "* TODO %?\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
+             ("c" "Capture" entry (file+datetree  "~/Dropbox/org/notes.org")
+              "* TODO %? %^g\n  SCHEDULED: %^{Scheduled}t DEADLINE: %^{Deadline}t"
              )
            )
     )
@@ -411,7 +412,8 @@
 
 ;; magit
 (use-package magit
-  :commands (magit-status magit-dispatch))
+  :commands (magit-status magit-dispatch)
+)
 
 ;; LaTeX
 (use-package tex-site
@@ -506,6 +508,23 @@
     (inferior-lisp-program "sbcl")
 )
 
+;; irony mode for c/c++
+(use-package irony
+  :hook
+    (c++-mode   . irony-mode)
+    (c-mode     . irony-mode)
+    (irony-mode . irony-cdb-autosetup-compile-options)
+)
+
+;; hy mode (mostly for use with sagemath)
+;; not feasible yet
+(use-package hy-mode :ensure nil
+  :disabled
+  :custom
+    (hy-shell--interpreter      "/home/luiz/SAGE/sage8.7/SageMath/local/bin/hy")
+    (hy-shell--interpreter-args "")
+)
+
 ;; keybindings
 (use-package general
   :config
@@ -532,6 +551,7 @@
       :keymaps '(override)
       :prefix  "SPC"
         "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer)))
+        "P"   'list-processes
         "a"   'counsel-linux-app
         "c"   'calendar
         "g"   'gnus
@@ -754,6 +774,13 @@
         "C-j" 'next-line
         "C-k" 'previous-line
     )
+    ;; cursor movements in normal mode
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(override)
+        "M-l" 'forward-sentence
+        "M-h" 'backward-sentence
+    )
     ;; dashboard
     (general-define-key
       :states  '(normal)
@@ -969,6 +996,12 @@
         "k" 'doc-view-previous-line-or-previous-page
         "s" 'doc-view-search
     )
+    ;; process mode
+    (general-define-key
+      :states '(normal)
+      :keymaps '(process-menu-mode-map)
+      :prefix "SPC m"
+        "d" 'process-menu-delete-process)
     ;; company completion popup.  I am using Meta because Control is
     ;; already bounded
     (general-define-key
