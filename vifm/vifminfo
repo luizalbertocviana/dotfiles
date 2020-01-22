@@ -42,36 +42,6 @@ l12
 r2
 
 # Left window history (oldest to newest):
-d/home/luiz
-	Dropbox
-4
-d/home/luiz/Dropbox
-	configs
-4
-d/home/luiz/Dropbox/configs
-	packages.txt
-8
-d/home/luiz/Dropbox
-	configs
-4
-d/home/luiz
-	distros
-2
-d/home/luiz/distros
-	LxPupBionic-19.03+7.iso
-1
-d/home/luiz
-	Dropbox
-4
-d/home/luiz/Dropbox
-	Doutorado
-9
-d/home/luiz/Dropbox/Doutorado
-	qualificacoes
-4
-d/home/luiz/Dropbox/Doutorado/qualificacoes
-	qualificacao 1
-1
 d/home/luiz/Dropbox/Doutorado/qualificacoes/qualificacao 1
 	..
 0
@@ -339,6 +309,36 @@ d/home/luiz
 d/home
 	luiz2
 5
+d/home/luiz2
+	Dropbox
+6
+d/home/luiz2/Dropbox
+	Doutorado
+15
+d/home/luiz2/Dropbox/Doutorado
+	qualificacoes
+4
+d/home/luiz2/Dropbox/Doutorado/qualificacoes
+	qualificacao 1
+1
+d/home/luiz2/Dropbox/Doutorado/qualificacoes/qualificacao 1
+	reestruturacao
+2
+d/home/luiz2/Dropbox/Doutorado/qualificacoes/qualificacao 1/reestruturacao
+	example.pdf
+17
+d/home/luiz2/Dropbox/Doutorado/qualificacoes/qualificacao 1
+	reestruturacao
+2
+d/home/luiz2/Dropbox/Doutorado/qualificacoes
+	qualificacao 1
+1
+d/home/luiz2/Dropbox/Doutorado
+	qualificacoes
+4
+d/home/luiz2/Dropbox
+	Doutorado
+15
 d/home/luiz2
 	Dropbox
 6

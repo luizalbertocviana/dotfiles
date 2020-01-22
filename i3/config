@@ -194,6 +194,7 @@ exec --no-startup-id polybar example
 
 # monitor brightness
 set $brightness xrandr --output VGA-1 --brightness 0.50
+exec --no-startup-id $brightness
 
 # turns off beep on X applications
 exec --no-startup-id xset b off
