@@ -6,21 +6,21 @@
 	..
 1561406198
 'b
-	/home/luiz/bin/
+	/home/luiz2/bin/
 	..
-1561406198
+1575307957
 'd
-	/home/luiz/Dropbox
+	/home/luiz2/Dropbox
 	..
-1561490027
+1575307957
 'e
 	/home/luiz/distros
 	manjaro-xfce-18.0.4-x32-stable-minimal-i686.iso
 1561743868
 'h
-	/home/luiz/
+	/home/luiz2/
 	..
-1561492184
+1575307957
 'o
 	/home/luiz
 	distros
@@ -42,12 +42,6 @@ l12
 r2
 
 # Left window history (oldest to newest):
-d/home/luiz/Dropbox/fotos identidade
-	20161031_154439.jpg
-1
-d/home/luiz/Dropbox
-	fotos identidade
-11
 d/home/luiz
 	Dropbox
 4
@@ -342,6 +336,12 @@ d/home/luiz/livros/emacs
 d/home/luiz
 	Dropbox
 5
+d/home
+	luiz2
+5
+d/home/luiz2
+	Dropbox
+6
 d
 
 # Right window history (oldest to newest):
@@ -357,6 +357,9 @@ D/media
 D/home/luiz
 	Dropbox
 3
+D/home
+	
+0
 D
 
 # Command line history (oldest to newest):
