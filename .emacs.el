@@ -791,7 +791,7 @@
     )
     ;; ivy minibuffer
     (general-define-key
-      :keymaps 'ivy-minibuffer-map
+      :keymaps '(ivy-minibuffer-map ivy-switch-buffer-map)
         "C-h" 'keyboard-escape-quit
         "C-j" 'ivy-next-line
         "C-k" 'ivy-previous-line
