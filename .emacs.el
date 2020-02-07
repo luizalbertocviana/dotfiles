@@ -880,6 +880,9 @@
       :states  '(normal)
       :keymaps 'org-mode-map
       :prefix  "SPC m"
+        ;; timestamps
+        "D"     'org-time-stamp
+        "d"     'org-time-stamp-inactive
         ;; sorting
         "S"     'org-sort
         ;; editing
