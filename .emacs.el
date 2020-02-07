@@ -571,12 +571,13 @@
      :states  '(normal)
      :keymaps '(override)
      :prefix  "SPC b"
-       "b" 'buffer-menu
+       "D" 'kill-some-buffers
+       "B" 'buffer-menu
+       "b" 'ivy-switch-buffer
        "d" 'kill-this-buffer
        "e" 'eval-buffer
-       "D" 'kill-some-buffers
-       "y" 'clone-indirect-buffer-other-window
        "q" 'kill-buffer-and-window
+       "y" 'clone-indirect-buffer-other-window
     )
     (general-define-key
       :states  '(normal)
