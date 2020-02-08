@@ -888,11 +888,7 @@
         ;; editing
         "c"     'org-edit-special
         ;; exporting
-        "e b"   'org-beamer-export-as-latex
-        "e h"   'org-html-export-as-html
-        "e l"   'org-latex-export-as-latex
-        "e o"   'org-odt-export-to-odt
-        "e p"   'org-latex-export-to-pdf
+        "e"   'org-export-dispatch
         ;; headings
         "h h"   'org-promote-subtree
         "h l"   'org-demote-subtree
