@@ -378,6 +378,8 @@
         (latex . t)
        )
     )
+    ;; this makes beamer export options avaliable at the org dispatcher
+    (push 'beamer org-export-backends)
     (setq org-capture-templates
           '(
              ("c" "Capture" entry (file+datetree  "~/Dropbox/org/notes.org")
