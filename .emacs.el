@@ -354,6 +354,7 @@
 
 ;; org
 (use-package org
+  :ensure org-plus-contrib
   :hook
     ;; provides some completion in org mode
     (org-mode . (lambda () (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)))
