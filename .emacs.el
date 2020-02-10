@@ -768,6 +768,7 @@
         "d" 'xref-find-definitions
         "f" 'mark-defun
         "p" 'check-parens
+        "r" 'recompile
         ;; these only work in prog mode (or if you enable hs-minor-mode)
         "H" 'hs-hide-all
         "h" 'hs-toggle-hiding
@@ -1007,7 +1008,8 @@
       :states '(normal)
       :keymaps '(process-menu-mode-map)
       :prefix "SPC m"
-        "d" 'process-menu-delete-process)
+      "d" 'process-menu-delete-process
+    )
     ;; company completion popup.  I am using Meta because Control is
     ;; already bounded
     (general-define-key
