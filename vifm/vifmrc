@@ -176,7 +176,7 @@ command link ln -s %d/%f %D
 " program.
 
 " Pdf
-filextype *.pdf zathura %f &, apvlv %c, xpdf %c
+filextype *.pdf zathura %f &, pdfmod %f &, xpdf %c
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " tex files
