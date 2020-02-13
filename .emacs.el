@@ -520,6 +520,10 @@
     (c++-mode   . irony-mode)
     (c-mode     . irony-mode)
     (irony-mode . irony-cdb-autosetup-compile-options)
+  :config
+    ;; this installs irony-server in case it is not installed
+    (unless (irony--find-server-executable)
+      (call-interactively #'irony-install-server))
 )
 
 ;; hy mode (mostly for use with sagemath)
