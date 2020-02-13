@@ -524,6 +524,8 @@
     ;; this installs irony-server in case it is not installed
     (unless (irony--find-server-executable)
       (call-interactively #'irony-install-server))
+    ;; use clang-complete as default compilation database
+    (setq-default irony-cdb-compilation-databases '(irony-cdb-clang-complete))
 )
 
 ;; hy mode (mostly for use with sagemath)
@@ -1205,3 +1207,17 @@
         "u" 'gnus-server-remove-denials
     )
 )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (which-key use-package smartparens sly rainbow-delimiters org-plus-contrib magit latex-extra ivy-posframe gruvbox-theme general expand-region evil-surround evil-expat evil-escape evil-args elpy dashboard counsel company-reftex company-quickhelp company-math company-irony company-auctex biblio))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
