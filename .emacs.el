@@ -368,7 +368,13 @@
     (org-agenda-span 'month)
     ;; aligns tags on a reasonable column
     (org-agenda-tags-column 80)
+    ;; LaTeX exporting options
+    (org-latex-listings 'minted)
+    (org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+                             "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   :config
+    ;; add package minted (with options) to auto generated tex files
+    (push '("newfloat, cache = false" "minted") org-latex-packages-alist)
     ;; allowed languages
     (org-babel-do-load-languages
       'org-babel-load-languages
