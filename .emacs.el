@@ -205,8 +205,6 @@
     ;; some keybindings
     (evil-define-key 'normal 'global
       ;; movements
-      "j" "gj"
-      "k" "gk"
       "H" "^"
       "J" "}"
       "K" "{"
