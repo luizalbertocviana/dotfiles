@@ -7,7 +7,7 @@
 ;; substitute "yes or no" prompts for "y or n"
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; dont use dialog boxes, instead use minibuffer
+;; dont use dialog boxes, use minibuffer instead
 (setq use-dialog-box nil)
 
 ;; confirm before exiting emacs
