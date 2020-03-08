@@ -776,6 +776,7 @@
         "b" 'compile
         "c" 'comment-line
         "d" 'xref-find-definitions
+        "e" 'next-error
         "f" 'mark-defun
         "p" 'check-parens
         "r" 'recompile
