@@ -1001,18 +1001,18 @@
         "g" 'image-toggle-animation
     )
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(doc-view-mode-map)
-        "+" 'doc-view-enlarge
-        "-" 'doc-view-shrink
-        "G" 'doc-view-last-page
-        "J" 'doc-view-next-page
-        "K" 'doc-view-previous-page
-        "S" 'doc-view-search-backward
+        "+"  'doc-view-enlarge
+        "-"  'doc-view-shrink
+        "G"  'doc-view-last-page
+        "J"  'doc-view-next-page
+        "K"  'doc-view-previous-page
+        "S"  'doc-view-search-backward
         "gg" 'doc-view-first-page
-        "j" 'doc-view-next-line-or-next-page
-        "k" 'doc-view-previous-line-or-previous-page
-        "s" 'doc-view-search
+        "j"  'doc-view-next-line-or-next-page
+        "k"  'doc-view-previous-line-or-previous-page
+        "s"  'doc-view-search
     )
     ;; process mode
     (general-define-key
