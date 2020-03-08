@@ -1016,7 +1016,7 @@
     )
     ;; process mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(process-menu-mode-map)
       :prefix "SPC m"
       "d" 'process-menu-delete-process
