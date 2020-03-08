@@ -1030,6 +1030,15 @@
         "M-k" 'company-select-previous
         "M-l" 'company-complete
     )
+    ;; magit mode
+    (general-define-key
+      :states '(normal)
+      :keymaps 'magit-mode-map
+        "RET" 'magit-visit-thing
+        "TAB" 'magit-section-toggle
+        "j"   'magit-next-line
+        "k"   'magit-previous-line
+    )
     ;; latex mode
     (general-define-key
       :states  '(normal visual)
