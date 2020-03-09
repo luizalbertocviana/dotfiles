@@ -44,8 +44,12 @@
 ;; font
 (add-to-list 'default-frame-alist '(font . "monaco-10"))
 
-;; line numbers
+;; line numbers setup
+;; relative line numbering
 (setq display-line-numbers-type 'relative)
+;; minimum width (in characters) of line number column
+(setq-default display-line-numbers-width 4)
+;; activate line number mode globally
 (global-display-line-numbers-mode)
 
 ;; auto save
