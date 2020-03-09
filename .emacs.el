@@ -1040,6 +1040,8 @@
       :keymaps 'magit-mode-map
         "RET" 'magit-visit-thing
         "TAB" 'magit-section-toggle
+        "P"   'magit-push
+        "i"   'magit-gitignore
         "j"   'magit-next-line
         "k"   'magit-previous-line
     )
