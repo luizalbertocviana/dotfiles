@@ -530,7 +530,7 @@
     (irony-mode . irony-cdb-autosetup-compile-options)
   :config
     ;; this installs irony-server in case it is not installed
-    (unless (irony--find-server-executable)
+    (unless (ignore-errors (irony--find-server-executable))
       (call-interactively #'irony-install-server))
     ;; use clang-complete as default compilation database
     (setq-default irony-cdb-compilation-databases '(irony-cdb-clang-complete))
