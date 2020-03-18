@@ -1044,6 +1044,7 @@
         "i"   'magit-gitignore
         "j"   'magit-next-line
         "k"   'magit-previous-line
+        "r"   'magit-refresh
     )
     ;; latex mode
     (general-define-key
