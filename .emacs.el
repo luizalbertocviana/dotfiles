@@ -298,6 +298,8 @@
     ;; dired does not change last modified timestamp when copying
     ;; files
     (dired-copy-preserve-time t)
+    ;; human readable sizes
+    (dired-listing-switches "-alh")
   :config
     ;; this command is disabled by default, but I like this better
     ;; than 'dired-find-file
