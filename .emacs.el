@@ -526,6 +526,7 @@
 
 ;; irony mode for c/c++
 (use-package irony
+  :disabled
   :hook
     (c++-mode   . irony-mode)
     (c-mode     . irony-mode)
@@ -546,6 +547,10 @@
     (hy-shell--interpreter      "/home/luiz/SAGE/sage8.7/SageMath/local/bin/hy")
     (hy-shell--interpreter-args "")
 )
+
+(use-package eglot
+  :hook
+    (c++-mode . eglot-ensure))
 
 ;; keybindings
 (use-package general
@@ -1230,3 +1235,17 @@
         "u" 'gnus-server-remove-denials
     )
 )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (eglot which-key use-package smartparens sly rainbow-delimiters org-plus-contrib magit latex-extra ivy-posframe gruvbox-theme general expand-region evil-surround evil-expat evil-escape evil-args elpy dashboard counsel company-reftex company-quickhelp company-math company-irony company-auctex biblio))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
