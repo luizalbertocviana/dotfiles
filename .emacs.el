@@ -348,12 +348,6 @@
       :custom
         (company-reftex-max-annotation-length 80)
     )
-    ;; irony-mode for c/c++
-    (use-package company-irony
-      :after (irony)
-      :config
-        (push 'company-irony company-backends)
-    )
 )
 
 ;; org
@@ -522,21 +516,6 @@
     (lisp-mode . sly-mode)
   :custom
     (inferior-lisp-program "sbcl")
-)
-
-;; irony mode for c/c++
-(use-package irony
-  :disabled
-  :hook
-    (c++-mode   . irony-mode)
-    (c-mode     . irony-mode)
-    (irony-mode . irony-cdb-autosetup-compile-options)
-  :config
-    ;; this installs irony-server in case it is not installed
-    (unless (ignore-errors (irony--find-server-executable))
-      (call-interactively #'irony-install-server))
-    ;; use clang-complete as default compilation database
-    (setq-default irony-cdb-compilation-databases '(irony-cdb-clang-complete))
 )
 
 ;; hy mode (mostly for use with sagemath)
