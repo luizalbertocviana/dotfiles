@@ -4,7 +4,9 @@
 # 8.4
 #set -gx PATH '/home/luiz/SAGE/sage8.4/SageMath' $PATH 
 # 8.7
-set -gx PATH '/home/luiz/SAGE/sage8.7/SageMath' $PATH 
+# set -gx PATH '/home/luiz/SAGE/sage8.7/SageMath' $PATH 
+# 9.0
+set -gx PATH '/home/luiz/SAGE/sage9.0' $PATH 
 
 # GUROBI
 set -gx PATH $PATH '/home/luiz/GUROBI/gurobi752/linux64/bin'
@@ -22,3 +24,6 @@ set -gx PATH '/home/luiz/.ghcup/bin' $PATH
 
 # supress initial message
 set fish_greeting ""
+
+# java
+set -gx PATH '/home/luiz/jre/jre1.8.0_241/bin' $PATH 
