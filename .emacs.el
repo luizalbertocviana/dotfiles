@@ -497,19 +497,6 @@
   :commands (biblio-lookup)
 )
 
-;; python (mostly for sagemath's python)
-(use-package elpy
-  :defer t
-  :init
-    (advice-add 'python-mode :before 'elpy-enable)
-  :custom
-    ;; this makes elpy use sage's python
-    (python-shell-interpreter "~/SAGE/sage8.7/SageMath/sage")
-    (python-shell-interpreter-args "-ipython -i --simple-prompt")
-    (elpy-rpc-python-command "~/SAGE/sage8.7/SageMath/local/bin/python2.7")
-    (elpy-get-info-from-shell t)
-)
-
 ;; lisp sly
 (use-package sly
   :hook
@@ -529,7 +516,15 @@
 
 (use-package eglot
   :hook
-    (c++-mode . eglot-ensure))
+    (c++-mode    . eglot-ensure)
+    (python-mode . eglot-ensure)
+  :config
+    ;; python
+    (add-to-list 'eglot-server-programs
+                 `(python-mode . ("/home/luiz/SAGE/sage9.0/local/bin/python3.7" "-m" "pyls")))
+    (setq python-shell-interpreter "/home/luiz/SAGE/sage9.0/local/bin/ipython3")
+    (setq python-indent-offset 4)
+)
 
 ;; keybindings
 (use-package general
@@ -1065,9 +1060,10 @@
       :states  '(normal)
       :keymaps '(python-mode-map)
       :prefix  "SPC m"
-        "f" 'elpy-shell-send-defun-and-step
-        "b" 'elpy-shell-send-buffer
-        "k" 'elpy-shell-kill-all
+        "b" 'python-shell-send-buffer
+        "d" 'python-describe-at-point
+        "f" 'python-shell-send-defun
+        "r" 'run-python
     )
     ;; lisp mode
     (general-define-key
