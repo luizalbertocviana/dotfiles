@@ -565,6 +565,17 @@
         "r"   'async-shell-command
         "t"   'eshell
     )
+    ;; help menu
+    (general-define-key
+      :states '(normal)
+      :leymaps '(override)
+      :prefix "SPC h"
+        "f" 'describe-function
+        "k" 'describe-key
+        "m" 'describe-mode
+        "v" 'describe-variable
+    )
+    ;; buffer menu
     (general-define-key
      :states  '(normal)
      :keymaps '(override)
