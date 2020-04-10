@@ -1030,10 +1030,12 @@
         "RET" 'magit-visit-thing
         "TAB" 'magit-section-toggle
         "P"   'magit-push
+        "c"   'magit-commit
         "i"   'magit-gitignore
         "j"   'magit-next-line
         "k"   'magit-previous-line
         "r"   'magit-refresh
+        "s"   'magit-stage
     )
     ;; latex mode
     (general-define-key
