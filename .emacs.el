@@ -542,6 +542,7 @@
         "T"   '(:ignore t :which-key "text")
         "b"   '(:ignore t :which-key "buffers")
         "f"   '(:ignore t :which-key "files")
+        "h"   '(:ignore t :which-key "help")
         "m"   '(:ignore t :which-key "mode")
         "o"   '(:ignore t :which-key "org")
         "p"   '(:ignore t :which-key "program")
