@@ -564,13 +564,6 @@
         "r"   'async-shell-command
         "t"   'eshell
     )
-    ;; buffer navigation
-    (general-define-key
-      :states  '(normal)
-      :keymaps '(override)
-        "C-j" 'next-buffer
-        "C-k" 'previous-buffer
-    )
     (general-define-key
      :states  '(normal)
      :keymaps '(override)
