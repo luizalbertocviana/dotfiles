@@ -777,7 +777,7 @@
         "H" 'hs-hide-all
         "h" 'hs-toggle-hiding
     )
-    ;; cursor movements in insert mode
+    ;; cursor character-wise movements in insert mode
     (general-define-key
       :states  '(insert)
       :keymaps '(override)
