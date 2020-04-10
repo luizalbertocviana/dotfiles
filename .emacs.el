@@ -786,6 +786,15 @@
         "C-j" 'next-line
         "C-k" 'previous-line
     )
+    ;; cursor sexp-wise movements in normal mode
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(override)
+        "C-h" 'backward-sexp
+        "C-l" 'forward-sexp
+        "C-j" 'down-list
+        "C-k" 'backward-up-list
+    )
     ;; cursor movements in normal mode
     (general-define-key
       :states  '(normal)
