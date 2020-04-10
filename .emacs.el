@@ -152,6 +152,7 @@
     (setq evil-split-window-below t) 
     (setq evil-shift-round nil)
     (setq evil-want-C-u-scroll t)
+    (setq evil-move-beyond-eol t)
     ;; evil everywhere: every mode starts at normal state, and no mode
     ;; keymap overrides evil
     (setq evil-want-integration nil)
