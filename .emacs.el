@@ -1045,6 +1045,7 @@
         "k"   'magit-previous-line
         "r"   'magit-refresh
         "s"   'magit-stage
+        "u"   'magit-unstage
     )
     ;; latex mode
     (general-define-key
