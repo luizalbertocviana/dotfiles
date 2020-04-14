@@ -1088,7 +1088,7 @@
     ;; lisp mode
     (general-define-key
       :states  '(normal)
-      :keymaps '(lisp-mode-map)
+      :keymaps '(lisp-mode-map sly-mrepl-mode-map)
       :prefix  "SPC m"
         "A" 'sly-disassemble-symbol
         "C" 'sly-calls-who
