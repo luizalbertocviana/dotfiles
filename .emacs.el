@@ -1052,7 +1052,8 @@
       :states  '(normal visual)
       :keymaps 'LaTeX-mode-map
       :prefix  "SPC m"
-        "b" 'TeX-command-run-all 
+        "B" 'TeX-command-master
+        "b" 'TeX-command-run-all
         "e" 'LaTeX-environment
         "l" 'reftex-label
         "m" 'TeX-insert-macro
