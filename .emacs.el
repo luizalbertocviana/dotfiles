@@ -371,6 +371,8 @@
     (org-latex-listings 'minted)
     (org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
                              "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+    ;; uses sly to evaluate lisp code
+    (org-babel-lisp-eval-fn 'sly-eval)
   :config
     ;; add package minted (with options) to auto generated tex files
     (push '("newfloat, cache = false" "minted") org-latex-packages-alist)
@@ -382,6 +384,7 @@
         (shell . t)
         (python . t)
         (latex . t)
+        (lisp . t)
        )
     )
     ;; this makes beamer export options avaliable at the org
