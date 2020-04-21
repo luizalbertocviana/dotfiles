@@ -923,6 +923,8 @@
         ;; links
         "l o"   'org-open-at-point
         "l i"   'org-insert-link
+        ;; run source block
+        "r"     'org-babel-execute-src-block
         ;; spreadsheet
         "s d"   'org-table-blank-field
         "s s"   'org-table-sort-lines
