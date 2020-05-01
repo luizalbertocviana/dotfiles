@@ -520,6 +520,7 @@
     (hy-shell--interpreter-args "")
 )
 
+;; deals with language server protocol
 (use-package eglot
   :hook
     (c++-mode    . eglot-ensure)
