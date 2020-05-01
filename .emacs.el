@@ -373,6 +373,8 @@
                              "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
     ;; uses sly to evaluate lisp code
     (org-babel-lisp-eval-fn 'sly-eval)
+    ;; accepts letters as bullet points for lists
+    (org-list-allow-alphabetical t)
   :config
     ;; add package minted (with options) to auto generated tex files
     (push '("newfloat, cache = false" "minted") org-latex-packages-alist)
