@@ -4,9 +4,9 @@
 # 8.4
 #set -gx PATH '/home/luiz/SAGE/sage8.4/SageMath' $PATH 
 # 8.7
-# set -gx PATH '/home/luiz/SAGE/sage8.7/SageMath' $PATH 
+set -gx PATH '/home/luiz/SAGE/sage8.7/SageMath' $PATH 
 # 9.0
-set -gx PATH '/home/luiz/SAGE/sage9.0' $PATH 
+# set -gx PATH '/home/luiz/SAGE/sage9.0' $PATH 
 
 # GUROBI
 set -gx PATH $PATH '/home/luiz/GUROBI/gurobi752/linux64/bin'
