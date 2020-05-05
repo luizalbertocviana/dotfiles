@@ -27,3 +27,6 @@ set fish_greeting ""
 
 # java
 set -gx PATH '/home/luiz/jre/jre1.8.0_241/bin' $PATH 
+
+# luarocks
+set -gx PATH '/home/luiz/.luarocks/bin' $PATH
