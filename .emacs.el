@@ -797,7 +797,9 @@
       :states  '(normal)
       :keymaps '(override)
         "C-h" 'backward-sexp
-        "C-l" 'forward-sexp
+        ;; C-l puts cursor at the beginning of next sexp; forward-sexp
+        ;; alone would put cursor at the end of next sexp
+        "C-l" (lambda () (interactive) (forward-sexp 2) (backward-sexp))
         "C-j" 'down-list
         "C-k" 'backward-up-list
     )
