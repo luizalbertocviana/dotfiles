@@ -512,14 +512,6 @@
     (inferior-lisp-program "sbcl")
 )
 
-;; hy mode (mostly for use with sagemath)
-;; not feasible yet
-(use-package hy-mode :ensure nil
-  :disabled
-  :custom
-    (hy-shell--interpreter      "/home/luiz/SAGE/sage8.7/SageMath/local/bin/hy")
-    (hy-shell--interpreter-args "")
-)
 
 ;; deals with language server protocol
 (use-package eglot
