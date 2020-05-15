@@ -512,6 +512,10 @@
     (inferior-lisp-program "sbcl")
 )
 
+;; clojure
+(use-package clojure-mode
+  :config
+    (use-package cider))
 
 ;; deals with language server protocol
 (use-package eglot
