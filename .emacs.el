@@ -1136,6 +1136,19 @@
         "p" 'sly-stickers-replay-prev
         "q" 'kill-buffer-and-window
     )
+    ;; clojure mode
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(clojure-mode-map)
+      :prefix "SPC m"
+        "r" 'cider-jack-in
+        "b" 'cider-load-buffer
+        "l" 'cider-load-file
+        "e" 'cider-macroexpand-1
+        "f" 'cider-eval-defun-to-comment
+        "i" 'cider-inspect
+        "L" 'cider-load-all-files
+    )
     ;; gnus
     (general-define-key
       :states  '(normal)
