@@ -848,11 +848,12 @@
         "S" 'dired-do-symlink
         "T" 'dired-toggle-marks
         "U" 'dired-upcase
-        "Z" 'dired-do-compress-to
+        "Z" 'dired-do-compress
         "c" 'wdired-change-to-wdired-mode
         "d" 'dired-do-delete
         "g" 'dired-do-chgrp
         "h" 'dired-omit-mode
+        "i" (lambda () (interactive) (image-dired "./"))
         "l" 'dired-downcase
         "m" 'dired-do-chmod
         "n" 'dired-create-directory
@@ -862,8 +863,7 @@
         "s" 'dired-do-isearch-regexp
         "t" 'dired-do-async-shell-command
         "y" 'dired-do-copy
-        "z" 'dired-do-compress
-        "i" (lambda () (interactive) (image-dired "./"))
+        "z" 'dired-do-compress-to
     )
     (general-define-key
       :states  '(normal)
