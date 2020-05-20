@@ -525,11 +525,11 @@
   :config
     ;; python
     (add-to-list 'eglot-server-programs
-                 `(python-mode . ("/home/luiz/SAGE/sage9.0/local/bin/python3.7" "-m" "pyls")))
+                 `(python-mode . ("pypy3" "-m" "pyls")))
 )
 
-;; python setup (sagemath mostly)
-(setq python-shell-interpreter "/home/luiz/SAGE/sage9.0/local/bin/ipython3")
+;; python setup
+(setq python-shell-interpreter "pypy3")
 (setq python-indent-offset 4)
 
 ;; keybindings
