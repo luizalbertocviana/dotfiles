@@ -525,11 +525,10 @@
   :config
     ;; python
     (add-to-list 'eglot-server-programs
-                 `(python-mode . ("pypy3" "-m" "pyls")))
+                 `(python-mode . ("python" "-m" "pyls")))
 )
 
 ;; python setup
-(setq python-shell-interpreter "pypy3")
 (setq python-indent-offset 4)
 
 ;; keybindings
