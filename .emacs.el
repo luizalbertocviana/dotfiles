@@ -526,6 +526,9 @@
 ;; python setup
 (setq python-indent-offset 4)
 
+;; hy mode
+(use-package hy-mode)
+
 ;; keybindings
 (use-package general
   :config
