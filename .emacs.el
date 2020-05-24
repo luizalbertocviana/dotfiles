@@ -384,10 +384,11 @@
       'org-babel-load-languages
       '(
         (emacs-lisp . t)
-        (shell . t)
-        (python . t)
-        (latex . t)
-        (lisp . t)
+        (shell      . t)
+        (python     . t)
+        (latex      . t)
+        (lisp       . t)
+        (C          . t)
        )
     )
     ;; this makes beamer export options avaliable at the org
