@@ -90,13 +90,7 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; bootstrap use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
-;; this makes use-package install every package declared below (unless
-;; otherwise stated)
-(setq use-package-always-ensure t)
+(straight-use-package 'use-package)
 
 ;; manage matching pairs
 (use-package smartparens
