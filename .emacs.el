@@ -6,6 +6,17 @@
       ;; avoid regex search for el and elc files loaded during startup
       file-name-handler-alist nil)
 
+;; we do not use package.el
+(setq package-enable-at-startup nil)
+;; this keeps emacs from appending variables to the end this file
+(setq package--init-file-ensured t)
+
+;; resizing makes no sense if frame is always used maximized
+(setq frame-inhibit-implied-resize t)
+
+;; makes the simplest mode possible our initial one
+(setq initial-major-mode 'fundamental-mode)
+
 ;; inhibit useless and old-school startup screen
 (setq inhibit-startup-screen t )
 (menu-bar-mode -1)
