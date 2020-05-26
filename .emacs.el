@@ -73,18 +73,6 @@
 (setq user-full-name "Luiz Alberto do Carmo Viana")
 (setq user-mail-address "luizalbertocviana@gmail.com")
 
-;; Load package manager, add Melpa (and others) to the package
-;; registry
-(require 'package)
-    (add-to-list 'package-archives
-        '("melpa" . "http://melpa.milkbox.net/packages/") t)
-    (add-to-list 'package-archives
-        '("gnu" . "http://elpa.gnu.org/packages/"))
-    (add-to-list 'package-archives
-        '("org" . "http://orgmode.org/elpa/") t)
-    (add-to-list 'package-archives
-        '("tromey" . "http://tromey.com/elpa/") t)
-(package-initialize)
 
 ;; bootstrap use-package
 (unless (package-installed-p 'use-package)
