@@ -806,8 +806,7 @@
     (general-define-key
       :states  '(normal)
       :keymaps 'dashboard-mode-map
-        "r" (general-simulate-key "r" :state 'insert)
-        "a" (general-simulate-key "a" :state 'insert)
+        "r" (general-simulate-key "r" :state 'emacs)
         "l" 'dashboard-return
     )
     ;; ivy minibuffer
