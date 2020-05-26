@@ -1,3 +1,11 @@
+;; startup preparations
+(defvar last-file-name-handler-alist file-name-handler-alist)
+;; relax garbage collector a little
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6
+      ;; avoid regex search for el and elc files loaded during startup
+      file-name-handler-alist nil)
+
 ;; inhibit useless and old-school startup screen
 (setq inhibit-startup-screen t )
 (menu-bar-mode -1)
@@ -1247,3 +1255,8 @@
         "u" 'gnus-server-remove-denials
     )
 )
+
+;; after initialization, revert startup preparations
+(setq gc-cons-threshold 16777216
+      gc-cons-percentage 0.1
+      file-name-handler-alist last-file-name-handler-alist)
