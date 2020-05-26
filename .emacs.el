@@ -100,7 +100,7 @@
       (sp-pair "`" nil :actions :rem))
   :config
     ;; the following package is installed automatically
-    (use-package smartparens-config :ensure nil)
+    (use-package smartparens-config :straight nil)
     (smartparens-global-mode t)
     ;; highlights matching pairs
     (show-smartparens-global-mode 1)
@@ -288,7 +288,7 @@
 )
 
 ;; dired file manager
-(use-package dired-x :ensure nil
+(use-package dired-x :straight nil
   :hook
     (dired-mode . dired-omit-mode)
   :custom
@@ -308,7 +308,7 @@
     ;; into a :custom section (dont know why))
     (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
     ;; this makes dired list directories first
-    (use-package ls-lisp :ensure nil
+    (use-package ls-lisp :straight nil
       :custom
         (ls-lisp-dirs-first t)
         (ls-lisp-use-insert-directory-program nil)
@@ -352,7 +352,7 @@
 
 ;; org
 (use-package org
-  :ensure org-plus-contrib
+  :straight org-plus-contrib
   :hook
     ;; provides some completion in org mode
     (org-mode . (lambda () (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)))
@@ -403,7 +403,7 @@
 )
 
 ;; mail/news reader
-(use-package gnus :ensure nil
+(use-package gnus :straight nil
   :defer t
   :custom
     (gnus-auto-center-summary nil)
@@ -432,7 +432,7 @@
 
 ;; LaTeX
 (use-package tex-site
-  :ensure auctex
+  :straight auctex
   :mode ("\\.tex\\'" . latex-mode)
   :hook
     ;; synctex and stuff
