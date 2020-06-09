@@ -540,6 +540,9 @@
                  `(python-mode . ("python" "-m" "pyls")))
 )
 
+;; c++ setup (adds current dir and home include to gcc include search)
+(setenv "CPATH" ":/home/luiz/include")
+
 ;; python setup
 (setq python-indent-offset 4)
 
