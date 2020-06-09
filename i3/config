@@ -46,8 +46,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec $terminal
-bindsym $mod+Return exec $terminal -e fish
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+c kill
