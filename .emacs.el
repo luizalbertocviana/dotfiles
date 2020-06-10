@@ -852,7 +852,7 @@
         "k" 'dired-previous-line
         "l" 'dired-find-alternate-file
         "m" 'dired-mark
-        "s" 'dired-isearch-filenames-regexp
+        "s" 'evil-ex-search-forward
         "u" 'dired-undo
         "y" 'dired-copy-filename-as-kill
     )
