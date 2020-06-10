@@ -591,6 +591,7 @@
       :leymaps '(override)
       :prefix "SPC h"
         "f" 'describe-function
+        "h" 'help-for-help
         "k" 'describe-key
         "m" 'describe-mode
         "v" 'describe-variable
