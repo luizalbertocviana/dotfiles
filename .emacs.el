@@ -542,6 +542,7 @@
 
 ;; c++ setup (adds current dir and home include to gcc include search)
 (setenv "CPATH" ":/home/luiz/include")
+(use-package disaster)
 
 ;; python setup
 (setq python-indent-offset 4)
