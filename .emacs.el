@@ -1111,6 +1111,16 @@
         "f" 'python-shell-send-defun
         "r" 'run-python
     )
+    ;; c++ mode
+    (general-define-key
+      :states  '(normal)
+      :keymaps '(c++-mode-map)
+      :prefix  "SPC m"
+        "b" 'compile
+        "d" 'disaster
+        "e" 'next-error
+        "r" 'recompile
+    )
     ;; lisp mode
     (general-define-key
       :states  '(normal)
