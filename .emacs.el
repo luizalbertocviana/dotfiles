@@ -542,6 +542,7 @@
 
 ;; c++ setup (adds current dir and home include to gcc include search)
 (setenv "CPATH" ":/home/luiz/include")
+(add-hook 'gdb-mode-hook 'gdb-many-windows)
 (use-package disaster)
 
 ;; python setup
@@ -1120,7 +1121,8 @@
       :keymaps '(c++-mode-map)
       :prefix  "SPC m"
         "b" 'compile
-        "d" 'disaster
+        "D" 'disaster
+        "d" 'gdb
         "e" 'next-error
         "r" 'recompile
     )
