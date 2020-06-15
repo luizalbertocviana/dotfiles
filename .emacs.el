@@ -559,6 +559,7 @@
       :keymaps '(override)
       :prefix  "SPC"
         "TAB" '(:ignore t :which-key "last buffer")
+        "SPC" '(:ignore t :which-key "more")
         "S"   '(:ignore t :which-key "spell")
         "T"   '(:ignore t :which-key "text")
         "b"   '(:ignore t :which-key "buffers")
@@ -577,6 +578,7 @@
       :keymaps '(override)
       :prefix  "SPC"
         "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer)))
+        "SPC" 'tmm-menubar
         "P"   'list-processes
         "a"   'counsel-linux-app
         "c"   'calendar
