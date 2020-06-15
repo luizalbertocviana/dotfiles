@@ -1066,6 +1066,7 @@
         "RET" 'magit-visit-thing
         "TAB" 'magit-section-toggle
         "P"   'magit-push
+        "a"   'magit-commit-amend
         "c"   'magit-commit
         "i"   'magit-gitignore
         "j"   'magit-next-line
