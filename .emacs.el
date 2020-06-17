@@ -1072,6 +1072,7 @@
         "i"   'magit-gitignore
         "j"   'magit-next-line
         "k"   'magit-previous-line
+        "q"   'magit-mode-bury-buffer
         "r"   'magit-refresh
         "s"   'magit-stage
         "u"   'magit-unstage
