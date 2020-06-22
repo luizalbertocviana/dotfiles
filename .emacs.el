@@ -369,9 +369,6 @@
     )
 )
 
-;; jupyter setup
-(use-package jupyter)
-
 ;; org
 (use-package org
   :straight org-plus-contrib
@@ -549,6 +546,8 @@
 
 ;; python setup
 (setq python-indent-offset 4)
+;; jupyter setup
+(use-package jupyter)
 
 ;; hy mode
 (use-package hy-mode)
