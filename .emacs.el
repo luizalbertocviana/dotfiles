@@ -1112,10 +1112,10 @@
       :states  '(normal)
       :keymaps '(python-mode-map)
       :prefix  "SPC m"
-        "b" 'python-shell-send-buffer
-        "d" 'python-describe-at-point
-        "f" 'python-shell-send-defun
-        "r" 'run-python
+        "b" 'jupyter-eval-buffer
+        "d" 'jupyter-inspect-at-point
+        "f" 'jupyter-eval-defun
+        "r" 'jupyter-run-repl
     )
     ;; c++ mode
     (general-define-key
