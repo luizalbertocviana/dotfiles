@@ -369,6 +369,9 @@
     )
 )
 
+;; jupyter setup
+(use-package jupyter)
+
 ;; org
 (use-package org
   :straight org-plus-contrib
