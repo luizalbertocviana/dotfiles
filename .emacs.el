@@ -540,8 +540,7 @@
                  `(python-mode . ("python" "-m" "pyls")))
 )
 
-;; c++ setup (adds current dir and home include to gcc include search)
-(setenv "CPATH" ":/home/luiz/include")
+;; c++ setup
 (add-hook 'gdb-mode-hook 'gdb-many-windows)
 (use-package disaster)
 
