@@ -116,6 +116,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export CPATH=":/home/luiz/include"
-
 exec fish
