@@ -1119,7 +1119,6 @@
       :keymaps '(c++-mode-map)
       :prefix  "SPC m"
         "b" 'compile
-        "D" 'disaster
         "d" 'gdb
         "e" 'next-error
         "r" 'recompile
