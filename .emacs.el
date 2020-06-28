@@ -540,10 +540,6 @@
                  `(python-mode . ("python" "-m" "pyls")))
 )
 
-;; c++ setup
-(add-hook 'gdb-mode-hook 'gdb-many-windows)
-(use-package disaster)
-
 ;; python setup
 (setq python-indent-offset 4)
 ;; jupyter setup
