@@ -1124,6 +1124,21 @@
         "e" 'next-error
         "r" 'recompile
     )
+    ;; gdb mode
+    (general-define-key
+      :states '(normal)
+      :keymaps '(gud-mode-map)
+      :prefix "SPC m"
+        "S" 'gdb-display-stack-for-thread
+        "b" 'gdb-display-breakpoints-buffer
+        "d" 'gdb-display-disassembly-buffer
+        "g" 'gdb-display-gdb-buffer
+        "i" 'gdb-display-io-buffer
+        "l" 'gdb-display-locals-for-thread
+        "m" 'gdb-display-memory-buffer
+        "r" 'gdb-display-registers-for-thread
+        "t" 'gdb-display-threads-buffer
+    )
     ;; lisp mode
     (general-define-key
       :states  '(normal)
