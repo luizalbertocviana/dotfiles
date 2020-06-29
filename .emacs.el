@@ -1128,18 +1128,15 @@
     )
     ;; gdb mode
     (general-define-key
-      :states '(normal)
+      :states  '(normal)
       :keymaps '(gud-mode-map)
       :prefix "SPC m"
-        "S" 'gdb-display-stack-for-thread
-        "b" 'gdb-display-breakpoints-buffer
-        "d" 'gdb-display-disassembly-buffer
-        "g" 'gdb-display-gdb-buffer
-        "i" 'gdb-display-io-buffer
-        "l" 'gdb-display-locals-for-thread
-        "m" 'gdb-display-memory-buffer
-        "r" 'gdb-display-registers-for-thread
-        "t" 'gdb-display-threads-buffer
+        "b" 'gdb-frame-breakpoints-buffer
+        "d" 'gdb-frame-disassembly-buffer
+        "i" 'gdb-frame-io-buffer
+        "l" 'gdb-frame-locals-buffer
+        "m" 'gdb-frame-memory-buffer
+        "s" 'gdb-frame-stack-buffer
     )
     ;; lisp mode
     (general-define-key
