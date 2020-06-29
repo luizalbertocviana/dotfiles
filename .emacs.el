@@ -540,6 +540,9 @@
                  `(python-mode . ("python" "-m" "pyls")))
 )
 
+;; gdb setup
+(setq gdb-display-io-nopopup t)
+
 ;; python setup
 (setq python-indent-offset 4)
 ;; jupyter setup
