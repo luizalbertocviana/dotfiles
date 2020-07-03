@@ -130,9 +130,9 @@
 (use-package flyspell :defer t)
 
 ;; gruvbox theme
-(use-package gruvbox-theme
+(use-package zenburn-theme
   :config
-    (load-theme 'gruvbox-dark-hard t)
+    (load-theme 'zenburn t)
 )
 
 ;; mode line setup
