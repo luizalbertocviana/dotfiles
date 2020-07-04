@@ -129,10 +129,10 @@
 ;; spell checking
 (use-package flyspell :defer t)
 
-;; gruvbox theme
-(use-package zenburn-theme
+;; colorscheme setup
+(use-package doom-themes
   :config
-    (load-theme 'zenburn t)
+    (load-theme 'doom-one t)
 )
 
 ;; mode line setup
