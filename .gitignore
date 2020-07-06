@@ -7,3 +7,4 @@ vifminfo
 /#.emacs.el#
 /.bashrc~
 /#.bashrc#
+/.emacs.d/auto-save-list/
