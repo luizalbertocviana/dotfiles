@@ -1,0 +1,1 @@
+/home/luiz/.emacs.d/straight/repos/emacs-theme-gruvbox/gruvbox-light-medium-theme.el
