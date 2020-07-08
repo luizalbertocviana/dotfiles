@@ -190,6 +190,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-volumed-pulse
 exec --no-startup-id compton
 exec --no-startup-id polybar example
+exec --no-startup-id emacs-server
 
 # turns off beep on X applications
 exec --no-startup-id xset b off
