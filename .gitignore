@@ -8,3 +8,4 @@ vifminfo
 /.bashrc~
 /#.bashrc#
 /.emacs.d/auto-save-list/
+/fish/fish_variables
