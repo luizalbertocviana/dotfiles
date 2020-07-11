@@ -21,7 +21,7 @@ set $green #00FF00
 set $bg_color $black
 
 # Apps
-set $terminal urxvt
+set $terminal emacs --eval "(new-eshell)"
 set $locker i3lock -c 000000
 set $status i3blocks -c ~/.config/i3/i3blocks.conf
 set $launcher rofi -show run
