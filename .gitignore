@@ -9,3 +9,5 @@ vifminfo
 /#.bashrc#
 /.emacs.d/auto-save-list/
 /fish/fish_variables
+/.vim/.netrwhist
+/.vim/temp_dirs/
