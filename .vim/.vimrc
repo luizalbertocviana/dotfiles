@@ -26,20 +26,15 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 call which_key#register('<Space>', "g:which_key_map")
 
-let g:which_key_map =  {}
+let g:which_key_map = {}
+
+let g:which_key_map.t = ['terminal', 'terminal']
+let g:which_key_map.q = ['quit', 'quit']
 
 let g:which_key_map.f = {
       \ 'name' : '+file',
       \ 's' : ['update'          , 'save-file']   ,
-      \ 'd' : [':e $MYVIMRC' , 'open-vimrc']   ,
-      \ }
-
-nnoremap <silent> <leader>oq  :copen<CR>
-nnoremap <silent> <leader>ol  :lopen<CR>
-let g:which_key_map.o = {
-      \ 'name' : '+open',
-      \ 'q' : 'open-quickfix'    ,
-      \ 'l' : 'open-locationlist',
+      \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
       \ }
 
 let g:which_key_map.b = {
