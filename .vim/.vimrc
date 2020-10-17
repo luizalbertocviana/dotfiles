@@ -11,10 +11,17 @@ call plug#begin('~/.vim/plugged')
   " which-key
   Plug 'liuchengxu/vim-which-key'
   " colorscheme
-  Plug 'tomasr/molokai'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
-colorscheme molokai
+" colorscheme setup
+set background=dark
+colorscheme gruvbox
+
+" autocomplete setup
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 let g:mapleader = " "
 nnoremap <SPACE> <Nop>
@@ -28,13 +35,21 @@ call which_key#register('<Space>', "g:which_key_map")
 
 let g:which_key_map = {}
 
+" jk puts terminal into normal mode
+tnoremap jk <C-W>N
 let g:which_key_map.t = ['terminal', 'terminal']
 let g:which_key_map.q = ['quit', 'quit']
+
+" :W sudo saves the file 
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
 
 let g:which_key_map.f = {
       \ 'name' : '+file',
       \ 's' : ['update'          , 'save-file']   ,
+      \ 'S' : [':W'          , 'save-sudo']   ,
       \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
+      \ 'o' : [':e .' , 'open']   ,
       \ }
 
 let g:which_key_map.b = {
@@ -42,11 +57,20 @@ let g:which_key_map.b = {
       \ 'd' : ['bd'        , 'delete-buffer']   ,
       \ 'j' : ['bnext'     , 'next-buffer']     ,
       \ 'k' : ['bprevious' , 'previous-buffer'] ,
+      \ 'l' : ['ls' , 'list'] ,
       \ }
 
-" :W sudo saves the file 
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+let g:which_key_map.w = {
+    \ 'name' : '+windows',        
+    \ 's' : ['sp', 'split'],        
+    \ 'v' : ['vsp', 'vertical-split'],        
+    \ 'w' : ['<C-w>w', 'switch-windows'],        
+    \ 'd' : ['<C-w>q', 'close-windows'],        
+    \ 'h' : ['<C-w>h', 'left-window'],        
+    \ 'l' : ['<C-w>l', 'right-window'],        
+    \ 'j' : ['<C-w>j', 'below-window'],        
+    \ 'k' : ['<C-w>k', 'above-window'],        
+    \ }
 
 " Sets how many lines of history VIM has to remember
 set history=500
