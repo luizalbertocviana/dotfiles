@@ -177,4 +177,3 @@ nnoremap L $
 
 " makes Y consistent with C and D, since original Y behavior is equivalent to yy
 nnoremap Y y$
-
