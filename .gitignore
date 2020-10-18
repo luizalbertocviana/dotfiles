@@ -11,3 +11,4 @@ vifminfo
 /fish/fish_variables
 /.vim/.netrwhist
 /.vim/temp_dirs/
+/.vim/plugged/
