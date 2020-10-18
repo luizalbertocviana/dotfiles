@@ -1,35 +1,66 @@
+""" VimPlug setup
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
   " lsp
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
-  " autocomplete
-  Plug 'prabirshrestha/asyncomplete.vim'
-  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " which-key
   Plug 'liuchengxu/vim-which-key'
   " colorscheme
   Plug 'morhetz/gruvbox'
 call plug#end()
 
-" colorscheme setup
+""" lsp setup (extracted from neoclide/coc.nvim)
+
+set hidden
+
+set nobackup
+set nowritebackup
+
+set updatetime=300
+
+set shortmess+=c
+
+set signcolumn=yes
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+""" colorscheme setup
+
 set background=dark
 colorscheme gruvbox
 
-" autocomplete setup
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+""" vim-which-key setup
 
+" I'm going to put some useful keybindings and commands in this section as
+" well
+
+" use space as leader key
 let g:mapleader = " "
 nnoremap <SPACE> <Nop>
+" use \ as local leader key
 let g:maplocalleader = "\\"
 nnoremap \ <Nop>
 
+" pressing jk in insert mode is equivalent to pressing esc
+inoremap jk <esc>
+
+" fast navegation
+nnoremap K {
+nnoremap J }
+nnoremap H ^
+nnoremap L $
+
+" makes Y consistent with C and D, since original Y behavior is equivalent to yy
+nnoremap Y y$
+
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 
 call which_key#register('<Space>', "g:which_key_map")
 
@@ -71,6 +102,8 @@ let g:which_key_map.w = {
     \ 'j' : ['<C-w>j', 'below-window'],        
     \ 'k' : ['<C-w>k', 'above-window'],        
     \ }
+
+""" a lot of options
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -165,15 +198,3 @@ set number
 
 " highlits current line
 set cursorline 
-
-" pressing jk in insert mode is equivalent to pressing esc
-inoremap jk <esc>
-
-" fast navegation
-nnoremap K {
-nnoremap J }
-nnoremap H ^
-nnoremap L $
-
-" makes Y consistent with C and D, since original Y behavior is equivalent to yy
-nnoremap Y y$
