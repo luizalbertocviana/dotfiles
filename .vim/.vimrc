@@ -20,6 +20,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
 call plug#end()
 
+""" lightline setup
+
+set noshowmode
+
+""" ctrlp setup
+
+let g:ctrlp_working_path_mode = 'ra'
+
 """ lsp setup (extracted from neoclide/coc.nvim)
 
 set hidden
