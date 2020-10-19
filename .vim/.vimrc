@@ -10,6 +10,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'liuchengxu/vim-which-key'
   " colorscheme
   Plug 'morhetz/gruvbox'
+  " useful plugins
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'kien/ctrlp.vim'
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 """ lsp setup (extracted from neoclide/coc.nvim)
