@@ -88,7 +88,7 @@ let g:which_key_map.f = {
       \ 's' : ['update'          , 'save-file']   ,
       \ 'S' : [':W'          , 'save-sudo']   ,
       \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
-      \ 'o' : [':e .' , 'open']   ,
+      \ 'o' : ['CtrlP' , 'open']   ,
       \ }
 
 let g:which_key_map.b = {
