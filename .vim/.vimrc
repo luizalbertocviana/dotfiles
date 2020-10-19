@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
   Plug 'kien/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'preservim/nerdtree'
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 """ lsp setup (extracted from neoclide/coc.nvim)
