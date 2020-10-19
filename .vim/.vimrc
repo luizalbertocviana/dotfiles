@@ -81,6 +81,8 @@ let g:which_key_map.q = ['quit', 'quit']
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+let g:which_key_map.c = {'name' : '+comment'}
+
 let g:which_key_map.f = {
       \ 'name' : '+file',
       \ 's' : ['update'          , 'save-file']   ,
