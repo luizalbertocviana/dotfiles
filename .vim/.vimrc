@@ -78,8 +78,9 @@ call which_key#register('<Space>', "g:which_key_map")
 
 let g:which_key_map = {}
 
-" jk puts terminal into normal mode
+" jk or kj puts terminal into normal mode
 tnoremap jk <C-W>N
+tnoremap kj <C-W>N
 let g:which_key_map.t = ['terminal', 'terminal']
 let g:which_key_map.q = ['quit', 'quit']
 
@@ -117,6 +118,7 @@ let g:which_key_map.w = {
     \ 'l' : ['<C-w>l', 'right-window'],        
     \ 'j' : ['<C-w>j', 'below-window'],        
     \ 'k' : ['<C-w>k', 'above-window'],        
+    \ 'm' : ['<C-w>o', 'maximize'],        
     \ }
 
 """ a lot of options
