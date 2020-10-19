@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   " useful plugins
   Plug 'tpope/vim-surround'
-  Plug 'vim-airline/vim-airline'
+  Plug 'itchyny/lightline.vim'
   Plug 'scrooloose/nerdcommenter'
   Plug 'kien/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
