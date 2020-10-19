@@ -213,3 +213,6 @@ set number
 
 " highlits current line
 set cursorline 
+
+" automatically change current working directory
+set autochdir
