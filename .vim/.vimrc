@@ -63,8 +63,9 @@ nnoremap <SPACE> <Nop>
 let g:maplocalleader = "\\"
 nnoremap \ <Nop>
 
-" pressing jk in insert mode is equivalent to pressing esc
+" pressing jk or kj in insert mode is equivalent to pressing esc
 inoremap jk <esc>
+inoremap kj <esc>
 
 " fast navegation
 nnoremap K {
@@ -98,15 +99,17 @@ let g:which_key_map.f = {
       \ 's' : ['update'          , 'save-file']   ,
       \ 'S' : [':W'          , 'save-sudo']   ,
       \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
-      \ 'o' : ['CtrlP' , 'open']   ,
+      \ 'f' : ['CtrlP' , 'find']   ,
+      \ 'o' : ['NERDTreeToggle' , 'open']   ,
+      \ 'r' : ['CtrlPMRUFiles' , 'recent']   ,
       \ }
 
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
+      \ 'b' : ['CtrlPBuffer'        , 'buffers']   ,
       \ 'd' : ['bd'        , 'delete-buffer']   ,
       \ 'j' : ['bnext'     , 'next-buffer']     ,
       \ 'k' : ['bprevious' , 'previous-buffer'] ,
-      \ 'l' : ['ls' , 'list'] ,
       \ }
 
 let g:which_key_map.w = {
