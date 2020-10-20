@@ -1,3 +1,8 @@
+" warns about absence of nodejs
+if !executable('node')
+      echo "you need node installed to properly use this setup"
+endif
+
 """ VimPlug setup
 
 " Specify a directory for plugins
