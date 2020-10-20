@@ -10,7 +10,9 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
   " lsp
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  if executable('node')
+      Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  endif
   " which-key
   Plug 'liuchengxu/vim-which-key'
   " colorscheme
