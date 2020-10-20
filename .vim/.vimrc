@@ -37,6 +37,14 @@ let g:ctrlp_working_path_mode = 'ra'
 
 """ lsp setup (extracted from neoclide/coc.nvim)
 
+" add extensions you want to be automatically installed
+" use :CocList marketplace to discover new extensions
+let g:coc_global_extensions = [
+      \ "coc-marketplace",
+      \ "coc-rust-analyzer",
+      \ "coc-clangd"
+      \ ]
+
 set hidden
 
 set nobackup
