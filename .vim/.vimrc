@@ -98,7 +98,8 @@ let g:which_key_map = {}
 tnoremap jk <C-W>N
 tnoremap kj <C-W>N
 let g:which_key_map.t = ['terminal', 'terminal']
-let g:which_key_map.q = ['quit', 'quit']
+let g:which_key_map.q = [':q', 'quit']
+let g:which_key_map.Q = [':q!', 'force-quit']
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
@@ -120,6 +121,7 @@ let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
       \ 'b' : ['CtrlPBuffer'        , 'buffers']   ,
       \ 'd' : ['bd'        , 'delete-buffer']   ,
+      \ 'D' : [':bd!'        , 'force-delete-buffer']   ,
       \ 'j' : ['bnext'     , 'next-buffer']     ,
       \ 'k' : ['bprevious' , 'previous-buffer'] ,
       \ }
