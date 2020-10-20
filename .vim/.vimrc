@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
   " which-key
   Plug 'liuchengxu/vim-which-key'
   " colorscheme
-  Plug 'morhetz/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
   " useful plugins
   Plug 'tpope/vim-surround'
   Plug 'itchyny/lightline.vim'
@@ -59,7 +59,7 @@ set signcolumn=yes
 """ colorscheme setup
 
 set background=dark
-colorscheme gruvbox
+colorscheme PaperColor
 
 """ vim-which-key setup
 
