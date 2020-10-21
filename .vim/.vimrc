@@ -133,6 +133,7 @@ let g:which_key_map.b = {
       \ 'd' : ['bd'        , 'delete-buffer']   ,
       \ 'D' : [':bd!'        , 'force-delete-buffer']   ,
       \ 'j' : ['bnext'     , 'next-buffer']     ,
+      \ 'l' : ['<C-^>' , 'last-buffer'] ,
       \ 'k' : ['bprevious' , 'previous-buffer'] ,
       \ }
 
