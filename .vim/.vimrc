@@ -29,9 +29,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   " useful plugins
   Plug 'tpope/vim-surround'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'kien/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'preservim/nerdtree'
   Plug 'sheerun/vim-polyglot'
@@ -40,10 +41,6 @@ call plug#end()
 """ lightline setup
 
 set noshowmode
-
-""" ctrlp setup
-
-let g:ctrlp_working_path_mode = 'ra'
 
 """ lsp setup (extracted from neoclide/coc.nvim)
 
@@ -122,14 +119,14 @@ let g:which_key_map.f = {
       \ 's' : ['update'          , 'save-file']   ,
       \ 'S' : [':W'          , 'save-sudo']   ,
       \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
-      \ 'f' : ['CtrlP' , 'find']   ,
+      \ 'f' : ['Files', 'find']   ,
       \ 'o' : ['NERDTreeToggle' , 'open']   ,
-      \ 'r' : ['CtrlPMRUFiles' , 'recent']   ,
+      \ 'r' : ['History' , 'recent']   ,
       \ }
 
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ 'b' : ['CtrlPBuffer'        , 'buffers']   ,
+      \ 'b' : ['Buffers'        , 'buffers']   ,
       \ 'd' : ['bd'        , 'delete-buffer']   ,
       \ 'D' : [':bd!'        , 'force-delete-buffer']   ,
       \ 'j' : ['bnext'     , 'next-buffer']     ,
