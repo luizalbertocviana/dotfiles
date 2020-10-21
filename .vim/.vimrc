@@ -25,6 +25,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'liuchengxu/vim-which-key'
   " colorscheme
   Plug 'NLKNguyen/papercolor-theme'
+  " git integration
+  Plug 'tpope/vim-fugitive'
   " useful plugins
   Plug 'tpope/vim-surround'
   Plug 'itchyny/lightline.vim'
