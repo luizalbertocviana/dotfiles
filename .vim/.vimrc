@@ -47,6 +47,7 @@ set noshowmode
 
 " add extensions you want to be automatically installed
 " use :CocList marketplace to discover new extensions
+" coc-json is useful for editing coc-settings.json
 let g:coc_global_extensions = [
       \ "coc-marketplace",
       \ "coc-json",
@@ -147,6 +148,42 @@ let g:which_key_map.w = {
     \ 'k' : ['<C-w>k', 'above-window'],        
     \ 'm' : ['<C-w>o', 'maximize'],        
     \ }
+
+let g:which_key_map.g = {
+    \ 'name' : '+go-to',        
+    \ 'e' : ['<Plug>(coc-diagnostic-next)', 'next-error'],        
+    \ 'E' : ['<Plug>(coc-diagnostic-prev)', 'previous-error'],        
+    \ 'd' : ['<Plug>(coc-definition)', 'definition'],        
+    \ 't' : ['<Plug>(coc-type-definition)', 'type'],        
+    \ 'i' : ['<Plug>(coc-implementation)', 'implementation'],        
+    \ 'r' : ['<Plug>(coc-references)', 'references'],        
+    \ }
+
+runtime ftplugin/man.vim
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Is there a better way to do this?
+let g:which_key_map.h = ['ShowDoc', 'help']
+command! -nargs=0 ShowDoc :call <SID>show_documentation()<CR>
+
+let g:which_key_map.t = {
+    \ 'name' : '+text',        
+    \ 'r' : ['<Plug>(coc-rename)', 'rename'],        
+    \ 'f' : ['Format', 'format'],        
+    \ 'z' : ['Fold', 'zip'],        
+    \ 'o' : ['za', 'open'],        
+    \ }
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 """ a lot of options
 
