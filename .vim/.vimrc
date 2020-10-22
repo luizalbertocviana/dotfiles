@@ -1,11 +1,12 @@
 " warns about absence of nodejs
 if !executable('node')
-      echo "you need node installed to properly use this setup"
+      echo "node is not in your PATH. This vimrc is heavily dependent on it"
+      quit
 endif
 
 """ VimPlug setup
 
-" this automatically install VimPlug and the listed plugins
+" this automatically installs VimPlug and the listed plugins
 " if you add more plugins after first run, use :PlugInstall
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
