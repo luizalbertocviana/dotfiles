@@ -9,34 +9,32 @@ endif
 " this automatically installs VimPlug and the listed plugins
 " if you add more plugins after first run, use :PlugInstall
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-  " lsp
-  if executable('node')
-      Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  endif
-  " which-key
-  Plug 'liuchengxu/vim-which-key'
-  " colorscheme
-  Plug 'NLKNguyen/papercolor-theme'
-  " git integration
-  Plug 'tpope/vim-fugitive'
-  " useful plugins
-  Plug 'tpope/vim-surround'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'itchyny/lightline.vim'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'preservim/nerdtree'
-  Plug 'sheerun/vim-polyglot'
+" lsp
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" which-key
+Plug 'liuchengxu/vim-which-key'
+" colorscheme
+Plug 'NLKNguyen/papercolor-theme'
+" git integration
+Plug 'tpope/vim-fugitive'
+" useful plugins
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 """ lightline setup
@@ -49,11 +47,11 @@ set noshowmode
 " use :CocList marketplace to discover new extensions
 " coc-json is useful for editing coc-settings.json
 let g:coc_global_extensions = [
-      \ "coc-marketplace",
-      \ "coc-json",
-      \ "coc-rust-analyzer",
-      \ "coc-clangd"
-      \ ]
+                  \ "coc-marketplace",
+                  \ "coc-json",
+                  \ "coc-rust-analyzer",
+                  \ "coc-clangd"
+                  \ ]
 
 set hidden
 
@@ -106,84 +104,107 @@ let g:which_key_map = {}
 " jk or kj puts terminal into normal mode
 tnoremap jk <C-W>N
 tnoremap kj <C-W>N
-let g:which_key_map.t = ['terminal', 'terminal']
-let g:which_key_map.q = [':q', 'quit']
-let g:which_key_map.Q = [':q!', 'force-quit']
+
+let g:which_key_map.b = {
+                  \ 'name' : '+buffer' ,
+                  \ 'b' : ['Buffers'        , 'buffers']   ,
+                  \ 'd' : ['bd'        , 'delete-buffer']   ,
+                  \ 'D' : [':bd!'        , 'force-delete-buffer']   ,
+                  \ 'j' : ['bnext'     , 'next-buffer']     ,
+                  \ 'l' : ['<C-^>' , 'last-buffer'] ,
+                  \ 'k' : ['bprevious' , 'previous-buffer'] ,
+                  \ }
+
+let g:which_key_map.c = {'name' : '+comment'}
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
-let g:which_key_map.c = {'name' : '+comment'}
-
 let g:which_key_map.f = {
-      \ 'name' : '+file',
-      \ 's' : ['update'          , 'save-file']   ,
-      \ 'S' : [':W'          , 'save-sudo']   ,
-      \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
-      \ 'f' : ['Files', 'find']   ,
-      \ 'o' : ['NERDTreeToggle' , 'open']   ,
-      \ 'r' : ['History' , 'recent']   ,
-      \ }
+                  \ 'name' : '+file',
+                  \ 's' : ['update'          , 'save-file']   ,
+                  \ 'S' : [':W'          , 'save-sudo']   ,
+                  \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
+                  \ 'f' : ['Files', 'find']   ,
+                  \ 'o' : ['NERDTreeToggle' , 'open']   ,
+                  \ 'r' : ['History' , 'recent']   ,
+                  \ }
 
-let g:which_key_map.b = {
-      \ 'name' : '+buffer' ,
-      \ 'b' : ['Buffers'        , 'buffers']   ,
-      \ 'd' : ['bd'        , 'delete-buffer']   ,
-      \ 'D' : [':bd!'        , 'force-delete-buffer']   ,
-      \ 'j' : ['bnext'     , 'next-buffer']     ,
-      \ 'l' : ['<C-^>' , 'last-buffer'] ,
-      \ 'k' : ['bprevious' , 'previous-buffer'] ,
-      \ }
+let g:which_key_map.l = {
+                  \ 'name' : '+lsp',
+                  \ 'e' : ['<Plug>(coc-diagnostic-next)', 'next-error'],
+                  \ 'E' : ['<Plug>(coc-diagnostic-prev)', 'previous-error'],
+                  \ 'd' : ['<Plug>(coc-definition)', 'definition'],
+                  \ 't' : ['<Plug>(coc-type-definition)', 'type'],
+                  \ 'i' : ['<Plug>(coc-implementation)', 'implementation'],
+                  \ 'r' : ['<Plug>(coc-references)', 'references'],
+                  \ }
 
-let g:which_key_map.w = {
-    \ 'name' : '+windows',        
-    \ 's' : ['sp', 'split'],        
-    \ 'v' : ['vsp', 'vertical-split'],        
-    \ 'w' : ['<C-w>w', 'switch-windows'],        
-    \ 'd' : ['<C-w>q', 'close-windows'],        
-    \ 'h' : ['<C-w>h', 'left-window'],        
-    \ 'l' : ['<C-w>l', 'right-window'],        
-    \ 'j' : ['<C-w>j', 'below-window'],        
-    \ 'k' : ['<C-w>k', 'above-window'],        
-    \ 'm' : ['<C-w>o', 'maximize'],        
-    \ }
-
-let g:which_key_map.g = {
-    \ 'name' : '+go-to',        
-    \ 'e' : ['<Plug>(coc-diagnostic-next)', 'next-error'],        
-    \ 'E' : ['<Plug>(coc-diagnostic-prev)', 'previous-error'],        
-    \ 'd' : ['<Plug>(coc-definition)', 'definition'],        
-    \ 't' : ['<Plug>(coc-type-definition)', 'type'],        
-    \ 'i' : ['<Plug>(coc-implementation)', 'implementation'],        
-    \ 'r' : ['<Plug>(coc-references)', 'references'],        
-    \ }
 
 runtime ftplugin/man.vim
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+      if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+      elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
+      else
+            execute '!' . &keywordprg . " " . expand('<cword>')
+      endif
+endfunction
+
+function! s:show_man()
+      execute 'Man '.expand('<cword>')
 endfunction
 
 " Is there a better way to do this?
-let g:which_key_map.h = ['ShowDoc', 'help']
+let g:which_key_map.h = {
+                  \ 'name' : '+help',
+                  \ 'd' : ['ShowDoc', 'documentation'],
+                  \ 'm' : ['ShowMan', 'man'],
+                  \ 'v' : ['help', 'vim-help'],
+                  \ }
+command! -nargs=0 ShowMan :call <SID>show_man()<CR>
 command! -nargs=0 ShowDoc :call <SID>show_documentation()<CR>
 
-let g:which_key_map.t = {
-    \ 'name' : '+text',        
-    \ 'r' : ['<Plug>(coc-rename)', 'rename'],        
-    \ 'f' : ['Format', 'format'],        
-    \ 'z' : ['Fold', 'zip'],        
-    \ 'o' : ['za', 'open'],        
-    \ }
+let g:which_key_map.p = {
+                  \ 'name' : '+program',
+                  \ 'b' : ['<Plug>Build', 'build'],
+                  \ 'E' : ['cprev', 'previous-error'],
+                  \ 'e' : ['cnext', 'next-error'],
+                  \ 'l' : ['copen', 'list-errors'],
+                  \ }
+nnoremap <Plug>Build :make<space>
+
+let g:which_key_map.q = [':q', 'quit']
+let g:which_key_map.Q = [':q!', 'force-quit']
+let g:which_key_map.t = ['terminal', 'terminal']
+
+let g:which_key_map.T = {
+                  \ 'name' : '+text',
+                  \ 'r' : ['<Plug>(coc-rename)', 'rename'],
+                  \ 'f' : ['Format', 'format'],
+                  \ 'i' : ['<Plug>Indent', 'indent'],
+                  \ 'z' : ['Fold', 'zip'],
+                  \ 'o' : ['za', 'open'],
+                  \ }
+nnoremap <Plug>Indent =
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+let g:which_key_map.w = {
+                  \ 'name' : '+windows',
+                  \ 's' : ['sp', 'split'],
+                  \ 'v' : ['vsp', 'vertical-split'],
+                  \ 'w' : ['<C-w>w', 'switch-windows'],
+                  \ 'd' : ['<C-w>q', 'close-windows'],
+                  \ 'h' : ['<C-w>h', 'left-window'],
+                  \ 'l' : ['<C-w>l', 'right-window'],
+                  \ 'j' : ['<C-w>j', 'below-window'],
+                  \ 'k' : ['<C-w>k', 'above-window'],
+                  \ 'm' : ['<C-w>o', 'maximize'],
+                  \ }
 
 """ a lot of options
 
