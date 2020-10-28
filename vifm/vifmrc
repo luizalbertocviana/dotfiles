@@ -65,7 +65,7 @@ set runexec
 
 " Selected color scheme
 
-colorscheme dracula
+colorscheme solardark
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
