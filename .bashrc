@@ -116,4 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH="/home/luiz/bin:$PATH"
+
 exec fish
