@@ -12,3 +12,4 @@ vifminfo
 /.vim/.netrwhist
 /.vim/temp_dirs/
 /.vim/plugged/
+/vifm/vifminfo.json
