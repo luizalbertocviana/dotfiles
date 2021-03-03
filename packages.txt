@@ -240,6 +240,7 @@ thunar-volman
 thunderbird
 timeshift
 tlp
+transmission-gtk
 ttf-dejavu
 ttf-droid
 ttf-fira-code
@@ -297,7 +298,6 @@ xfce4-notes-plugin
 xfce4-notifyd
 xfce4-panel
 xfce4-power-manager
-xfce4-pulseaudio-plugin
 xfce4-screenshooter
 xfce4-sensors-plugin
 xfce4-session
