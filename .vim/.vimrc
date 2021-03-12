@@ -85,11 +85,22 @@ nnoremap \ <Nop>
 inoremap jk <esc>
 inoremap kj <esc>
 
+" jk or kj puts terminal into normal mode
+tnoremap jk <C-W>N
+tnoremap kj <C-W>N
+
 " fast navegation
 nnoremap K {
 nnoremap J }
 nnoremap H ^
 nnoremap L $
+
+" easy macro execution (record it with qq)
+nnoremap Q @q
+vnoremap Q :norm @q<CR>
+
+" maps s to search
+nnoremap s /
 
 " makes Y consistent with C and D, since original Y behavior is equivalent to yy
 nnoremap Y y$
@@ -100,10 +111,6 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 call which_key#register('<Space>', "g:which_key_map")
 
 let g:which_key_map = {}
-
-" jk or kj puts terminal into normal mode
-tnoremap jk <C-W>N
-tnoremap kj <C-W>N
 
 let g:which_key_map.b = {
                   \ 'name' : '+buffer' ,
@@ -141,6 +148,13 @@ let g:which_key_map.l = {
                   \ 'r' : ['<Plug>(coc-references)', 'references'],
                   \ }
 
+let g:which_key_map.s = {
+                  \ 'name' : '+session',
+                  \ 'w' : ['<Plug>WriteSession', 'write-session'],
+                  \ 'l' : ['<Plug>LoadSession', 'load-session'],
+                  \ }
+nnoremap <Plug>WriteSession :mksession<space>
+nnoremap <Plug>LoadSession :source<space>
 
 runtime ftplugin/man.vim
 
@@ -180,6 +194,7 @@ nnoremap <Plug>Build :make<space>
 let g:which_key_map.q = [':q', 'quit']
 let g:which_key_map.Q = [':q!', 'force-quit']
 let g:which_key_map.t = ['terminal', 'terminal']
+let g:which_key_map.r = ['q:', 'run-from-history']
 
 let g:which_key_map.T = {
                   \ 'name' : '+text',
@@ -188,6 +203,7 @@ let g:which_key_map.T = {
                   \ 'i' : ['<Plug>Indent', 'indent'],
                   \ 'z' : ['Fold', 'zip'],
                   \ 'o' : ['za', 'open'],
+                  \ 'w' : [':%s/\s\+$//', 'trim-whitespaces-at-end'],
                   \ }
 nnoremap <Plug>Indent =
 command! -nargs=0 Format :call CocAction('format')
@@ -203,6 +219,10 @@ let g:which_key_map.w = {
                   \ 'l' : ['<C-w>l', 'right-window'],
                   \ 'j' : ['<C-w>j', 'below-window'],
                   \ 'k' : ['<C-w>k', 'above-window'],
+                  \ 'H' : ['<C-w>H', 'move-left'],
+                  \ 'L' : ['<C-w>L', 'move-right'],
+                  \ 'J' : ['<C-w>J', 'move-below'],
+                  \ 'K' : ['<C-w>K', 'move-above'],
                   \ 'm' : ['<C-w>o', 'maximize'],
                   \ }
 
