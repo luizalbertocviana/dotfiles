@@ -151,13 +151,18 @@ let g:which_key_map.g = {
 
 let g:which_key_map.l = {
                   \ 'name' : '+lsp',
+                  \ 'a' : ['<Plug>(coc-codeaction-line)', 'actions'],
+                  \ 'd' : ['<Plug>(coc-definition)', 'definition'],
                   \ 'e' : ['<Plug>(coc-diagnostic-next)', 'next-error'],
                   \ 'E' : ['<Plug>(coc-diagnostic-prev)', 'previous-error'],
-                  \ 'd' : ['<Plug>(coc-definition)', 'definition'],
-                  \ 't' : ['<Plug>(coc-type-definition)', 'type'],
+                  \ 'f' : ['<Plug>(coc-fix-current)', 'fix'],
                   \ 'i' : ['<Plug>(coc-implementation)', 'implementation'],
+                  \ 'I' : ['OrganizeImports', 'organize-imports'],
                   \ 'r' : ['<Plug>(coc-references)', 'references'],
+                  \ 'R' : ['<Plug>(coc-rename)', 'symbol-rename'],
+                  \ 't' : ['<Plug>(coc-type-definition)', 'type-definition'],
                   \ }
+command! -nargs=0 OrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
 
 let g:which_key_map.s = {
                   \ 'name' : '+session',
