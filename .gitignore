@@ -13,3 +13,4 @@ vifminfo
 /.vim/temp_dirs/
 /.vim/plugged/
 /vifm/vifminfo.json
+/.vim/autoload/
