@@ -1,4 +1,4 @@
-" warns about absence of nodejs
+ "warns about absence of nodejs
 if !executable('node')
       echo "node is not in your PATH. This vimrc is heavily dependent on it"
       quit
@@ -111,6 +111,7 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 call which_key#register('<Space>', "g:which_key_map")
 
 let g:which_key_map = {}
+let g:which_key_map.x= [':Commands', 'commands']
 
 let g:which_key_map.b = {
                   \ 'name' : '+buffer' ,
@@ -134,8 +135,15 @@ let g:which_key_map.f = {
                   \ 'S' : [':W'          , 'save-sudo']   ,
                   \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
                   \ 'f' : ['Files', 'find']   ,
+                  \ 'p' : ['GFiles', 'project-find']   ,
                   \ 'o' : ['NERDTreeToggle' , 'open']   ,
                   \ 'r' : ['History' , 'recent']   ,
+                  \ }
+
+let g:which_key_map.g = {
+                  \ 'name' : '+go',
+                  \ 'l' : ['BLines', 'buffer-line'],
+                  \ 'L' : ['Lines', 'any-line'],
                   \ }
 
 let g:which_key_map.l = {
@@ -155,6 +163,22 @@ let g:which_key_map.s = {
                   \ }
 nnoremap <Plug>WriteSession :mksession<space>
 nnoremap <Plug>LoadSession :source<space>
+
+let g:which_key_map.v = {
+                  \ 'name' : '+version-control',
+                  \ 'b' : ['GitBlame', 'blame'],
+                  \ 'c' : [':BCommits', 'any-commits'],
+                  \ 'C' : [':Commits', 'any-commits'],
+                  \ 'd' : ['GitDiff', 'diff'],
+                  \ 'g' : ['<Plug>Git', 'git'],
+                  \ 'l' : ['GitLog', 'log'],
+                  \ 's' : ['GitStatus', 'status'],
+                  \ }
+nnoremap <Plug>Git :Git<space>
+command! -nargs=0 GitStatus :normal :Git status<cr>
+command! -nargs=0 GitDiff :normal :Git diff<cr>
+command! -nargs=0 GitLog :normal :Git log<cr>
+command! -nargs=0 GitBlame :normal :Git blame<cr>
 
 runtime ftplugin/man.vim
 
