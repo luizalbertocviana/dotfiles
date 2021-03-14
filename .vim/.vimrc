@@ -108,6 +108,26 @@ nnoremap s /
 " makes Y consistent with C and D, since original Y behavior is equivalent to yy
 nnoremap Y y$
 
+" makes zz alternate current line screen position among center, bottom and top
+" of screen
+
+let s:next_screen_line_position = 0
+function s:reposition_screen_line()
+    if (s:next_screen_line_position == 0)
+        let s:next_screen_line_position = 1
+        normal z.
+    elseif (s:next_screen_line_position == 1)
+        let s:next_screen_line_position = 2
+        normal zt
+    else
+        let s:next_screen_line_position = 0
+        normal z-
+    endif
+endfunction
+command -nargs=0 RepositionScreenLine :call s:reposition_screen_line()
+
+nnoremap zz :RepositionScreenLine<CR>
+
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 
