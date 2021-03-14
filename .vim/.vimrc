@@ -346,7 +346,7 @@ catch
 endtry
 
 " shows number of lines
-set number 
+set number relativenumber
 
 " highlits current line
 set cursorline 
