@@ -105,6 +105,9 @@ vnoremap Q :norm @q<CR>
 " maps s to search
 nnoremap s /
 
+" maps <esc> to clear search highlightings
+nnoremap <esc> :noh<CR>
+
 " makes Y consistent with C and D, since original Y behavior is equivalent to yy
 nnoremap Y y$
 
