@@ -353,3 +353,6 @@ set cursorline
 
 " automatically change current working directory
 set autochdir
+
+" always ask for confirmation
+set confirm
