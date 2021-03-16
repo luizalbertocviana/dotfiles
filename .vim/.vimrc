@@ -363,11 +363,17 @@ set wrap "Wrap lines
 set laststatus=2
 
 " persistent undo
-try
-    set undodir=~/.vim/temp_dirs/undodir
-    set undofile
-catch
-endtry
+if !isdirectory($HOME."/.vim/undodir")
+    call mkdir($HOME."/.vim/undodir", "p")
+endif
+set undodir=~/.vim/undodir
+set undofile
+
+" backup dir
+if !isdirectory($HOME."/.vim/backupdir")
+    call mkdir($HOME."/.vim/backupdir", "p")
+endif
+set backupdir=~/.vim/backupdir
 
 " shows number of lines
 set number relativenumber
