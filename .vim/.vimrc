@@ -1,4 +1,4 @@
-" warns about absence of nodejs
+ "warns about absence of nodejs
 if !executable('node')
       echo "node is not in your PATH. This vimrc is heavily dependent on it"
       quit
@@ -14,11 +14,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let g:ale_disable_lsp = 1
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 " lsp
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " which-key
 Plug 'liuchengxu/vim-which-key'
@@ -30,7 +33,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
@@ -50,6 +53,7 @@ let g:coc_global_extensions = [
                   \ "coc-marketplace",
                   \ "coc-json",
                   \ "coc-rust-analyzer",
+                  \ "coc-pyright",
                   \ "coc-clangd"
                   \ ]
 
@@ -85,14 +89,48 @@ nnoremap \ <Nop>
 inoremap jk <esc>
 inoremap kj <esc>
 
+" jk or kj puts terminal into normal mode
+tnoremap jk <C-W>N
+tnoremap kj <C-W>N
+
 " fast navegation
 nnoremap K {
 nnoremap J }
 nnoremap H ^
 nnoremap L $
 
+" easy macro execution (record it with qq)
+nnoremap Q @q
+vnoremap Q :norm @q<CR>
+
+" maps s to search
+nnoremap s /
+
+" maps <esc> to clear search highlightings
+nnoremap <esc><esc> :noh<CR>
+
 " makes Y consistent with C and D, since original Y behavior is equivalent to yy
 nnoremap Y y$
+
+" makes zz alternate current line screen position among center, bottom and top
+" of screen
+
+let s:next_screen_line_position = 0
+function s:reposition_screen_line()
+    if (s:next_screen_line_position == 0)
+        let s:next_screen_line_position = 1
+        normal z.
+    elseif (s:next_screen_line_position == 1)
+        let s:next_screen_line_position = 2
+        normal zt
+    else
+        let s:next_screen_line_position = 0
+        normal z-
+    endif
+endfunction
+command -nargs=0 RepositionScreenLine :call s:reposition_screen_line()
+
+nnoremap zz :RepositionScreenLine<CR>
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
@@ -100,10 +138,7 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 call which_key#register('<Space>', "g:which_key_map")
 
 let g:which_key_map = {}
-
-" jk or kj puts terminal into normal mode
-tnoremap jk <C-W>N
-tnoremap kj <C-W>N
+let g:which_key_map.x= [':Commands', 'commands']
 
 let g:which_key_map.b = {
                   \ 'name' : '+buffer' ,
@@ -127,20 +162,55 @@ let g:which_key_map.f = {
                   \ 'S' : [':W'          , 'save-sudo']   ,
                   \ 'v' : [':e $MYVIMRC' , 'open-vimrc']   ,
                   \ 'f' : ['Files', 'find']   ,
+                  \ 'p' : ['GFiles', 'project-find']   ,
                   \ 'o' : ['NERDTreeToggle' , 'open']   ,
                   \ 'r' : ['History' , 'recent']   ,
                   \ }
 
-let g:which_key_map.l = {
-                  \ 'name' : '+lsp',
-                  \ 'e' : ['<Plug>(coc-diagnostic-next)', 'next-error'],
-                  \ 'E' : ['<Plug>(coc-diagnostic-prev)', 'previous-error'],
-                  \ 'd' : ['<Plug>(coc-definition)', 'definition'],
-                  \ 't' : ['<Plug>(coc-type-definition)', 'type'],
-                  \ 'i' : ['<Plug>(coc-implementation)', 'implementation'],
-                  \ 'r' : ['<Plug>(coc-references)', 'references'],
+let g:which_key_map.g = {
+                  \ 'name' : '+go',
+                  \ 'l' : ['BLines', 'buffer-line'],
+                  \ 'L' : ['Lines', 'any-line'],
                   \ }
 
+let g:which_key_map.l = {
+                  \ 'name' : '+lsp',
+                  \ 'a' : ['<Plug>(coc-codeaction-line)', 'actions'],
+                  \ 'd' : ['<Plug>(coc-definition)', 'definition'],
+                  \ 'e' : ['<Plug>(coc-diagnostic-next)', 'next-error'],
+                  \ 'E' : ['<Plug>(coc-diagnostic-prev)', 'previous-error'],
+                  \ 'f' : ['<Plug>(coc-fix-current)', 'fix'],
+                  \ 'i' : ['<Plug>(coc-implementation)', 'implementation'],
+                  \ 'I' : ['OrganizeImports', 'organize-imports'],
+                  \ 'r' : ['<Plug>(coc-references)', 'references'],
+                  \ 'R' : ['<Plug>(coc-rename)', 'symbol-rename'],
+                  \ 't' : ['<Plug>(coc-type-definition)', 'type-definition'],
+                  \ }
+command! -nargs=0 OrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
+
+let g:which_key_map.s = {
+                  \ 'name' : '+session',
+                  \ 'w' : ['<Plug>WriteSession', 'write-session'],
+                  \ 'l' : ['<Plug>LoadSession', 'load-session'],
+                  \ }
+nnoremap <Plug>WriteSession :mksession<space>
+nnoremap <Plug>LoadSession :source<space>
+
+let g:which_key_map.v = {
+                  \ 'name' : '+version-control',
+                  \ 'b' : ['GitBlame', 'blame'],
+                  \ 'c' : [':BCommits', 'any-commits'],
+                  \ 'C' : [':Commits', 'any-commits'],
+                  \ 'd' : ['GitDiff', 'diff'],
+                  \ 'g' : ['<Plug>Git', 'git'],
+                  \ 'l' : ['GitLog', 'log'],
+                  \ 's' : ['GitStatus', 'status'],
+                  \ }
+nnoremap <Plug>Git :Git<space>
+command! -nargs=0 GitStatus :normal :Git status<cr>
+command! -nargs=0 GitDiff :normal :Git diff<cr>
+command! -nargs=0 GitLog :normal :Git log<cr>
+command! -nargs=0 GitBlame :normal :Git blame<cr>
 
 runtime ftplugin/man.vim
 
@@ -180,6 +250,7 @@ nnoremap <Plug>Build :make<space>
 let g:which_key_map.q = [':q', 'quit']
 let g:which_key_map.Q = [':q!', 'force-quit']
 let g:which_key_map.t = ['terminal', 'terminal']
+let g:which_key_map.r = ['q:', 'run-from-history']
 
 let g:which_key_map.T = {
                   \ 'name' : '+text',
@@ -188,6 +259,7 @@ let g:which_key_map.T = {
                   \ 'i' : ['<Plug>Indent', 'indent'],
                   \ 'z' : ['Fold', 'zip'],
                   \ 'o' : ['za', 'open'],
+                  \ 'w' : [':%s/\s\+$//', 'trim-whitespaces-at-end'],
                   \ }
 nnoremap <Plug>Indent =
 command! -nargs=0 Format :call CocAction('format')
@@ -203,6 +275,10 @@ let g:which_key_map.w = {
                   \ 'l' : ['<C-w>l', 'right-window'],
                   \ 'j' : ['<C-w>j', 'below-window'],
                   \ 'k' : ['<C-w>k', 'above-window'],
+                  \ 'H' : ['<C-w>H', 'move-left'],
+                  \ 'L' : ['<C-w>L', 'move-right'],
+                  \ 'J' : ['<C-w>J', 'move-below'],
+                  \ 'K' : ['<C-w>K', 'move-above'],
                   \ 'm' : ['<C-w>o', 'maximize'],
                   \ }
 
@@ -287,17 +363,26 @@ set wrap "Wrap lines
 set laststatus=2
 
 " persistent undo
-try
-    set undodir=~/.vim/temp_dirs/undodir
-    set undofile
-catch
-endtry
+if !isdirectory($HOME."/.vim/undodir")
+    call mkdir($HOME."/.vim/undodir", "p")
+endif
+set undodir=~/.vim/undodir
+set undofile
+
+" backup dir
+if !isdirectory($HOME."/.vim/backupdir")
+    call mkdir($HOME."/.vim/backupdir", "p")
+endif
+set backupdir=~/.vim/backupdir
 
 " shows number of lines
-set number 
+set number relativenumber
 
 " highlits current line
 set cursorline 
 
 " automatically change current working directory
 set autochdir
+
+" always ask for confirmation
+set confirm
