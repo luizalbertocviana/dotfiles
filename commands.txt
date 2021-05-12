@@ -1,3 +1,8 @@
 # disable automatic startx in systemd-based distros
 sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
+
+# save gnome settingd
+dconf dump / > textfile
+# restore gnome settings
+dconf load / textfile
