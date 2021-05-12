@@ -1,0 +1,401 @@
+[apps/light-locker]
+idle-hint=false
+late-locking=true
+lock-after-screensaver=uint32 5
+lock-on-lid=true
+lock-on-suspend=true
+
+[apps/update-manager]
+first-run=false
+launch-count=1
+launch-time=int64 1620333683
+
+[com/ubuntu/update-notifier]
+release-check-time=uint32 1620333670
+
+[org/freedesktop/tracker/miner/files]
+index-recursive-directories=['&DESKTOP', '/home/luiz/Dropbox', '/home/luiz/MEGA']
+
+[org/gnome/Totem]
+active-plugins=['screensaver', 'autoload-subtitles', 'open-directory', 'vimeo', 'variable-rate', 'apple-trailers', 'recent', 'screenshot', 'save-file', 'skipto', 'rotation', 'media-player-keys', 'movie-properties']
+subtitle-encoding='UTF-8'
+
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-position=(118, 123)
+word-size=64
+
+[org/gnome/control-center]
+last-panel='keyboard'
+
+[org/gnome/deja-dup]
+backend='google'
+prompt-check='2021-05-06T20:44:10+00'
+
+[org/gnome/deja-dup/file]
+migrated=true
+
+[org/gnome/desktop/a11y/applications]
+screen-magnifier-enabled=false
+screen-reader-enabled=false
+
+[org/gnome/desktop/a11y/magnifier]
+mag-factor=2.0
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='scaled'
+picture-uri='file:///home/luiz/.cache/randomwallpaper@iflow.space/wallpapers/1620776283347_photo-1619463073642-98e4157bde32'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/calendar]
+show-weekdate=false
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'br')]
+xkb-options=@as []
+
+[org/gnome/desktop/interface]
+clock-show-seconds=false
+clock-show-weekday=true
+enable-hot-corners=false
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Yaru-dark'
+icon-theme='Yaru'
+show-battery-percentage=true
+toolkit-accessibility=false
+
+[org/gnome/desktop/notifications]
+application-children=['update-manager', 'whatsie-whatsie', 'apport-gtk', 'spotify-spotify', 'datagrip-datagrip', 'rider-rider', 'org-gnome-evolution-alarm-notify', 'gnome-power-panel']
+show-in-lock-screen=false
+
+[org/gnome/desktop/notifications/application/apport-gtk]
+application-id='apport-gtk.desktop'
+
+[org/gnome/desktop/notifications/application/datagrip-datagrip]
+application-id='datagrip_datagrip.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify]
+application-id='org.gnome.Evolution-alarm-notify.desktop'
+
+[org/gnome/desktop/notifications/application/rider-rider]
+application-id='rider_rider.desktop'
+
+[org/gnome/desktop/notifications/application/spotify-spotify]
+application-id='spotify_spotify.desktop'
+
+[org/gnome/desktop/notifications/application/update-manager]
+application-id='update-manager.desktop'
+
+[org/gnome/desktop/notifications/application/whatsie-whatsie]
+application-id='whatsie_whatsie.desktop'
+
+[org/gnome/desktop/peripherals/touchpad]
+edge-scrolling-enabled=false
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/privacy]
+disable-microphone=false
+report-technical-problems=true
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/ryan-stone-skykomish-river.jpg'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/search-providers]
+disabled=['org.gnome.Characters.desktop', 'org.gnome.seahorse.Application.desktop']
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=false
+
+[org/gnome/desktop/wm/keybindings]
+activate-window-menu=@as []
+begin-move=@as []
+begin-resize=@as []
+close=['<Super>c']
+cycle-group=@as []
+cycle-group-backward=@as []
+cycle-panels=@as []
+cycle-panels-backward=@as []
+cycle-windows=@as []
+cycle-windows-backward=@as []
+maximize=['<Super>Up']
+maximize-horizontally=@as []
+minimize=['<Super>h']
+move-to-monitor-down=@as []
+move-to-monitor-left=@as []
+move-to-monitor-right=@as []
+move-to-monitor-up=@as []
+move-to-workspace-1=@as []
+move-to-workspace-down=['<Shift><Super>j']
+move-to-workspace-last=@as []
+move-to-workspace-up=['<Shift><Super>k']
+panel-main-menu=@as []
+show-desktop=@as []
+switch-applications=@as []
+switch-applications-backward=@as []
+switch-group=@as []
+switch-group-backward=@as []
+switch-input-source=@as []
+switch-input-source-backward=@as []
+switch-panels=@as []
+switch-panels-backward=@as []
+switch-to-workspace-1=@as []
+switch-to-workspace-down=['<Super>j']
+switch-to-workspace-last=@as []
+switch-to-workspace-up=['<Super>k']
+switch-windows=['<Super>l']
+switch-windows-backward=['<Shift><Super>l']
+toggle-fullscreen=['<Shift><Super>f']
+toggle-maximized=['<Super>m']
+unmaximize=['<Super>Down']
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/evince/default]
+window-ratio=(1.5821255911262031, 0.98059597380044361)
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/evolution-data-server/calendar]
+notify-window-height=111
+notify-window-width=531
+notify-window-x=362
+notify-window-y=192
+reminders-past=@as []
+
+[org/gnome/file-roller/dialogs/extract]
+recreate-folders=true
+skip-newer=false
+
+[org/gnome/file-roller/listing]
+list-mode='as-folder'
+name-column-width=250
+show-path=false
+sort-method='name'
+sort-type='ascending'
+
+[org/gnome/file-roller/ui]
+sidebar-width=200
+window-height=1006
+window-width=1848
+
+[org/gnome/gedit/plugins]
+active-plugins=['filebrowser', 'modelines', 'spell', 'docinfo', 'time']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/luiz/RIDER/JetBrains%20Rider-2021.1.2/bin'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(900, 700)
+state=43908
+
+[org/gnome/gnome-system-monitor]
+current-tab='disks'
+maximized=true
+show-dependencies=false
+show-whose-processes='user'
+window-state=(1848, 1006, 72, 27)
+
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
+
+[org/gnome/mutter/wayland/keybindings]
+restore-shortcuts=@as []
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+search-view='icon-view'
+
+[org/gnome/nautilus/window-state]
+initial-size=(924, 1006)
+maximized=true
+
+[org/gnome/nm-applet/eap/8b4cba42-b142-4526-9dfe-ca17e7432eac]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/nm-applet/eap/ccb62c54-78e1-442e-8fb8-135ba8d67f29]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=false
+night-light-temperature=uint32 4289
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+home=['<Super>f']
+logout=['<Alt><Super>e']
+screensaver=['<Alt><Super>l']
+terminal=['<Super>t']
+www=['<Super>b']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Alt><Super>p'
+command='gnome-session-quit --power-off'
+name='Power off'
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-timeout=900
+
+[org/gnome/settings-daemon/plugins/xsettings]
+hinting='slight'
+
+[org/gnome/shell]
+enabled-extensions=['cpufreq@nodefourtytwo.net', 'cpufreq@zdyb.tk', 'cpufreq@konkor', 'gnome-shell-Google-search-provider@MrNinso', 'wikipedia_search_provider@awamper.gmail.com', 'flickr-wallpaper@pagondel.org', 'randomwallpaper@iflow.space', 'user-theme@gnome-shell-extensions.gcampax.github.com']
+favorite-apps=['google-chrome.desktop', 'firefox.desktop', 'whatsie_whatsie.desktop', 'org.gnome.Nautilus.desktop', 'emacs_emacs.desktop', 'webstorm_webstorm.desktop', 'rider_rider.desktop', 'datagrip_datagrip.desktop', 'org.gnome.Terminal.desktop', 'com.obsproject.Studio.desktop', 'chrome-eppojlglocelodeimnohnlnionkobfln-Default.desktop', 'spotify_spotify.desktop', 'snap-store_ubuntu-software.desktop']
+
+[org/gnome/shell/extensions/cpufreq]
+event-profiles='[{"percent":0,"event":0,"guid":"user"},{"percent":100,"event":1,"guid":""}]'
+governors-show=false
+label-show=false
+load-show=true
+profile-id='user'
+profiles='[{"name":"luiz","minf":0,"maxf":100,"turbo":false,"cpu":6,"acpi":true,"guid":"705476bcf7734340558ba0c06096f55d","core":[{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000}]}]'
+save-settings=true
+user-profile='{"name":"Saved settings","minf":0,"maxf":100,"turbo":false,"cpu":8,"acpi":true,"guid":"user","core":[{"g":"userspace","a":1400000,"b":2100000,"f":1400000},{"g":"userspace","a":1400000,"b":2100000,"f":1400000},{"g":"userspace","a":1400000,"b":2100000,"f":1400000},{"g":"userspace","a":1400000,"b":2100000,"f":1400000},{"g":"userspace","a":1400000,"b":1400000,"f":1400000},{"g":"userspace","a":1400000,"b":1400000,"f":1400000},{"g":"schedutil","a":1400000,"b":2100000},{"g":"schedutil","a":1400000,"b":2100000}]}'
+window-height=720
+window-maximized=false
+window-width=774
+window-x=1094
+window-y=4
+
+[org/gnome/shell/extensions/dash-to-dock]
+dash-max-icon-size=32
+dock-position='LEFT'
+preferred-monitor=0
+
+[org/gnome/shell/extensions/space-iflow-randomwallpaper]
+auto-fetch=true
+history=['{"id":"1620776283347_photo-1619463073642-98e4157bde32","path":"/home/luiz/.cache/randomwallpaper@iflow.space/wallpapers/1620776283347_photo-1619463073642-98e4157bde32","source":{"author":"Timothy Eberly","authorUrl":"https://unsplash.com/@timothyeberly?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","source":"Unsplash","sourceUrl":"https://unsplash.com/?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","imageDownloadUrl":"https://images.unsplash.com/photo-1619463073642-98e4157bde32?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb","imageLinkUrl":"https://unsplash.com/photos/51rxgKeEm0o?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit"},"timestamp":1620776283345}', '{"id":"1620775808195_photo-1618178911588-6f647b95285c","path":"/home/luiz/.cache/randomwallpaper@iflow.space/wallpapers/1620775808195_photo-1618178911588-6f647b95285c","source":{"author":"Martín Berrios","authorUrl":"https://unsplash.com/@martberrios?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","source":"Unsplash","sourceUrl":"https://unsplash.com/?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","imageDownloadUrl":"https://images.unsplash.com/photo-1618178911588-6f647b95285c?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb","imageLinkUrl":"https://unsplash.com/photos/uT-98VmE_1c?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit"},"timestamp":1620775808194}', '{"id":"1620764962757_photo-1619450535979-6939a4690888","path":"/home/luiz/.cache/randomwallpaper@iflow.space/wallpapers/1620764962757_photo-1619450535979-6939a4690888","source":{"author":"Tanya Grypachevskaya","authorUrl":"https://unsplash.com/@stilltane4ka?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","source":"Unsplash","sourceUrl":"https://unsplash.com/?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","imageDownloadUrl":"https://images.unsplash.com/photo-1619450535979-6939a4690888?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb","imageLinkUrl":"https://unsplash.com/photos/_A0FcwFh7DE?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit"},"timestamp":1620764962756}', '{"id":"1620757939848_photo-1618881915845-3244be1814d4","path":"/home/luiz/.cache/randomwallpaper@iflow.space/wallpapers/1620757939848_photo-1618881915845-3244be1814d4","source":{"author":"Todd Trapani","authorUrl":"https://unsplash.com/@ttrapani?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","source":"Unsplash","sourceUrl":"https://unsplash.com/?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","imageDownloadUrl":"https://images.unsplash.com/photo-1618881915845-3244be1814d4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb","imageLinkUrl":"https://unsplash.com/photos/ybFovHrXQ2I?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit"},"timestamp":1620757939846}', '{"id":"1620757932243_photo-1618090128264-20a6eb1c058a","path":"/home/luiz/.cache/randomwallpaper@iflow.space/wallpapers/1620757932243_photo-1618090128264-20a6eb1c058a","source":{"author":"Lerone Pieters","authorUrl":"https://unsplash.com/@thevantagepoint718?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","source":"Unsplash","sourceUrl":"https://unsplash.com/?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit","imageDownloadUrl":"https://images.unsplash.com/photo-1618090128264-20a6eb1c058a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb","imageLinkUrl":"https://unsplash.com/photos/fAso7yCgMGQ?utm_source=RandomWallpaperGnome3&utm_medium=referral&utm_campaign=api-credit"},"timestamp":1620757932243}']
+minutes=1
+timer-last-trigger=int64 1620776282640
+
+[org/gnome/shell/extensions/user-theme]
+name='Yaru-dark'
+
+[org/gnome/shell/keybindings]
+focus-active-notification=@as []
+open-application-menu=@as []
+toggle-application-view=@as []
+toggle-message-tray=@as []
+toggle-overview=@as []
+
+[org/gnome/software]
+check-timestamp=int64 1620731579
+online-updates-timestamp=int64 1620334247
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=221
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(434, 119)
+window-size=(1124, 822)
+
+[org/mate/engrampa/dialogs/add]
+current-folder='file:///home/luiz/Dropbox/cadeiras'
+filename='file:///home/luiz/Dropbox/cadeiras/afastamento_2020_2.zip'
+
+[org/mate/engrampa/dialogs/extract]
+overwrite=true
+recreate-folders=true
+skip-newer=false
+
+[org/mate/engrampa/general]
+unar-open-zip=false
+
+[org/mate/engrampa/listing]
+list-mode='as-folder'
+name-column-width=250
+show-path=false
+sort-method='name'
+sort-type='ascending'
+
+[org/mate/engrampa/ui]
+sidebar-width=200
+window-height=1042
+window-width=1916
+
+[org/xfce/mousepad/preferences/view]
+auto-indent=false
+color-scheme='cobalt'
+font-name='Monospace'
+highlight-current-line=false
+indent-on-tab=true
+indent-width=-1
+insert-spaces=false
+match-braces=false
+right-margin-position=80
+show-line-endings=false
+show-line-marks=false
+show-line-numbers=false
+show-right-margin=false
+show-whitespace=false
+smart-home-end='disabled'
+tab-width=8
+word-wrap=false
+
+[org/xfce/mousepad/state/window]
+fullscreen=false
+height=1042
+maximized=false
+width=1916
