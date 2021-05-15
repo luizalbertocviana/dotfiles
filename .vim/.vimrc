@@ -1,4 +1,4 @@
- "warns about absence of nodejs
+"warns about absence of nodejs
 if !executable('node')
       echo "node is not in your PATH. This vimrc is heavily dependent on it"
       quit
@@ -23,6 +23,8 @@ call plug#begin('~/.vim/plugged')
 " lsp
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" LaTeX
+Plug 'lervag/vimtex'
 " which-key
 Plug 'liuchengxu/vim-which-key'
 " colorscheme
@@ -54,6 +56,10 @@ let g:coc_global_extensions = [
                   \ "coc-json",
                   \ "coc-rust-analyzer",
                   \ "coc-pyright",
+                  \ "coc-html",
+                  \ "coc-emmet",
+                  \ "coc-tsserver",
+                  \ "coc-tabnine",
                   \ "coc-clangd"
                   \ ]
 
