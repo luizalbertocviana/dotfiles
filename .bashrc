@@ -118,4 +118,4 @@ fi
 
 export PATH="/home/luiz/bin:$PATH"
 
-exec fish
+#exec fish
