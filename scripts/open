@@ -1,0 +1,58 @@
+#!/bin/sh
+
+num_args="$#"
+
+commands=""
+local_apps=""
+system_apps=""
+all_entries=""
+
+open_file()
+{
+    app=$1
+    file=$2
+
+    case $app in
+        *.desktop) 
+            gtk-launch $app $file &> /dev/null
+            ;;
+        *)
+            $app $file
+    esac
+    exit 0
+}
+
+if [ "$1" = "-with" ]; then
+    commands="$(compgen -ac)"
+    local_apps="$(ls ~/.local/share/applications)"
+    system_apps="$(ls /usr/share/applications)"
+    all_entries="$(echo $local_apps $system_apps $commands | sed 's/ /\n/g')"
+fi
+
+if [ $num_args -eq 0 ]; then
+    file="$(fzf)"
+    xdg-open "$file" &> /dev/null
+    exit 0
+elif [ $num_args -eq 1 ]; then
+    if [ "$1" = "-with" ]; then
+        file="$(fzf)"
+        app="$(echo "$all_entries" | fzf)"
+        open_file $app $file
+    else
+        file="$1"
+        xdg-open "$file" &
+        exit 0
+    fi
+elif [ $num_args -eq 2 ]; then
+    if [ "$1" = "-with" ]; then
+        file="$2"
+        app="$(echo "$all_entries" | fzf)"
+        open_file $app $file
+    else
+        echo "expected -with as first argument"
+        exit 1
+    fi
+else
+    echo "wrong number of arguments"
+    exit 1
+fi
