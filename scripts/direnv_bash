@@ -1,3 +1,0 @@
-#!/bin/sh
-
-bash --rcfile <(echo ". ~/.bashrc; $(direnv hook bash)")

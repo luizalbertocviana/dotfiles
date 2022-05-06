@@ -1,0 +1,14 @@
+#!/bin/sh
+
+source_bashrc=". ~/.bashrc;"
+direnv_setup="$(direnv hook bash)"
+aliases=". ~/bin/aliases;"
+
+config=$(cat <<-EOF
+$source_bashrc
+$direnv_setup
+$aliases
+EOF
+)
+
+bash --rcfile <(echo "$config")
