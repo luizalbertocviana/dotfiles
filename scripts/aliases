@@ -1,0 +1,3 @@
+#!/bin/sh
+
+alias jump="source ~/bin/jump_script"
