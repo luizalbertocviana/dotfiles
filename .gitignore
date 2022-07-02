@@ -15,3 +15,4 @@ vifminfo
 /vifm/vifminfo.json
 /.vim/autoload/
 /.vim/undodir/
+*~
