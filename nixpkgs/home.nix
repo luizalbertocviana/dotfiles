@@ -21,10 +21,10 @@
 
   # Packages that should be installed to the user profile
   home.packages = [
-    # the font I use in emacs
-    pkgs.fira-code
-    # google-chrome
+    pkgs.fira-code # the font I use in emacs
     pkgs.google-chrome
+    pkgs.maestral # dropbox client
+    pkgs.megasync
   ];
 
   # emacs
