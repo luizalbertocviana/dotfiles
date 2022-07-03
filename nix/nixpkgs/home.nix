@@ -49,5 +49,6 @@
   # environment variables
   home.sessionVariables = {
     NIX_PATH = "/home/luiz/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
+    XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/luiz/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
   };
 }
