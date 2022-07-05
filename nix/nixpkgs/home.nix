@@ -26,6 +26,7 @@
     pkgs.maestral # dropbox client
     pkgs.megasync
     pkgs.rnix-lsp # language server for nix language
+    pkgs.unzip
   ];
 
   # emacs
