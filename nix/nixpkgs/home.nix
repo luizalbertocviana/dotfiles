@@ -16,9 +16,6 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   # Packages that should be installed to the user profile
   home.packages = [
     pkgs.fira-code # the font I use in emacs
@@ -29,6 +26,15 @@
     pkgs.unzip
     pkgs.zathura
   ];
+
+  # environment variables
+  home.sessionVariables = {
+    NIX_PATH = "/home/luiz/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
+    XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/luiz/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
+  };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
   # emacs
   programs.emacs.enable = true;
@@ -47,11 +53,5 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ". .profile";
-  };
-
-  # environment variables
-  home.sessionVariables = {
-    NIX_PATH = "/home/luiz/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
-    XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/luiz/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
   };
 }
