@@ -33,6 +33,18 @@
     XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/luiz/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
   };
 
+  home.file = {
+    ".emacs.d" = {
+      source = pkgs.fetchFromGitHub {
+        owner = "luizalbertocviana";
+        repo = "emacs.d";
+        rev = "33d25a507a7e8a586a51d477fe194eb3a56b6064";
+        sha256 = "FhhtNogzACoJnuC/zqS53OoDYRSvoShsDUPnb5aGogY=";
+      };
+      recursive = true;
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
