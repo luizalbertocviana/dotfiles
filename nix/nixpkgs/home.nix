@@ -25,6 +25,7 @@
     pkgs.rnix-lsp # language server for nix language
     pkgs.unzip
     pkgs.zathura
+    pkgs.libreoffice
   ];
 
   # environment variables
