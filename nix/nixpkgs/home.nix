@@ -28,6 +28,7 @@
     pkgs.libreoffice
     pkgs.leiningen # clojure project management
     pkgs.clojure-lsp
+    pkgs.docker-compose
   ];
 
   # environment variables
