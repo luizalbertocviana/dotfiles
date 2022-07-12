@@ -43,6 +43,8 @@
     LC_TIME = "pt_BR.utf8";
   };
 
+  virtualisation.docker.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -89,7 +91,7 @@
   users.users.luiz = {
     isNormalUser = true;
     description = "luiz";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
