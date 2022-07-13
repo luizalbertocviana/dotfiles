@@ -29,6 +29,8 @@
     pkgs.leiningen # clojure project management
     pkgs.clojure-lsp
     pkgs.docker-compose
+    pkgs.gcc
+    pkgs.clang-tools
   ];
 
   # environment variables
