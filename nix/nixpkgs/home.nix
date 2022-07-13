@@ -31,6 +31,8 @@
     pkgs.docker-compose
     pkgs.gcc
     pkgs.clang-tools
+    pkgs.python3
+    pkgs.python-language-server
   ];
 
   # environment variables
