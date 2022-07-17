@@ -33,6 +33,7 @@
     pkgs.clang-tools
     pkgs.python3
     pkgs.python-language-server
+    pkgs.dbeaver
   ];
 
   # environment variables
