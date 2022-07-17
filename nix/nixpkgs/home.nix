@@ -72,6 +72,6 @@
   # let home manager manage bash
   programs.bash = {
     enable = true;
-    bashrcExtra = ". .profile";
+    bashrcExtra = ". $HOME/.profile";
   };
 }
