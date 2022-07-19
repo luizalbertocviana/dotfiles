@@ -1,4 +1,20 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
+
+let
+  # nethack4 derivation
+  nethack4 = (import
+    (pkgs.fetchFromGitHub {
+      owner = "luizalbertocviana";
+      repo = "nethack4-nix";
+      rev = "01aa7f85b8481c8f469fb64ec116b91a4a9e00d0";
+      sha256 = "W6CvQyqL/tot85lJnm/YWq9Qhqr0wJRtt38LUo61OgQ=";
+    })
+  ) {};
+in
 
 {
   # Home Manager needs a bit of information about you and the
@@ -34,6 +50,7 @@
     pkgs.python3
     pkgs.python-language-server
     pkgs.dbeaver
+    nethack4
   ];
 
   # environment variables
