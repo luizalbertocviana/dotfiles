@@ -50,6 +50,7 @@ in
     pkgs.python3
     pkgs.python-language-server
     pkgs.dbeaver
+    pkgs.ripgrep
     nethack4
   ];
 
