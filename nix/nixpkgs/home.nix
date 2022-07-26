@@ -65,8 +65,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "luizalbertocviana";
         repo = "emacs.d";
-        rev = "ff3ed16ae3760dba846d003d63224383e1dd85fc";
-        sha256 = "G07Wz9sSRAMAjZOjSJDS8itTwBMLfHnq5EvmAtWe+rQ=";
+        rev = "91d6e1d42fdb22c0c5b80fff99d1abfef93d4fa0";
+        sha256 = "iNArSxorW0japxwQC9mjfG9mgWatG4vJmq4qILpQYUg=";
       };
       recursive = true;
     };
