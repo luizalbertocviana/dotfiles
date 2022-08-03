@@ -10,8 +10,16 @@ let
     (pkgs.fetchFromGitHub {
       owner = "luizalbertocviana";
       repo = "nethack4-nix";
-      rev = "01aa7f85b8481c8f469fb64ec116b91a4a9e00d0";
-      sha256 = "W6CvQyqL/tot85lJnm/YWq9Qhqr0wJRtt38LUo61OgQ=";
+      rev = "f318b6cb3087e3464e9ea5c96dac563f3b2c4300";
+      sha256 = "ooE1fweAC2fnUzq/6/tmIDYdM2nNl2V3VZS3HR6ZRSA=";
+    })
+  ) {};
+  fuzzyScripts = (import
+    (pkgs.fetchFromGitHub {
+      owner = "luizalbertocviana";
+      repo = "fuzzy-scripts";
+      rev = "718cf7bda81b2cf45d8b9c1db51261ba0ce0da1f";
+      sha256 = "Gj/n3vCE9R094cHA2hGWpHxm1ZTUCTUQCfUEstixvjo=";
     })
   ) {};
 in
@@ -52,6 +60,7 @@ in
     pkgs.dbeaver
     pkgs.ripgrep
     nethack4
+    fuzzyScripts
   ];
 
   # environment variables
