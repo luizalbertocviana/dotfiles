@@ -100,6 +100,9 @@ in
   # let home manager manage bash
   programs.bash = {
     enable = true;
-    bashrcExtra = ". $HOME/.profile";
+    bashrcExtra = ''
+      . $HOME/.profile
+      . jump
+    '';
   };
 }
