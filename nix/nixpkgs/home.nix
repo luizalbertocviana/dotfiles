@@ -60,7 +60,8 @@ in
     pkgs.dbeaver
     pkgs.ripgrep
     nethack4
-    fuzzyScripts
+    fuzzyScripts.hist
+    fuzzyScripts.jump
   ];
 
   # environment variables
