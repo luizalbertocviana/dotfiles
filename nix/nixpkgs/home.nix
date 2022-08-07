@@ -2,108 +2,23 @@
   config,
   pkgs,
   ...
-}:
+} @ opts:
 
 let
-  # nethack4 derivation
-  nethack4 = (import
-    (pkgs.fetchFromGitHub {
-      owner = "luizalbertocviana";
-      repo = "nethack4-nix";
-      rev = "f318b6cb3087e3464e9ea5c96dac563f3b2c4300";
-      sha256 = "ooE1fweAC2fnUzq/6/tmIDYdM2nNl2V3VZS3HR6ZRSA=";
-    })
-  ) {};
-  fuzzyScripts = (import
-    (pkgs.fetchFromGitHub {
-      owner = "luizalbertocviana";
-      repo = "fuzzy-scripts";
-      rev = "2b2357340102688f70c87362c43b9139f76e32d8";
-      sha256 = "OgeiJypD6AMaZK7ISwc1HiS5kKQFKawGna6AmySxBts=";
-    })
-  ) {};
+  baseHomeConfig = (import ./base-home-config.nix) opts;
+
+  applyExtraSetups = extraSetups:
+    builtins.foldl'
+      (config: extraSetup: extraSetup config)
+      baseHomeConfig
+      extraSetups;
+
+  emacsSetup = import ./emacs.nix pkgs;
+  nethack4Setup = import ./nethack4.nix pkgs;
+  fuzzyScriptsSetup = import ./fuzzy-scripts.nix pkgs;
 in
-
-{
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "luiz";
-  home.homeDirectory = "/home/luiz";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "22.05";
-
-  # Packages (or custom derivations) that should be installed to the user profile
-  home.packages = [
-    pkgs.fira-code # the font I use in emacs
-    pkgs.google-chrome
-    pkgs.maestral # dropbox client
-    pkgs.megasync
-    pkgs.rnix-lsp # language server for nix language
-    pkgs.unzip
-    pkgs.zathura
-    pkgs.libreoffice
-    pkgs.leiningen # clojure project management
-    pkgs.clojure-lsp
-    pkgs.docker-compose
-    pkgs.gcc
-    pkgs.clang-tools
-    pkgs.python3
-    pkgs.python-language-server
-    pkgs.dbeaver
-    pkgs.ripgrep
-    nethack4
-    fuzzyScripts.hist
-    fuzzyScripts.jump
-  ];
-
-  # environment variables
-  home.sessionVariables = {
-    NIX_PATH = "/home/luiz/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
-    XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/luiz/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
-  };
-
-  home.file = {
-    ".emacs.d" = {
-      source = pkgs.fetchFromGitHub {
-        owner = "luizalbertocviana";
-        repo = "emacs.d";
-        rev = "804e80d6f5b880a8e487292bd268a8211c19b66c";
-        sha256 = "f+fowoVRg6tXPsXQ5tznmeamciOKmoY8KqoJujs2/Wg=";
-      };
-      recursive = true;
-    };
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # emacs
-  programs.emacs.enable = true;
-
-  # git
-  programs.git = {
-    enable = true;
-    userName = "Luiz Alberto do Carmo Viana";
-    userEmail = "luizalbertocviana@gmail.com";
-    extraConfig = {
-      credential.helper = "store";
-    };
-  };
-
-  # let home manager manage bash
-  programs.bash = {
-    enable = true;
-    bashrcExtra = ''
-      . $HOME/.profile
-      . jump
-    '';
-  };
-}
+  applyExtraSetups [
+    emacsSetup
+    nethack4Setup
+    fuzzyScriptsSetup
+  ]
