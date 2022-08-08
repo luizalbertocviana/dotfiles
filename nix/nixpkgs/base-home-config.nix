@@ -20,7 +20,7 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  # Packages (or custom derivations) that should be installed to the user profile
+  # Packages that should be installed to the user profile
   home.packages = [
     pkgs.google-chrome
     pkgs.maestral # dropbox client
@@ -29,13 +29,7 @@
     pkgs.unzip
     pkgs.zathura
     pkgs.libreoffice
-    pkgs.leiningen # clojure project management
-    pkgs.clojure-lsp
     pkgs.docker-compose
-    pkgs.gcc
-    pkgs.clang-tools
-    pkgs.python3
-    pkgs.python-language-server
     pkgs.dbeaver
   ];
 

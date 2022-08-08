@@ -16,9 +16,15 @@ let
   emacsSetup = import ./emacs.nix pkgs;
   nethack4Setup = import ./nethack4.nix pkgs;
   fuzzyScriptsSetup = import ./fuzzy-scripts.nix pkgs;
+  clojureSetup = import ./clojure.nix pkgs;
+  cppSetup = import ./cpp.nix pkgs;
+  pythonSetup = import ./python.nix pkgs;
 in
   applyExtraSetups [
     emacsSetup
     nethack4Setup
     fuzzyScriptsSetup
+    clojureSetup
+    cppSetup
+    pythonSetup
   ]
