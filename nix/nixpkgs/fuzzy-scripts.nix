@@ -5,8 +5,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "luizalbertocviana";
       repo = "fuzzy-scripts";
-      rev = "2b2357340102688f70c87362c43b9139f76e32d8";
-      sha256 = "OgeiJypD6AMaZK7ISwc1HiS5kKQFKawGna6AmySxBts=";
+      rev = "496c8c6d311ccef349ce8022bcf9dc588f9e7f59";
+      sha256 = "JIzNOFBVW094UitmWL9JVrCYuOp+qVeK+XiuSR/6kRs=";
     })
   ) {};
 in
@@ -15,6 +15,7 @@ in
       packages = homeConfig.home.packages ++ [
         fuzzyScripts.hist
         fuzzyScripts.jump
+        fuzzyScripts.murder
       ];
     };
 
