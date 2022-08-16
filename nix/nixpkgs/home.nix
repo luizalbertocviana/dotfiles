@@ -19,6 +19,7 @@ let
   clojureSetup = import ./clojure.nix pkgs;
   cppSetup = import ./cpp.nix pkgs;
   pythonSetup = import ./python.nix pkgs;
+  direnvSetup = import ./direnv.nix pkgs;
 in
   applyExtraSetups [
     emacsSetup
@@ -27,4 +28,5 @@ in
     clojureSetup
     cppSetup
     pythonSetup
+    direnvSetup
   ]
