@@ -31,6 +31,7 @@
     pkgs.libreoffice
     pkgs.docker-compose
     pkgs.dbeaver
+    pkgs.ripgrep
   ];
 
   # environment variables
