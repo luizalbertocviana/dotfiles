@@ -11,8 +11,8 @@ homeConfig // {
         source = pkgs.fetchFromGitHub {
           owner = "luizalbertocviana";
           repo = "emacs.d";
-          rev = "0420385b3d915e100d67dcabc0a28460fb42cfee";
-          sha256 = "5lUEC92i1vd+pWRmAZcLPdtKaFtgw0+abQHqyjO2UYk=";
+          rev = "36436618a4a86daf23ee6b6c11ae81785ca750a9";
+          sha256 = "NrpuipvOPXiDqP7ZKE7XyaZl7ADim0WH/NvL2CPLLRA=";
         };
         recursive = true;
       };
