@@ -20,6 +20,7 @@ let
   cppSetup = import ./cpp.nix pkgs;
   pythonSetup = import ./python.nix pkgs;
   direnvSetup = import ./direnv.nix pkgs;
+  tmuxSetup = import ./tmux.nix pkgs;
 in
   applyExtraSetups [
     emacsSetup
@@ -29,4 +30,5 @@ in
     cppSetup
     pythonSetup
     direnvSetup
+    tmuxSetup
   ]
