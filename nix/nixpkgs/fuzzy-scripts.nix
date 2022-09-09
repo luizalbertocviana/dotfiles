@@ -5,8 +5,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "luizalbertocviana";
       repo = "fuzzy-scripts";
-      rev = "496c8c6d311ccef349ce8022bcf9dc588f9e7f59";
-      sha256 = "JIzNOFBVW094UitmWL9JVrCYuOp+qVeK+XiuSR/6kRs=";
+      rev = "8ff8847f666e2526b1431d57cda837789a8b9f0b";
+      sha256 = "vRdja3qTR8VL4ClzsB4rLfch4gLxHYQ0xD/QMeo5z5Y=";
     })
   ) {};
 in
