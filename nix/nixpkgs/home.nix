@@ -17,6 +17,7 @@ let
   nethack4Setup = import ./nethack4.nix pkgs;
   fuzzyScriptsSetup = import ./fuzzy-scripts.nix pkgs;
   clojureSetup = import ./clojure.nix pkgs;
+  scalaSetup = import ./scala.nix pkgs;
   cppSetup = import ./cpp.nix pkgs;
   pythonSetup = import ./python.nix pkgs;
   direnvSetup = import ./direnv.nix pkgs;
@@ -27,6 +28,7 @@ in
     nethack4Setup
     fuzzyScriptsSetup
     clojureSetup
+    scalaSetup
     cppSetup
     pythonSetup
     direnvSetup
