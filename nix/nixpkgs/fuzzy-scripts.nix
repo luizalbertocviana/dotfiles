@@ -21,7 +21,6 @@ in
 
     programs = homeConfig.programs // {
       bash = homeConfig.programs.bash // {
-        enable = true;
         bashrcExtra = homeConfig.programs.bash.bashrcExtra + ''
           . jump
         '';
