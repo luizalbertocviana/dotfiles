@@ -16,6 +16,7 @@ let
   emacsSetup = import ./emacs.nix pkgs;
   nethack4Setup = import ./nethack4.nix pkgs;
   fuzzyScriptsSetup = import ./fuzzy-scripts.nix pkgs;
+  enhancedCommandsSetup = import ./enhanced-commands.nix pkgs;
   clojureSetup = import ./clojure.nix pkgs;
   scalaSetup = import ./scala.nix pkgs;
   cppSetup = import ./cpp.nix pkgs;
@@ -27,6 +28,7 @@ in
     emacsSetup
     nethack4Setup
     fuzzyScriptsSetup
+    enhancedCommandsSetup
     clojureSetup
     scalaSetup
     cppSetup
