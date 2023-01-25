@@ -19,6 +19,7 @@ let
   enhancedCommandsSetup = import ./enhanced-commands.nix pkgs;
   clojureSetup = import ./clojure.nix pkgs;
   scalaSetup = import ./scala.nix pkgs;
+  javaSetup = import ./java.nix pkgs;
   cppSetup = import ./cpp.nix pkgs;
   pythonSetup = import ./python.nix pkgs;
   direnvSetup = import ./direnv.nix pkgs;
@@ -31,6 +32,7 @@ in
     enhancedCommandsSetup
     clojureSetup
     scalaSetup
+    javaSetup
     cppSetup
     pythonSetup
     direnvSetup
