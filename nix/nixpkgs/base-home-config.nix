@@ -32,6 +32,7 @@
     pkgs.docker-compose
     pkgs.dbeaver
     pkgs.ripgrep
+    pkgs.postgresql
   ];
 
   # environment variables
