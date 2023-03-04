@@ -5,6 +5,7 @@ homeConfig // {
     packages = homeConfig.home.packages ++ [
       pkgs.python3
       pkgs.python-language-server
+      pkgs.poetry
     ];
   };
 }
