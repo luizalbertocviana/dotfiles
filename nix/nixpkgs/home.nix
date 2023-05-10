@@ -24,6 +24,7 @@ let
   pythonSetup = import ./python.nix pkgs;
   direnvSetup = import ./direnv.nix pkgs;
   tmuxSetup = import ./tmux.nix pkgs;
+  rustSetup = import ./rust.nix pkgs;
 in
   applyExtraSetups [
     emacsSetup
@@ -37,4 +38,5 @@ in
     pythonSetup
     direnvSetup
     tmuxSetup
+    rustSetup
   ]
