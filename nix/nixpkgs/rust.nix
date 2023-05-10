@@ -5,6 +5,7 @@ homeConfig // {
     packages = homeConfig.home.packages ++ [
       pkgs.cargo
       pkgs.rust-analyzer
+      pkgs.rustc
     ];
   };
 }
