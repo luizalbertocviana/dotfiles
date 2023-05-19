@@ -6,6 +6,7 @@ homeConfig // {
       pkgs.cargo
       pkgs.rust-analyzer
       pkgs.rustc
+      pkgs.rustfmt
     ];
   };
 }
