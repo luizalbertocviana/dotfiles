@@ -33,6 +33,7 @@
     pkgs.dbeaver
     pkgs.ripgrep
     pkgs.postgresql
+    pkgs.quickemu
   ];
 
   # environment variables
