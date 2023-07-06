@@ -34,6 +34,7 @@
     pkgs.ripgrep
     pkgs.postgresql
     pkgs.quickemu
+    pkgs.steam-run
   ];
 
   # environment variables
