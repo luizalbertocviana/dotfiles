@@ -4,7 +4,7 @@ homeConfig // {
   home = homeConfig.home // {
     packages = homeConfig.home.packages ++ [
       pkgs.bat
-      pkgs.exa
+      pkgs.eza
     ];
   };
 
@@ -13,7 +13,7 @@ homeConfig // {
       bashrcExtra = homeConfig.programs.bash.bashrcExtra + ''
           export MANPAGER="sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
           alias cat=${pkgs.bat}/bin/bat
-          alias ls=${pkgs.exa}/bin/exa
+          alias ls=${pkgs.eza}/bin/eza
         '';
     };
   };
