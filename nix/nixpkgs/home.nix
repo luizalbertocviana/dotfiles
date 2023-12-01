@@ -25,6 +25,7 @@ let
   direnvSetup = import ./direnv.nix pkgs;
   tmuxSetup = import ./tmux.nix pkgs;
   rustSetup = import ./rust.nix pkgs;
+  lispSetup = import ./lisp.nix pkgs;
 in
   applyExtraSetups [
     emacsSetup
@@ -39,4 +40,5 @@ in
     direnvSetup
     tmuxSetup
     rustSetup
+    lispSetup
   ]
