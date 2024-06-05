@@ -25,7 +25,8 @@
     pkgs.google-chrome
     pkgs.maestral # dropbox client
     pkgs.megasync
-    pkgs.rnix-lsp # language server for nix language
+    pkgs.nil # nix language server
+    pkgs.nixpkgs-fmt
     pkgs.unzip
     pkgs.zathura
     pkgs.libreoffice
