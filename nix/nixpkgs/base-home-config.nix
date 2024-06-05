@@ -30,7 +30,7 @@
     pkgs.zathura
     pkgs.libreoffice
     pkgs.docker-compose
-    pkgs.dbeaver
+    pkgs.dbeaver-bin
     pkgs.ripgrep
     pkgs.postgresql
     pkgs.quickemu
