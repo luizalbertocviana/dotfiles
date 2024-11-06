@@ -20,6 +20,9 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
+  # Enables fontconfig configuration
+  fonts.fontconfig.enable = true;
+
   # Packages that should be installed to the user profile
   home.packages = [
     pkgs.google-chrome
