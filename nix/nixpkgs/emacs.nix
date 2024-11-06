@@ -3,7 +3,7 @@ pkgs: homeConfig:
 homeConfig // {
   home = homeConfig.home // {
     packages = homeConfig.home.packages ++ [
-      pkgs.fira-code # the font I use in emacs
+      (pkgs.nerdfonts.override { fonts =  [ "FiraCode" ];}) # the font I use in emacs
     ];
 
     file = (homeConfig.home.file or {}) // {
