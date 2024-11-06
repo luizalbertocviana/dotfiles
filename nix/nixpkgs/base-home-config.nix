@@ -67,4 +67,12 @@
       . $HOME/.profile
     '';
   };
+
+  # starship prompt
+  programs.starship = {
+    enable = true;
+    settings = {
+      time.disabled = false;
+    };
+  };
 }
