@@ -27,7 +27,6 @@
   home.packages = [
     pkgs.google-chrome
     pkgs.maestral # dropbox client
-    pkgs.megasync
     pkgs.nil # nix language server
     pkgs.nixpkgs-fmt
     pkgs.unzip
