@@ -35,6 +35,7 @@
     pkgs.docker-compose
     pkgs.dbeaver-bin
     pkgs.ripgrep
+    pkgs.fd
     pkgs.postgresql
     pkgs.quickemu
     pkgs.steam-run
