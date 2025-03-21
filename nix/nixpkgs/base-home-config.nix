@@ -36,9 +36,12 @@
     pkgs.dbeaver-bin
     pkgs.ripgrep
     pkgs.fd
+    pkgs.shellcheck
     pkgs.postgresql
     pkgs.quickemu
     pkgs.steam-run
+    pkgs.nodejs_23
+    pkgs.nixfmt-tree
   ];
 
   # environment variables
