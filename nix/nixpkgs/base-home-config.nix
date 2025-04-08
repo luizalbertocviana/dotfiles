@@ -27,7 +27,7 @@
   home.packages = [
     pkgs.google-chrome
     pkgs.maestral # dropbox client
-    pkgs.nil # nix language server
+    pkgs.nixd # nix language server
     pkgs.nixpkgs-fmt
     pkgs.unzip
     pkgs.zathura
