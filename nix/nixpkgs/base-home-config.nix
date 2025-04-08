@@ -43,6 +43,8 @@
     pkgs.nodejs_23
     pkgs.nixfmt-tree
     pkgs.emacs
+    pkgs.texlab
+    pkgs.texlive.combined.scheme-full
   ];
 
   # environment variables
