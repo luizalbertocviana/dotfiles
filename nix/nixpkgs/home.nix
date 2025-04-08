@@ -28,7 +28,7 @@ let
   lispSetup = import ./lisp.nix pkgs;
 in
   applyExtraSetups [
-    emacsSetup
+    # emacsSetup
     nethack4Setup
     fuzzyScriptsSetup
     enhancedCommandsSetup

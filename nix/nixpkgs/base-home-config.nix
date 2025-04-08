@@ -42,6 +42,7 @@
     pkgs.steam-run
     pkgs.nodejs_23
     pkgs.nixfmt-tree
+    pkgs.emacs
   ];
 
   # environment variables
