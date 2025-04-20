@@ -26,6 +26,7 @@ let
   tmuxSetup = import ./tmux.nix pkgs;
   rustSetup = import ./rust.nix pkgs;
   lispSetup = import ./lisp.nix pkgs;
+  webdevSetup = import ./webdev.nix pkgs;
 in
   applyExtraSetups [
     # emacsSetup
@@ -41,4 +42,5 @@ in
     tmuxSetup
     rustSetup
     lispSetup
+    webdevSetup
   ]
