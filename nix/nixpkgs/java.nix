@@ -5,6 +5,7 @@ homeConfig // {
     packages = homeConfig.home.packages ++ [
       pkgs.jdk
       pkgs.maven
+      pkgs.jetbrains.idea-community
     ];
   };
   programs = homeConfig.programs // {
