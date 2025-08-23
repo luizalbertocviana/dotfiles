@@ -40,7 +40,7 @@
     pkgs.postgresql
     pkgs.quickemu
     pkgs.steam-run
-    pkgs.nodejs_23
+    pkgs.nodejs
     pkgs.nixfmt-tree
     pkgs.emacs
     pkgs.texlab
