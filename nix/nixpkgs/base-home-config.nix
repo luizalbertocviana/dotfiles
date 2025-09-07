@@ -25,26 +25,27 @@
 
   # Packages that should be installed to the user profile
   home.packages = [
-    pkgs.google-chrome
+    # pkgs.google-chrome
     pkgs.maestral # dropbox client
     pkgs.nixd # nix language server
     pkgs.nixpkgs-fmt
     pkgs.unzip
     pkgs.zathura
-    pkgs.libreoffice
-    pkgs.docker-compose
-    pkgs.dbeaver-bin
+    # pkgs.libreoffice
+    # pkgs.docker-compose
+    # pkgs.dbeaver-bin
     pkgs.ripgrep
     pkgs.fd
     pkgs.shellcheck
-    pkgs.postgresql
-    pkgs.quickemu
-    pkgs.steam-run
+    # pkgs.postgresql
+    # pkgs.quickemu
+    # pkgs.steam-run
     pkgs.nodejs
-    pkgs.nixfmt-tree
+    pkgs.nixfmt
     pkgs.emacs
-    pkgs.texlab
-    pkgs.texlive.combined.scheme-full
+    pkgs.fontconfig
+    # pkgs.texlab
+    # pkgs.texlive.combined.scheme-full
   ];
 
   # environment variables
