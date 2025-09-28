@@ -46,6 +46,9 @@
     pkgs.fontconfig
     # pkgs.texlab
     # pkgs.texlive.combined.scheme-full
+    pkgs.gettext
+    pkgs.jq
+    pkgs.qwen-code
   ];
 
   # environment variables
