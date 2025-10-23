@@ -49,6 +49,7 @@
     pkgs.gettext
     pkgs.jq
     pkgs.qwen-code
+    pkgs.gcc
   ];
 
   # environment variables
