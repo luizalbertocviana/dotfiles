@@ -34,13 +34,13 @@ in
     fuzzyScriptsSetup
     enhancedCommandsSetup
     clojureSetup
-    scalaSetup
-    javaSetup
-    cppSetup
-    pythonSetup
+    # scalaSetup
+    # javaSetup
+    # cppSetup
+    # pythonSetup
     direnvSetup
-    tmuxSetup
+    # tmuxSetup
     rustSetup
-    lispSetup
-    webdevSetup
+    # lispSetup
+    # webdevSetup
   ]

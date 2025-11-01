@@ -8,7 +8,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "luiz";
-  home.homeDirectory = "/home/luiz";
+  home.homeDirectory = "/Users/luiz";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -25,26 +25,26 @@
 
   # Packages that should be installed to the user profile
   home.packages = [
-    pkgs.google-chrome
+    # pkgs.google-chrome
     pkgs.maestral # dropbox client
     pkgs.nixd # nix language server
     pkgs.nixpkgs-fmt
     pkgs.unzip
     pkgs.zathura
-    pkgs.libreoffice
-    pkgs.docker-compose
+    # pkgs.libreoffice
+    # pkgs.docker-compose
     pkgs.dbeaver-bin
     pkgs.ripgrep
     pkgs.fd
     pkgs.shellcheck
     pkgs.postgresql
     pkgs.quickemu
-    pkgs.steam-run
+    # pkgs.steam-run
     pkgs.nodejs
     pkgs.nixfmt-tree
     pkgs.emacs
-    pkgs.texlab
-    pkgs.texlive.combined.scheme-full
+    # pkgs.texlab
+    # pkgs.texlive.combined.scheme-full
   ];
 
   # environment variables
@@ -59,9 +59,11 @@
   # git
   programs.git = {
     enable = true;
-    userName = "Luiz Alberto do Carmo Viana";
-    userEmail = "luizalbertocviana@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Luiz Alberto do Carmo Viana";
+        email = "luizalbertocviana@gmail.com";
+      };
       credential.helper = "store";
     };
   };
