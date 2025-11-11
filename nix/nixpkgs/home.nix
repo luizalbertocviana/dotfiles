@@ -27,6 +27,7 @@ let
   rustSetup = import ./rust.nix pkgs;
   lispSetup = import ./lisp.nix pkgs;
   webdevSetup = import ./webdev.nix pkgs;
+  denoSetup = import ./deno.nix pkgs;
 in
   applyExtraSetups [
     # emacsSetup
@@ -43,4 +44,5 @@ in
     rustSetup
     # lispSetup
     # webdevSetup
+    denoSetup
   ]
