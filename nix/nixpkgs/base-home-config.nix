@@ -31,7 +31,7 @@
     pkgs.nixpkgs-fmt
     pkgs.unzip
     pkgs.zathura
-    pkgs.libreoffice
+    # pkgs.libreoffice
     pkgs.docker-compose
     pkgs.dbeaver-bin
     pkgs.ripgrep
