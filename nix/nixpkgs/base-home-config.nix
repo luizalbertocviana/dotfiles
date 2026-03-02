@@ -45,6 +45,10 @@
     pkgs.emacs
     pkgs.texlab
     pkgs.texlive.combined.scheme-full
+    pkgs.httpie
+    pkgs.jq
+    pkgs.deno
+    pkgs.qwen-code
   ];
 
   # environment variables
