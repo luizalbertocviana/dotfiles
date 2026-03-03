@@ -5,7 +5,7 @@ homeConfig // {
     packages = homeConfig.home.packages ++ [
       pkgs.python3
       pkgs.pyright
-      pkgs.poetry
+      pkgs.uv
     ];
   };
 }
