@@ -15,6 +15,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # NTFS support
+  boot.supportedFilesystems = [ "ntfs" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -29,7 +32,7 @@
   time.timeZone = "America/Fortaleza";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.utf8";
@@ -69,8 +72,9 @@
   # flatpak
   services.flatpak.enable = true;
 
+  programs.nix-ld.enable = true;
+
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
